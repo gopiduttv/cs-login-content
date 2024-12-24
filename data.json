@@ -1,0 +1,44 @@
+{
+    "osd": [
+        {
+            "name": "carestack",
+            "subbed": true
+        },
+        {
+            "name": "cs-conversations",
+            "subbed": false
+        },
+        {
+            "name": "cs-pay",
+            "subbed": false
+        }
+    ],
+    "rzq": [
+        {
+            "name": "carestack",
+            "subbed": true
+        },
+        {
+            "name": "cs-conversations",
+            "subbed": true
+        },
+        {
+            "name": "cs-pay",
+            "subbed": false
+        }
+    ],
+    "tso": [
+        {
+            "name": "carestack",
+            "subbed": false
+        },
+        {
+            "name": "cs-conversations",
+            "subbed": false
+        },
+        {
+            "name": "cs-pay",
+            "subbed": false
+        }
+    ]
+}

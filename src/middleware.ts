@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
+import data from "../data.json"
 
 export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
@@ -8,58 +9,21 @@ export function middleware(request: NextRequest) {
 
   const domain = searchParams.get("domain");
   if (!domain) return;
-
-  const domainSubs = {
-    osd: [
-      {
-        name: "carestack",
-        subbed: true,
-      },
-      {
-        name: "cs-conversations",
-        subbed: false,
-      },
-      {
-        name: "cs-pay",
-        subbed: false,
-      },
-    ],
-    rzq: [
-      {
-        name: "carestack",
-        subbed: true,
-      },
-      {
-        name: "cs-conversations",
-        subbed: true,
-      },
-      {
-        name: "cs-pay",
-        subbed: false,
-      },
-    ],
-    tso: [
-      {
-        name: "carestack",
-        subbed: false,
-      },
-      {
-        name: "cs-conversations",
-        subbed: false,
-      },
-      {
-        name: "cs-pay",
-        subbed: false,
-      },
-    ],
-  } as any;
   
-  const campaignsForDomain = domainSubs[domain]
+  const cusData: any = data 
+  
+  const campaignsForDomain = cusData[domain]
     .filter((adj: any) => adj.subbed == false)
     .map((adj: any) => adj.name);
 
-  const domainLocale = "en";
+  const domainLocale = "en-GB";
   url.pathname = `/campaigns/${campaignsForDomain[Math.floor(Math.random() * campaignsForDomain.length)]}/${domainLocale}`;
+  
 
+  const eventFlag = false 
+  const eventName = "inner-circle"
+  if (eventFlag)
+    url.pathname = `/events/${eventName}/${domainLocale}`;
+    
   return NextResponse.rewrite(url);
 }
