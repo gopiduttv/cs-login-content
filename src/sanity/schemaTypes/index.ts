@@ -1,8 +1,8 @@
-import { type SchemaTypeDefinition } from 'sanity'
+import { type SchemaTypeDefinition } from "sanity";
 
-
-import {campaign} from './campaign'
+import { campaign } from "./campaign";
+import { viewport } from "./viewport";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [campaign],
-}
+  types: [campaign, viewport],
+};

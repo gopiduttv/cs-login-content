@@ -7,5 +7,8 @@ export const structure: StructureResolver = (S) =>
     .items([
       S.documentTypeListItem('campaign').title(
         'Campaign',
+      ),
+      S.documentTypeListItem('viewport').title(
+        'View Port',
       )
     ])

@@ -1,35 +1,50 @@
-import {UserIcon} from '@sanity/icons'
-import {defineArrayMember, defineField, defineType} from 'sanity'
+import { UserIcon } from "@sanity/icons";
+import { defineField, defineType } from "sanity";
 
 export const campaign = defineType({
-  name: 'campaign',
-  title: 'Campaign',
-  type: 'document',
+  name: "campaign",
+  title: "Campaign",
+  type: "document",
   icon: UserIcon,
   fields: [
     defineField({
-      name: 'name',
-      type: 'string',
+      name: "name",
+      type: "string",
     }),
     defineField({
-      name: 'slug',
-      type: 'slug',
+      title: "Campagin Slug",
+      name: "slug",
+      type: "slug",
       options: {
-        source: 'name',
+        source: "name",
       },
     }),
     defineField({
-      name: 'type',
-      type: 'string',
+      title: "Campaign Type",
+      name: "campaignType",
+      type: "string",
+      options: {
+        list: [
+          {
+            title: "Normal",
+            value: "normal"
+          },
+          {
+            title: "Adjacency Oriented",
+            value: "adjacencyOriented"
+          }
+        ]
+      }
     }),
     defineField({
-      name: 'region',
-      type: 'string'
+      title: "Adjacency Name",
+      name: "adjacencyName",
+      type: "string",
     }),
   ],
   preview: {
     select: {
-      title: 'name',
+      title: "name",
     },
   },
-})
+});

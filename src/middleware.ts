@@ -1,11 +1,30 @@
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 import data from "../data.json";
-import { client } from "./sanity/lib/client";
-import { groq } from "next-sanity";
+import { runQuery } from "./sanity/lib/client";
+import {
+  getViewPortByRegion,
+  getCampaignByAdjacency,
+} from "./sanity/lib/queries";
+
+/*
+  TODO
+  From customer data get eligible campaign based on adjacencies the customer is subscribed to.
+*/
+async function getEligibleCampaignsIds(customerMetaData: any) {
+  
+  console.log(await runQuery(getViewPortByRegion(), { region: "us" }));
+  console.log({
+    adjCamp: await runQuery(getCampaignByAdjacency(), {
+      adjacency: "cs-conversation",
+    }),
+  });
+  return ["cs-conversation", "cs-pay"]
+}
 
 export async function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
+
 
   const { searchParams } = request.nextUrl;
 
@@ -15,15 +34,11 @@ export async function middleware(request: NextRequest) {
   const defaultCampaign = "carestack";
 
   if (!domain) {
-    url.pathname = `/campaigns/${defaultCampaign}/${country}`;
-    return NextResponse.rewrite(url);
+    return NextResponse.error()
   }
 
   const region = "US";
-  const campaigns = await client.fetch(
-    groq`*[_type == "campaign" && region == $region]{_id}`,
-    { region }
-  );
+  const campaigns = await 
   console.log({ campaigns });
 
   const cusData: any = data;
