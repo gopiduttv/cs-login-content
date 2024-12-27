@@ -5,11 +5,20 @@ const getViewPorts = () => {
 };
 
 const getViewPortByRegion = () => {
-  return groq`*[_type == "viewport" && dimensionValue.current == $region]`;
+  return groq`*[_type == "viewport" && dimensionValue.current == $region] | order(_createdAt desc)[0]`;
 };
 
-const getCampaignByAdjacency = () => {
-  return groq`*[_type == "campaign" && campaignType == "adjacencyOriented" && adjacencyName == $adjacency]`;
+const getCampaignIdsByAdjacency = () => {
+  return groq`*[_type == "campaign" && campaignType == "adjacencyOriented" && adjacencyName == $adjacency]{_id}`;
 };
 
-export { getViewPorts, getViewPortByRegion, getCampaignByAdjacency };
+const getCampaignByID = () => {
+  return groq`*[_type == "campaign" && _id == $campaignID] | order(_createdAt desc)[0]`;
+};
+
+export {
+  getViewPorts,
+  getViewPortByRegion,
+  getCampaignIdsByAdjacency,
+  getCampaignByID,
+};
