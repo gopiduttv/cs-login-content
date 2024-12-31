@@ -12,20 +12,26 @@ import {
 */
 async function getEligibleAdjacencyCampaignsIds(customer: any) {
   const DB: any = customerDB;
-  const unsubscribedAdjacency = DB[customer]
-    .filter((adjacency: any) => adjacency.subbed == false)
-    .map((adjacency: any) => adjacency.name);
+  const adjacencies = DB[customer];
 
-  const eligibleCampaigns = await Promise.all(
-    unsubscribedAdjacency.map(
-      async (adjacency: any) =>
-        await runQuery(getCampaignIdsByAdjacency(), {
-          adjacency,
-        })
+  const eligibleCampaigns = (
+    await Promise.all(
+      adjacencies.map(async (adjacency: any) => {
+        const campaign = await runQuery(getCampaignIdsByAdjacency(), {
+          adjacency: adjacency.name,
+        });
+
+        return campaign.filter(
+          (campaign: any) =>
+            (adjacency.subbed == false && campaign.audience == "exclude") ||
+            (adjacency.subbed == true && campaign.audience == "include")
+        );
+      })
     )
-  );
+  ).reduce((a, b) => a.concat(b));
 
-  return eligibleCampaigns.reduce((a, b) => a.concat(b));
+  console.log(eligibleCampaigns.map((campaign: any) => campaign.name) )
+  return eligibleCampaigns;
 }
 
 const getCampaignFromPool = (campaigns: any[], selectMode: any = null) => {

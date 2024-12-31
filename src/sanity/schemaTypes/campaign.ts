@@ -41,6 +41,23 @@ export const campaign = defineType({
       name: "adjacencyName",
       type: "string",
     }),
+    defineField({
+      title: "Campaign Audience",
+      name: "audience",
+      type: "string",
+      options: {
+        list: [
+          {
+            title: "Customer subscribed to this adjacency",
+            value: "include"
+          },
+          {
+            title: "Customer not subscribed to this adjacency",
+            value: "exclude"
+          }
+        ]
+      }
+    }),
   ],
   preview: {
     select: {

@@ -2,11 +2,11 @@
     "osd": [
         {
             "name": "cs-membership",
-            "subbed": true
+            "subbed": false
         },
         {
             "name": "cs-conversation",
-            "subbed": false
+            "subbed": true
         },
         {
             "name": "cs-pay",
@@ -24,7 +24,7 @@
         },
         {
             "name": "cs-pay",
-            "subbed": false
+            "subbed": true
         }
     ],
     "tso": [
