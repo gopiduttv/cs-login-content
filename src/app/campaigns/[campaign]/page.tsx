@@ -1,6 +1,6 @@
 import { H2 } from "@/components/common/HeadingTag";
 import CenterText from "@/components/templates/Layouts/CenterText";
-import Banner from "@/components/common/Banners/Banner";
+import Banner from "@/components/common/BannerFooter/Banner";
 import { runQuery } from "@/sanity/lib/client";
 import { getCampaignByID } from "@/sanity/lib/queries";
 import React from "react";

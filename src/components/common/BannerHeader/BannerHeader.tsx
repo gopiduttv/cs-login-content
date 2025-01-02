@@ -1,0 +1,36 @@
+import React from "react";
+import Section from "../structure/Section";
+import Container from "../structure/Container";
+import CtaButton from "../CTAButton";
+
+export interface IBannerInterface {
+    mainTitle?: string;
+    subTitle?: string;
+    ctaText: string;
+    subText?:string;
+}
+
+export default function BannerHeader({
+    mainTitle,
+    subTitle,
+    ctaText,
+    subText
+}: IBannerInterface) {
+    return (
+        <div className="max-w-3xl text-center py-20">
+            <h1
+                className={
+                    "text-white text-5xl  font-semibold pb-4"
+                }
+            >
+                {mainTitle}
+            </h1>
+            <h3 className="text-3xl text-yellow-600">
+                {subTitle}
+            </h3>
+            <p className="text-white text-2xl py-4">{subText}</p>
+            <CtaButton className={'text-white font-medium text-center bg-[#2D353E]'} ctaText={ctaText} />
+        </div>
+
+    )
+}
