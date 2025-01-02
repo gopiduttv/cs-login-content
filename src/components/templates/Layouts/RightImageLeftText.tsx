@@ -1,6 +1,7 @@
 import Banner from "@/components/common/BannerFooter/Banner";
 import BannerHeader from "@/components/common/BannerHeader/BannerHeader";
 import CTAbutton from "@/components/common/CTAButton";
+import Container from "@/components/common/structure/Container";
 import Section from "@/components/common/structure/Section";
 import Image from "next/image";
 import React from "react";
@@ -13,16 +14,16 @@ export default function RightImageLeftText(props: any) {
         <Section
             className={`${props.className} flex flex-col items-center pt-48 gap-3`}
         >
-            <div className="flex">
+            <Container>
                 <BannerHeader
                     mainTitle={mainTitle}
                     subTitle="That’s a 45.5% increase over the 2019 average of $30,876."
                     subText="CSPay offers the most streamlined card payments experience for dental offices. With card-on-file, auto-debit and text-to-pay capabilities, stay on step ahead of shifting patient behavior with CSPay"
                     ctaText="Book Free Demo" 
-                     className="max-w-3xl text-center py-20 w-2/4"
+                     className="text-center py-20 w-2/4"
                 />
-                <Image style={{width:"w-2/4"}} alt="" src="https://cdn.sanity.io/images/bgk0i4de/production/1eb80062b72e340456591ed3936705883b9cae52-1140x1144.png" width={200} height={200} />
-            </div>
+                <Image style={{width:"50%"}} alt="" src="https://cdn.sanity.io/images/bgk0i4de/production/1eb80062b72e340456591ed3936705883b9cae52-1140x1144.png" width={500} height={500} />
+            </Container>
             <Banner
                 className=""
                 bannerHeading="Inner Circle 2025 - Get Early Bird Tickets!"
