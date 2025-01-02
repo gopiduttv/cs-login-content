@@ -1,4 +1,4 @@
-import Banner from "@/components/common/Banners/Banner";
+import Banner from "@/components/common/BannerFooter/Banner";
 import React from "react";
 
 export default function LeftImageRightText(props:any) {
