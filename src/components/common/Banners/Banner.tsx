@@ -16,8 +16,8 @@ export default function Banner({
   registerBtnText
 }: IBannerInterface) {
   return(
-    <Section className={`${className} bg-blue-800`}>
-      <Container className="bg-gray-900 text-white py-4">
+    <>
+      <Container className="bg-gray-900 text-white p-10 rounded-lg">
           <div className="container mx-auto px-4">
             <div className="flex justify-between items-center">
               <div>
@@ -31,7 +31,7 @@ export default function Banner({
             <p className="pt-4">{bannerText}</p>
           </div>
       </Container>
-    </Section>
+    </>
 
   )
 }
