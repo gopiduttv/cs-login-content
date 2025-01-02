@@ -16,7 +16,9 @@ export default function CenterText(props: any) {
         mainTitle={mainTitle}
         subTitle="That’s a 45.5% increase over the 2019 average of $30,876."
         subText="CSPay offers the most streamlined card payments experience for dental offices. With card-on-file, auto-debit and text-to-pay capabilities, stay on step ahead of shifting patient behavior with CSPay"
-        ctaText="Book Free Demo" />
+        ctaText="Book Free Demo" 
+        className="max-w-3xl text-center py-20"
+      />
       <Banner
         className=""
         bannerHeading="Inner Circle 2025 - Get Early Bird Tickets!"
