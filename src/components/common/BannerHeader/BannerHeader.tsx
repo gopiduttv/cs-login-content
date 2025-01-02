@@ -6,6 +6,7 @@ export interface IBannerInterface {
   subTitle?: string;
   ctaText: string;
   subText?: string;
+  className?: string;
 }
 
 export default function BannerHeader({
@@ -13,9 +14,10 @@ export default function BannerHeader({
   subTitle,
   ctaText,
   subText,
+  className,
 }: IBannerInterface) {
   return (
-    <div className="max-w-3xl text-center py-20">
+    <div className={className}>
       <h1 className={"text-white text-5xl  font-semibold pb-4"}>{mainTitle}</h1>
       <h3 className="text-3xl text-yellow-600">{subTitle}</h3>
       <p className="text-white text-2xl py-4">{subText}</p>
