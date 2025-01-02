@@ -5,6 +5,7 @@ import { runQuery } from "@/sanity/lib/client";
 import { getCampaignByID } from "@/sanity/lib/queries";
 import React from "react";
 import LeftImageRightText from "@/components/templates/Layouts/LeftImageRightText";
+import BannerHeader from "@/components/common/BannerHeader/BannerHeader";
 
 export default async function Campaign({ params }: { params: any }) {
   const { campaign: campaignID } = await params;
