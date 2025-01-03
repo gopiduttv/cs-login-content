@@ -1,22 +1,20 @@
 import React from "react";
-import Section from "../structure/Section";
-import Container from "../structure/Container";
 import CtaButton from "../CTAButton";
 
 export interface IBannerInterface {
-    mainTitle?: string;
-    subTitle?: string;
-    ctaText: string;
-    subText?:string;
-    className?: string;
+  mainTitle?: string;
+  subTitle?: string;
+  ctaText: string;
+  subText?: string;
+  className?: string;
 }
 
 export default function BannerHeader({
-    mainTitle,
-    subTitle,
-    ctaText,
-    subText,
-    className
+  mainTitle,
+  subTitle,
+  ctaText,
+  subText,
+  className,
 }: IBannerInterface) {
     return (
         <div className={className}>
