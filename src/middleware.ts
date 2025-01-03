@@ -82,6 +82,10 @@ export async function middleware(request: NextRequest) {
     const campaign = getCampaignFromPool(totalCampaignPool, "random");
 
     url.pathname = `/campaigns/${campaign._id}`;
+
+    if (viewportData.showBanner) {
+      url.searchParams.set("banner", viewportData.selectedBanner[0]._ref)
+    } 
     console.log("[ Middleware " + url.pathname + " ]");
     return NextResponse.rewrite(url);
   } catch (error) {

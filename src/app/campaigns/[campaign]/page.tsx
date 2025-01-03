@@ -8,9 +8,11 @@ import LeftImageRightText from "@/components/templates/Layouts/LeftImageRightTex
 import RightImageLeftText from "@/components/templates/Layouts/RightImageLeftText";
 import BannerHeader from "@/components/common/BannerHeader/BannerHeader";
 
-export default async function Campaign({ params }: { params: any }) {
+export default async function Campaign({ params, searchParams }: { params: any, searchParams: any }) {
   const { campaign: campaignID } = await params;
+  const { banner: bannerID } = await searchParams
   const campaign = await runQuery(getCampaignByID(), { campaignID });
+
   const mainTitle =
     "In 2023, the average dental office ran $44,925 in credit card payments per month. ";
   return (
