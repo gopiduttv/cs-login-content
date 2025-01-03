@@ -11,19 +11,6 @@ export const campaignContent = defineType({
       type: "string",
     }),
     defineField({
-      name: "campaignLayout",
-      title: "Choose Campaign Layout",
-      type: "array",
-      validation: (Rule) => Rule.max(1),
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'campaignTemplate' }],
-        },
-      ],
-    }),
-
-    defineField({
       name: "title",
       title: "Title",
       type: "text",
