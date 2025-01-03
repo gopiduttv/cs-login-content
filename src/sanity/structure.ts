@@ -7,6 +7,6 @@ export const structure: StructureResolver = (S) =>
     .items([
       S.documentTypeListItem("campaign").title("Campaign"),
       S.documentTypeListItem("viewport").title("View Port"),
-      S.documentTypeListItem("campaignContent").title("Campaign Content"),
-      S.documentTypeListItem("campaignTemplate").title("Campaign Template")
+      // S.documentTypeListItem("campaignContent").title("Campaign Content"),
+      // S.documentTypeListItem("campaignTemplate").title("Campaign Template")
     ]);

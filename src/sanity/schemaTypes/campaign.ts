@@ -80,6 +80,33 @@ export const campaign = defineType({
         ]
       }
     }),
+
+    defineField({
+      name: "campaignLayoutData",
+      title: "Add Campaign Data",
+      type: "array",
+      validation: (Rule) => Rule.max(1),
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'campaignContent' }],
+        },
+      ],
+    }),
+
+    defineField({
+      name: "campaignLayoutTemplate",
+      title: "Add Campaign Template",
+      type: "array",
+      validation: (Rule) => Rule.max(1),
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'campaignTemplate' }],
+        },
+      ],
+    }),
+
   ],
   preview: {
     select: {
