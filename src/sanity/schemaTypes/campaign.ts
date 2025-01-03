@@ -37,6 +37,28 @@ export const campaign = defineType({
       }
     }),
     defineField({
+      title: "Targeted Region",
+      name: "region",
+      type: "string",
+    }),
+    defineField({
+      title: "Targeted Customer Type",
+      name: "customerType",
+      type: "string",
+      options: {
+        list: [
+          {
+            title: "Small Scale",
+            value: "smallScale"
+          },
+          {
+            title: "Large Scale",
+            value: "largeScale"
+          }
+        ]
+      }
+    }),
+    defineField({
       title: "Adjacency Name",
       name: "adjacencyName",
       type: "string",

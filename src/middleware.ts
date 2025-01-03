@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
-import customerDB from "../data.json";
+import customerDB from "../database.json";
 import { runQuery } from "./sanity/lib/client";
 import {
   getViewPortByRegion,
@@ -10,27 +10,34 @@ import {
 /*
   From customer metadata get eligible campaigns based on adjacencies the customer is subscribed to.
 */
-async function getEligibleAdjacencyCampaignsIds(customer: any) {
+async function getEligibleAdjacencyCampaignsIds(customer: any, campaigns: any) {
   const DB: any = customerDB;
-  const adjacencies = DB[customer];
+  if (!customer || !DB[customer]) return [];
+  const adjacencies = DB[customer].subscriptions;
+  const customerType =
+    DB[customer].locations >= 15 ? "largeScale" : "smallScale";
 
   const eligibleCampaigns = (
     await Promise.all(
       adjacencies.map(async (adjacency: any) => {
         const campaign = await runQuery(getCampaignIdsByAdjacency(), {
-          adjacency: adjacency.name,
+          adjacency: adjacency.adjacencyName,
+          campaignIds: campaigns.map((campaign: any) => campaign._ref),
+          customerType
         });
 
         return campaign.filter(
           (campaign: any) =>
-            (adjacency.subbed == false && campaign.audience == "exclude") ||
-            (adjacency.subbed == true && campaign.audience == "include")
+            (adjacency.subscriptionStatus == false &&
+              campaign.audience == "exclude") ||
+            (adjacency.subscriptionStatus == true &&
+              campaign.audience == "include")
         );
       })
     )
   ).reduce((a, b) => a.concat(b));
 
-  console.log(eligibleCampaigns.map((campaign: any) => campaign.name) )
+  console.log(eligibleCampaigns.map((campaign: any) => campaign.name));
   return eligibleCampaigns;
 }
 
@@ -54,14 +61,15 @@ export async function middleware(request: NextRequest) {
     const customer = searchParams.get("domain");
     const country = searchParams.get("country") ?? "us";
 
-    if (!customer) throw new Error("Invalid domain");
-
     const viewportData = await runQuery(getViewPortByRegion(), {
       region: country,
     });
 
     const adjacencyOrientedCampaigns: any =
-      await getEligibleAdjacencyCampaignsIds(customer);
+      await getEligibleAdjacencyCampaignsIds(
+        customer,
+        viewportData.selectedAdjacencyCampaigns
+      );
 
     const totalCampaignPool: any = getTotalCampaignPool(
       adjacencyOrientedCampaigns,
@@ -72,6 +80,7 @@ export async function middleware(request: NextRequest) {
     );
 
     const campaign = getCampaignFromPool(totalCampaignPool, "random");
+
     url.pathname = `/campaigns/${campaign._id}`;
     console.log("[ Middleware " + url.pathname + " ]");
     return NextResponse.rewrite(url);
