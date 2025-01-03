@@ -42,46 +42,5 @@ export const campaignContent = defineType({
       readOnly: true,
       hidden: true,
     }),
-
-    defineField({
-      name: "bannerDetails",
-      title: "Banner Details",
-      type: "object",
-      options: {
-        collapsible: true,
-        collapsed: true,
-      },
-      fields: [
-        defineField({
-          name: "bannerHeading",
-          title: "Banner Heading",
-          type: "text",
-        }),
-        defineField({
-          name: "showBanner",
-          type: "boolean",
-        }),
-        defineField({
-          name: "eventDate",
-          title: "Event Date",
-          type: "date",
-        }),
-        defineField({
-          name: "ctaBtnTextForEvent",
-          title: "CTA Button Text for Event",
-          type: "string",
-        }),
-        defineField({
-          name: "eventDescription",
-          title: "Event Description",
-          type: "text",
-        }),
-        defineField({
-          name: "eventLocation",
-          title: "Event Location",
-          type: "string",
-        }),
-      ],
-    }),
   ],
 });

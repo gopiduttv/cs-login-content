@@ -52,6 +52,20 @@ export const viewport = defineType({
       title: "Additional Campaigns",
       of: [{ type: "reference", to: [{ type: "campaign" }] }],
     }),
+
+    defineField({
+      name: "selectedBanner",
+      type: "array",
+      title: "Selected Banner",
+      validation: (Rule) => Rule.max(1),
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'banner' }],
+        },
+      ],
+    }),
+
   ],
   preview: {
     select: {
