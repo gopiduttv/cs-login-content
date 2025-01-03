@@ -13,24 +13,14 @@ export const campaignContent = defineType({
     defineField({
       name: "campaignLayout",
       title: "Choose Campaign Layout",
-      type: "string",
-      validation: (Rule) => Rule.required(),
-      options: {
-        list: [
-          {
-            title: "Center Aligned",
-            value: "centerAligned",
-          },
-          {
-            title: "Right Image Left Text",
-            value: "exclude",
-          },
-          {
-            title: "Right Image Left Text",
-            value: "exclude",
-          },
-        ],
-      },
+      type: "array",
+      validation: (Rule) => Rule.max(1),
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'campaignTemplate' }],
+        },
+      ],
     }),
 
     defineField({
