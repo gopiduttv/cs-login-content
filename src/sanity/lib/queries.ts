@@ -9,7 +9,7 @@ const getViewPortByRegion = () => {
 };
 
 const getCampaignIdsByAdjacency = () => {
-  return groq`*[_type == "campaign" && campaignType == "adjacencyOriented" && adjacencyName == $adjacency && _id in $campaignIds]`;
+  return groq`*[_type == "campaign" && campaignType == "adjacencyOriented" && adjacencyName == $adjacency && _id in $campaignIds && customerType == $customerType ]`;
 };
 
 const getCampaignByID = () => {
