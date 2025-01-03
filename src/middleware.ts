@@ -10,9 +10,9 @@ import {
 /*
   From customer metadata get eligible campaigns based on adjacencies the customer is subscribed to.
 */
-async function getEligibleAdjacencyCampaignsIds(customer: any) {
+async function getEligibleAdjacencyCampaignsIds(customer: any, campaigns: any) {
   const DB: any = customerDB;
-  if (!customer || !DB[customer]) return []
+  if (!customer || !DB[customer]) return [];
   const adjacencies = DB[customer].subscriptions;
 
   const eligibleCampaigns = (
@@ -20,18 +20,21 @@ async function getEligibleAdjacencyCampaignsIds(customer: any) {
       adjacencies.map(async (adjacency: any) => {
         const campaign = await runQuery(getCampaignIdsByAdjacency(), {
           adjacency: adjacency.adjacencyName,
+          campaignIds: campaigns.map((campaign: any) => campaign._ref),
         });
 
         return campaign.filter(
           (campaign: any) =>
-            (adjacency.subscriptionStatus == false && campaign.audience == "exclude") ||
-            (adjacency.subscriptionStatus == true && campaign.audience == "include")
+            (adjacency.subscriptionStatus == false &&
+              campaign.audience == "exclude") ||
+            (adjacency.subscriptionStatus == true &&
+              campaign.audience == "include")
         );
       })
     )
   ).reduce((a, b) => a.concat(b));
 
-  console.log(eligibleCampaigns.map((campaign: any) => campaign.name) )
+  console.log(eligibleCampaigns.map((campaign: any) => campaign.name));
   return eligibleCampaigns;
 }
 
@@ -60,7 +63,10 @@ export async function middleware(request: NextRequest) {
     });
 
     const adjacencyOrientedCampaigns: any =
-      await getEligibleAdjacencyCampaignsIds(customer);
+      await getEligibleAdjacencyCampaignsIds(
+        customer,
+        viewportData.selectedAdjacencyCampaigns
+      );
 
     const totalCampaignPool: any = getTotalCampaignPool(
       adjacencyOrientedCampaigns,
@@ -69,9 +75,9 @@ export async function middleware(request: NextRequest) {
       }),
       viewportData.combiningMode
     );
-    
+
     const campaign = getCampaignFromPool(totalCampaignPool, "random");
-    
+
     url.pathname = `/campaigns/${campaign._id}`;
     console.log("[ Middleware " + url.pathname + " ]");
     return NextResponse.rewrite(url);
