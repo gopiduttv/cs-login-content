@@ -11,10 +11,6 @@ export const Banner = defineType({
       type: "text",
     }),
     defineField({
-      name: "showBanner",
-      type: "boolean",
-    }),
-    defineField({
       name: "eventDate",
       title: "Event Date",
       type: "date",

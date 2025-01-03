@@ -54,6 +54,11 @@ export const viewport = defineType({
     }),
 
     defineField({
+      name:'showBanner',
+      title:"Toggle Banner",
+      type:"boolean"
+    }),
+    defineField({
       name: "selectedBanner",
       type: "array",
       title: "Selected Banner",
