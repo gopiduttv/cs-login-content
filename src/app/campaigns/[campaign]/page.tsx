@@ -14,23 +14,22 @@ export default async function Campaign({ params }: { params: any }) {
   const mainTitle =
     "In 2023, the average dental office ran $44,925 in credit card payments per month. ";
   return (
-    <div className="w-full h-[100vh] overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-500">
-      <RightImageLeftText>
-        {
-          <>
-            <H2
-              className={" text-yellow-500 text-3xl font-b"}
-              text={campaign.slug.current}
-            />
-            <BannerHeader
-              mainTitle={mainTitle}
-              subTitle="That’s a 45.5% increase over the 2019 average of $30,876."
-              subText="CSPay offers the most streamlined card payments experience for dental offices. With card-on-file, auto-debit and text-to-pay capabilities, stay on step ahead of shifting patient behavior with CSPay"
-              ctaText="Book Free Demo"
-            />
-          </>
-        }
-      </RightImageLeftText>
-    </div>
+    <>
+      {campaign.slug.current == "cs-conversations-promo" ? (
+        <RightImageLeftText slug={campaign.slug.current}/>
+      ) : campaign.slug.current == "cs-conversations-promo-2025" ? (
+        <LeftImageRightText slug={campaign.slug.current}/>
+      ) : campaign.slug.current == "cs-membership-promo" ? (
+        <RightImageLeftText slug={campaign.slug.current}/>
+      ) : campaign.slug.current == "inner-circle-2026" ? (
+        <CenterText slug={campaign.slug.current}/>
+      ) : campaign.slug.current == "cs-conversation-event" ? (
+        <LeftImageRightText slug={campaign.slug.current}/>
+      ) : campaign.slug.current == "cs-pay-promo" ? (
+        <RightImageLeftText slug={campaign.slug.current}/>
+      ) : (
+        ""
+      )}
+    </>
   );
 }
