@@ -12,9 +12,9 @@ export default function RightImageLeftText(props: any) {
 
     return (
         <Section
-            className={`${props.className} flex flex-col items-center pt-48 gap-3`}
+            className={`${props.className} flex flex-col items-center pt-4 md:pt-16 gap-3`}
         >
-            <Container>
+            <Container className="items-center">
                 <BannerHeader
                     mainTitle={mainTitle}
                     subTitle="That’s a 45.5% increase over the 2019 average of $30,876."
@@ -22,7 +22,9 @@ export default function RightImageLeftText(props: any) {
                     ctaText="Book Free Demo" 
                      className="text-center py-20 w-2/4"
                 />
-                <Image style={{width:"50%"}} alt="" src="https://cdn.sanity.io/images/bgk0i4de/production/1eb80062b72e340456591ed3936705883b9cae52-1140x1144.png" width={500} height={500} />
+                <div className="w-2/4">
+                <Image style={{width:"100%"}} alt="" src="https://cdn.sanity.io/images/bgk0i4de/production/1eb80062b72e340456591ed3936705883b9cae52-1140x1144.png" width={400} height={400} />
+                </div>
             </Container>
             <Banner
                 className=""
