@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
-import customerDB from "../data.json";
+import customerDB from "../database.json";
 import { runQuery } from "./sanity/lib/client";
 import {
   getViewPortByRegion,
@@ -12,19 +12,20 @@ import {
 */
 async function getEligibleAdjacencyCampaignsIds(customer: any) {
   const DB: any = customerDB;
-  const adjacencies = DB[customer];
+  if (!customer || !DB[customer]) return []
+  const adjacencies = DB[customer].subscriptions;
 
   const eligibleCampaigns = (
     await Promise.all(
       adjacencies.map(async (adjacency: any) => {
         const campaign = await runQuery(getCampaignIdsByAdjacency(), {
-          adjacency: adjacency.name,
+          adjacency: adjacency.adjacencyName,
         });
 
         return campaign.filter(
           (campaign: any) =>
-            (adjacency.subbed == false && campaign.audience == "exclude") ||
-            (adjacency.subbed == true && campaign.audience == "include")
+            (adjacency.subscriptionStatus == false && campaign.audience == "exclude") ||
+            (adjacency.subscriptionStatus == true && campaign.audience == "include")
         );
       })
     )
@@ -54,8 +55,6 @@ export async function middleware(request: NextRequest) {
     const customer = searchParams.get("domain");
     const country = searchParams.get("country") ?? "us";
 
-    if (!customer) throw new Error("Invalid domain");
-
     const viewportData = await runQuery(getViewPortByRegion(), {
       region: country,
     });
@@ -70,8 +69,9 @@ export async function middleware(request: NextRequest) {
       }),
       viewportData.combiningMode
     );
-
+    
     const campaign = getCampaignFromPool(totalCampaignPool, "random");
+    
     url.pathname = `/campaigns/${campaign._id}`;
     console.log("[ Middleware " + url.pathname + " ]");
     return NextResponse.rewrite(url);
