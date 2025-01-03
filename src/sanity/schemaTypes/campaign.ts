@@ -48,11 +48,11 @@ export const campaign = defineType({
       options: {
         list: [
           {
-            title: "Small Scale",
+            title: "Others",
             value: "smallScale"
           },
           {
-            title: "Large Scale",
+            title: "DSO's ",
             value: "largeScale"
           }
         ]
