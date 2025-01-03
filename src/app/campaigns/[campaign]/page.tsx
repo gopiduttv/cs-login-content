@@ -5,6 +5,7 @@ import { runQuery } from "@/sanity/lib/client";
 import { getCampaignByID } from "@/sanity/lib/queries";
 import React from "react";
 import LeftImageRightText from "@/components/templates/Layouts/LeftImageRightText";
+import RightImageLeftText from "@/components/templates/Layouts/RightImageLeftText";
 import BannerHeader from "@/components/common/BannerHeader/BannerHeader";
 
 export default async function Campaign({ params }: { params: any }) {
@@ -13,8 +14,8 @@ export default async function Campaign({ params }: { params: any }) {
   const mainTitle =
     "In 2023, the average dental office ran $44,925 in credit card payments per month. ";
   return (
-    <div className="w-full h-[100vh] bg-gradient-to-r from-cyan-500 to-blue-500">
-      <LeftImageRightText>
+    <div className="w-full h-[100vh] overflow-hidden bg-gradient-to-r from-cyan-500 to-blue-500">
+      <RightImageLeftText>
         {
           <>
             <H2
@@ -29,7 +30,7 @@ export default async function Campaign({ params }: { params: any }) {
             />
           </>
         }
-      </LeftImageRightText>
+      </RightImageLeftText>
     </div>
   );
 }

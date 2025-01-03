@@ -5,6 +5,6 @@ export interface ctaBtnProps {
   ctaText: string;
 }
 
-export default function CtaButton({ className, ctaText }: ctaBtnProps) {
-  return <button className={`${className} p-4 w-auto h-auto rounded-md `}>{ctaText}</button>;
+export default function CTAButton({ className, text }: ctaBtnProps) {
+  return <div className={`${className} w-52 h-14'`}>{text}</div>;
 }

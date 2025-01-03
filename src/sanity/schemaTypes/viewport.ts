@@ -31,21 +31,27 @@ export const viewport = defineType({
         list: [
           {
             title: "Concat",
-            value: "concat"
+            value: "concat",
           },
           {
             title: "Override",
-            value: "override"
-          }
-        ]
-      }
+            value: "override",
+          },
+        ],
+      },
+    }),
+    defineField({
+      name: "selectedAdjacencyCampaigns",
+      type: "array",
+      title: "Selected Adjacency Oriented Campaigns",
+      of: [{ type: "reference", to: [{ type: "campaign" }] }],
     }),
     defineField({
       name: "additionalCampaigns",
       type: "array",
       title: "Additional Campaigns",
       of: [{ type: "reference", to: [{ type: "campaign" }] }],
-    })
+    }),
   ],
   preview: {
     select: {
