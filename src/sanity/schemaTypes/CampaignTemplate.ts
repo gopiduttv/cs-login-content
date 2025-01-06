@@ -6,25 +6,6 @@ export const campaignTemplate = defineType({
   type: "document",
   fields: [
     defineField({
-      name: "campaignLayoutName",
-      title: "Campaign Layout Name",
-      type: "string",
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: "cssClassName",
-      title: "Add Tailwind CSS ClassName(for bg color and padding etc.)",
-      type: "string",
-      
-    }),
-    defineField({
-      name: "bgImage",
-      title: "Add Background Image or Color gradient",
-      type: "string",
-      
-    }),
-    
-    defineField({
       name: "selectedLayout",
       title: "Choose Campaign Layout",
       type: "string",
@@ -45,6 +26,32 @@ export const campaignTemplate = defineType({
           },
         ],
       },
+    }),
+
+    defineField({
+      name: "sectionPadding",
+      title: "Section Padding (in px)",
+      type: "string",
+    }),
+    defineField({
+      name: "containerPadding",
+      title: "Container Padding (in px)",
+      type: "string",
+    }),
+    defineField({
+      name: "ctaBtnColor",
+      title: "CTA Button color (Hex)",
+      type: "string",
+    }),
+    defineField({
+      name: "ctaBtnTextColor",
+      title: "CTA Text color (Hex)",
+      type: "string",
+    }),
+    defineField({
+      name: "backgroundColorGradient",
+      title: "Background Color (CSS color)",
+      type: "string",
     }),
   ],
 });

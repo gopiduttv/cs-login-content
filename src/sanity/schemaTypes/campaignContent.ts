@@ -31,6 +31,11 @@ export const campaignContent = defineType({
       type: "string",
     }),
     defineField({
+      name: "ctaBtnLink",
+      title: "CTA Button Link",
+      type: "string",
+    }),
+    defineField({
       name: "image",
       title: "Adjacency/ Event Image",
       type: "image",
