@@ -6,15 +6,31 @@ export const campaign = defineType({
   title: "Campaign",
   type: "document",
   icon: UserIcon,
+  groups: [
+    {
+      name: 'basic',
+      title: 'Basic',
+    },
+    {
+      name: 'dataset',
+      title: 'Content',
+    },
+    {
+      name: 'template',
+      title: 'Template',
+    },
+  ],
   fields: [
     defineField({
       name: "name",
       type: "string",
+      group:'basic',
     }),
     defineField({
       title: "Campagin Slug",
       name: "slug",
       type: "slug",
+      group:'basic',
       options: {
         source: "name",
       },
@@ -23,6 +39,7 @@ export const campaign = defineType({
       title: "Campaign Type",
       name: "campaignType",
       type: "string",
+      group:'basic',
       options: {
         list: [
           {
@@ -40,11 +57,13 @@ export const campaign = defineType({
       title: "Targeted Region",
       name: "region",
       type: "string",
+      group:'basic',
     }),
     defineField({
       title: "Targeted Customer Type",
       name: "customerType",
       type: "string",
+      group:'basic',
       options: {
         list: [
           {
@@ -62,11 +81,13 @@ export const campaign = defineType({
       title: "Adjacency Name",
       name: "adjacencyName",
       type: "string",
+      group:'basic',
     }),
     defineField({
       title: "Campaign Audience",
       name: "audience",
       type: "string",
+      group:'basic',
       options: {
         list: [
           {
@@ -85,6 +106,7 @@ export const campaign = defineType({
       name: "campaignLayoutData",
       title: "Add Campaign Data",
       type: "array",
+      group:'dataset',
       validation: (Rule) => Rule.max(1),
       of: [
         {
@@ -98,6 +120,7 @@ export const campaign = defineType({
       name: "campaignLayoutTemplate",
       title: "Add Campaign Template",
       type: "array",
+      group:'template',
       validation: (Rule) => Rule.max(1),
       of: [
         {

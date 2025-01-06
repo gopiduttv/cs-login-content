@@ -18,6 +18,18 @@ export default defineConfig({
   basePath: '/studio',
   projectId,
   dataset,
+  form: {
+    components: {
+      input: (props: any) => {
+        if (Array.isArray(props.groups) && props.groups.length > 0) {
+          if (props.groups[0].name === 'all-fields') {
+            props.groups.shift()
+          }
+        }
+        return props.renderDefault(props)
+      },
+    },
+  },
   // Add and edit the content schema in the './sanity/schemaTypes' folder
   schema,
   plugins: [
