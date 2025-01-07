@@ -18,7 +18,7 @@ export default async function Campaign({ params, searchParams }: { params: any, 
     "In 2023, the average dental office ran $44,925 in credit card payments per month. ";
   return (
     <>
-      {campaign.slug.current == "cs-conversations-promo" ? (
+      {campaign?.slug?.current == "cs-conversations-promo" ? (
         <RightImageLeftText campaignData={campaign.slug.current} data={banner}/>
       ) : campaign.slug.current == "cs-conversations-promo-2025" ? (
         <LeftImageRightText slug={campaign.slug.current} data={banner}/>
