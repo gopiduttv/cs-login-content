@@ -20,7 +20,7 @@ export const Banner = defineType({
     defineField({
       name: "bannerHeading",
       title: "Banner Heading",
-      type: "text",
+      type: "blockContent",
       group: "content",
     }),
     defineField({
@@ -44,7 +44,7 @@ export const Banner = defineType({
     defineField({
       name: "eventDescription",
       title: "Event Description",
-      type: "text",
+      type: "blockContent",
       group: "content",
     }),
     defineField({

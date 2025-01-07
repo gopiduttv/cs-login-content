@@ -3,10 +3,18 @@ import BannerHeader from "@/components/common/BannerHeader/BannerHeader";
 import CTAbutton from "@/components/common/CTAButton";
 import Container from "@/components/common/structure/Container";
 import Section from "@/components/common/structure/Section";
+import { runQuery } from "@/sanity/lib/client";
+import { getBannerByID, getCampaignByID } from "@/sanity/lib/queries";
 import Image from "next/image";
 import React from "react";
 
-export default function RightImageLeftText({data}: any) {
+export default async function RightImageLeftText({ params, searchParams }: { params: any, searchParams: any }) {
+    const { campaign: campaignID } = await params;
+    const { banner: bannerID } = await searchParams;
+    const campaign = await runQuery(getCampaignByID(), { campaignID });
+    const banner = await runQuery(getBannerByID(), { bannerID });
+    console.log("",campaign);
+  
   const mainTitle =
     "In 2023, the average dental office ran $44,925 in credit card payments per month. ";
 
@@ -14,7 +22,7 @@ export default function RightImageLeftText({data}: any) {
     <Section className="w-full h-screen overflow-hidden bg-gradient-to-r from-cyan-500 to-cyan-500">
       <Container
         className={` flex flex-col  pt-4 md:pt-16 gap-3`}
-      >
+        >
         <div className="flex items-center gap-3 pb-8">
           <BannerHeader
             mainTitle={mainTitle}
@@ -33,7 +41,14 @@ export default function RightImageLeftText({data}: any) {
             />
           </div>
         </div>
-        <Banner banner={data} />
+        {bannerID ? 
+            <Banner
+            className=""
+            bannerHeading="Inner Circle 2025 - Get Early Bird Tickets!"
+            bannerText="CS Customers receive an additional $100 off on early bird pricing available through September 13, 2024. Registration is limited to the first 150 dental practices."
+            registerBtnText="Register Now"
+            />
+        : ''}
       </Container>
     </Section>
   );
