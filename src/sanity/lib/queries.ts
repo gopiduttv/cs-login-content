@@ -15,10 +15,15 @@ const getCampaignIdsByAdjacency = () => {
 const getCampaignByID = () => {
   return groq`*[_type == "campaign" && _id == $campaignID] | order(_createdAt desc)[0]`;
 };
+const getBannerByID = () => {
+  return groq`*[_type == "banner" && _id == $bannerID] | order(_createdAt desc)[0]`;
+};
+
 
 export {
   getViewPorts,
   getViewPortByRegion,
   getCampaignIdsByAdjacency,
   getCampaignByID,
+  getBannerByID
 };
