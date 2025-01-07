@@ -6,16 +6,15 @@ import Section from "@/components/common/structure/Section";
 import Image from "next/image";
 import React from "react";
 
-export default function LeftImageRightText(props: any) {
+export default function LeftImageRightText({data}: any) {
   const mainTitle =
     "In 2023, the average dental office ran $44,925 in credit card payments per month. ";
 
   return (
     <Section className="w-full h-screen overflow-hidden bg-gradient-to-r from-teal-500 to-teal-500">
       <Container
-        className={`${props.className} flex flex-col  pt-4 md:pt-16 gap-3`}
-        >
-          <p>{props.slug}</p>
+        className={` flex flex-col  pt-4 md:pt-16 gap-3`}
+      >
         <div className="flex items-center gap-3 pb-8">
           <Image
             style={{ width: "50%" }}
@@ -32,12 +31,7 @@ export default function LeftImageRightText(props: any) {
             className="text-center py-20 w-2/4"
           />
         </div>
-        <Banner
-          className=""
-          bannerHeading="Inner Circle 2025 - Get Early Bird Tickets!"
-          bannerText="CS Customers receive an additional $100 off on early bird pricing available through September 13, 2024. Registration is limited to the first 150 dental practices."
-          registerBtnText="Register Now"
-        />
+        <Banner banner={data} />
       </Container>
     </Section>
   );
