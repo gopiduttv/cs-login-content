@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { CSSProperties, ReactNode } from 'react';
 
-export default function Container(props:any) {
-    return (
-        <div className={`w-full  max-w-7xl flex  justify-self-center ${props.className}`}>
-            {props.children}
-        </div>
-    )
+type Props = {
+  className: string;
+  style?: CSSProperties;
+  children: ReactNode; // Use ReactNode directly
+};
+
+export default function Container(props: Props) {
+  return (
+    <div
+      className={`w-full max-w-7xl flex justify-self-center ${props.className}`}
+      style={props?.style}
+    >
+      {props.children}
+    </div>
+  );
 }

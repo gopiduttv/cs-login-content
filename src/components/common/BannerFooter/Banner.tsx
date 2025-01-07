@@ -38,8 +38,8 @@ const customComponents: any = {
 
 export default function Banner({ banner }: any) {
   return (
-    <Container
-      className={`bg-[${banner?.backgroundColorGradient}] text-white p-${banner?.sectionPadding} rounded-lg`}
+    <Container style={{backgroundColor: banner?.backgroundColorGradient}}
+      className={`text-white p-${banner?.sectionPadding} rounded-lg`}
     >
       <div className={`container mx-auto px-${banner?.containerPadding}`}>
         <div className="flex justify-between items-center">
@@ -52,7 +52,8 @@ export default function Banner({ banner }: any) {
               {banner?.eventLocationBadges?.map((item: any, i: number) => (
                 <span
                   key={i}
-                  className={`text-sm mr-2 rounded-sm font-light px-4 py-2 bg-[${item?.badgeColor ? item?.badgeColor: "#ffff26"}]`}
+                  style={{ backgroundColor: item?.badgeColor }}
+                  className={`text-sm mr-2 rounded-sm font-light px-4 py-2`}
                 >
                   {item?.badgeTitle}
                 </span>
@@ -62,7 +63,8 @@ export default function Banner({ banner }: any) {
           </div>
           <Link href={banner?.ctaBtnTextLink} target="_blank">
             <button
-              className={`bg-[${banner?.ctaBtnColor}] text-[${banner?.ctaBtnTextColor}] font-bold py-2 px-4 rounded`}
+              style={{ backgroundColor: banner?.ctaBtnColor, color:banner?.ctaBtnTextColor }}
+              className={` font-bold py-2 px-4 rounded`}
             >
               {" "}
               {banner?.ctaBtnTextForEvent}
