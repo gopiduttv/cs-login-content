@@ -48,10 +48,27 @@ export const Banner = defineType({
       group: "content",
     }),
     defineField({
-      name: "eventLocation",
-      title: "Event Location",
-      type: "string",
+      name: "eventLocationBadges",
+      title: "Event Location Badges",
+      type: "array",
       group: "content",
+      of:[
+        {
+          type:'object',
+          fields:[
+            defineField({
+              name: "badgeTitle",
+              title: "Badge Title",
+              type: "string",
+            }),
+            defineField({
+              name: "badgeColor",
+              title: "Badge Color (CSS color)",
+              type: "string",
+            }),
+          ]
+        }
+      ]
     }),
     defineField({
       name: "sectionPadding",
