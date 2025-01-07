@@ -10,5 +10,6 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem("banner").title("Banner"),
       S.documentTypeListItem("campaignContent").title("campaignContent"),
       S.documentTypeListItem("campaignTemplate").title("campaignTemplate"),
+      S.documentTypeListItem("blockContent").title("blockContent"),
    
     ]);

@@ -105,19 +105,19 @@ export const campaign = defineType({
     defineField({
       name: "title",
       title: "Title",
-      type: "text",
+      type: "blockContent",
       group: "dataset",
     }),
     defineField({
       name: "subTitle",
       title: "Sub Title",
-      type: "text",
+      type: "blockContent",
       group: "dataset",
     }),
     defineField({
       name: "paragraph",
       title: "Paragraph",
-      type: "text",
+      type: "blockContent",
       group: "dataset",
     }),
     defineField({
