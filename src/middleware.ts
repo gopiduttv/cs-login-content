@@ -5,6 +5,7 @@ import { runQuery } from "./sanity/lib/client";
 import {
   getViewPortByRegion,
   getCampaignIdsByAdjacency,
+  getCampaignLayoutByID,
 } from "./sanity/lib/queries";
 
 /*
@@ -81,11 +82,14 @@ export async function middleware(request: NextRequest) {
 
     const campaign = getCampaignFromPool(totalCampaignPool, "random");
 
-    url.pathname = `/campaigns/${campaign._id}`;
+    const campaignLayout = (await runQuery(getCampaignLayoutByID(), { campaignID: campaign._id }))?.selectedLayout
+
+    url.pathname = `/campaigns/${campaign._id}/${campaignLayout}`;
 
     if (viewportData.showBanner) {
       url.searchParams.set("banner", viewportData.selectedBanner[0]._ref)
     } 
+    
     console.log("[ Middleware " + url.pathname + " ]");
     return NextResponse.rewrite(url);
   } catch (error) {
