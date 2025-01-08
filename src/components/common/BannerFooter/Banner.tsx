@@ -14,14 +14,14 @@ export interface IBannerInterface {
 
 const customComponents: any = {
   block: {
-    h2: ({ children }: any) => (
-      <h2 className="text-2xl font-bold">{children}</h2>
+    h3: ({ children }: any) => (
+      <h3 className="text-2xl md:text-4xl font-bold">{children}</h3>
     ),
-    normal: ({ children }: any) => <p className="pt-4">{children}</p>,
+    normal: ({ children }: any) => <p className="pt-4 text-2xl leading-8">{children}</p>,
   },
   marks: {
     strong: ({ children }: any) => (
-      <strong className="font-bold text-[#42ba78]">{children}</strong>
+      <strong className="font-bold">{children}</strong>
     ),
     link: ({ value, children }: any) => (
       <a
@@ -53,23 +53,23 @@ export default function Banner({ className, banner, disabled }: any) {
               value={banner?.bannerHeading}
               components={customComponents}
             />
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-center mt-4">
               {banner?.eventLocationBadges?.map((item: any, i: number) => (
                 <span
                   key={i}
                   style={{ backgroundColor: item?.badgeColor }}
-                  className={`text-sm mr-2 rounded-sm font-light px-4 py-2`}
+                  className={`text-base md:text-lg font-semibold mr-2 rounded-sm px-2 py-1`}
                 >
                   {item?.badgeTitle}
                 </span>
               ))}
-              <span>{formatCustomDate(banner?.eventDate)}</span>
+              <span className="text-lg md:text-xl">{formatCustomDate(banner?.eventDate)}</span>
             </div>
           </div>
           <Link href={banner?.ctaBtnTextLink} target="_blank">
             <button
               style={{ backgroundColor: banner?.ctaBtnColor, color:banner?.ctaBtnTextColor }}
-              className={` font-bold py-2 px-4 rounded`}
+              className={` font-bold text-lg py-2 px-4 rounded`}
             >
               {" "}
               {banner?.ctaBtnTextForEvent}

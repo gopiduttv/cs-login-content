@@ -31,20 +31,20 @@ const customComponents: any = {
     ),
   },
 };
-function CampaignTextArea(campaign: any) {
+function CampaignTextArea({campaign}: any) {
  
   return (
     <div className="w-1/2 text-center">
       <PortableText
-        value={campaign?.campaign?.title}
+        value={campaign?.title}
         components={customComponents}
       />
       <PortableText
-        value={campaign?.campaign?.subTitle}
+        value={campaign?.subTitle}
         components={customComponents}
       />
       <PortableText
-        value={campaign?.campaign?.paragraph}
+        value={campaign?.paragraph}
         components={customComponents}
       />
       <CTAButton
