@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-function CampaignImageArea(campaignImage:any) {
+function CampaignImageArea({campaignImage}:any) {
   console.log("tt", campaignImage);
 
   return (
@@ -9,7 +9,7 @@ function CampaignImageArea(campaignImage:any) {
       <Image
         style={{ width: "100%" }}
         alt=""
-        src={campaignImage?.campaignImage?.image}
+        src={campaignImage?.image.url}
         width={400}
         height={400}
       />
