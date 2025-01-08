@@ -43,10 +43,10 @@ export default function Banner({ className, banner, disabled }: any) {
   }
   
   return (
-    <Container style={{backgroundColor: banner?.backgroundColorGradient}}
-      className={`text-white p-${banner?.sectionPadding} rounded-lg`}
+    <div style={{backgroundColor: banner?.backgroundColorGradient, padding: banner?.sectionPadding}}
+      className="text-white rounded-lg"
     >
-      <div className={`container mx-auto px-${banner?.containerPadding}`}>
+      <div className="container mx-auto" style={{padding: banner?.containerPadding}}>
         <div className="flex justify-between items-center">
           <div>
             <PortableText
@@ -81,6 +81,6 @@ export default function Banner({ className, banner, disabled }: any) {
           components={customComponents}
         />
       </div>
-    </Container>
+    </div>
   );
 }
