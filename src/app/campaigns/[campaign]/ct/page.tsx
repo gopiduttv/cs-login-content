@@ -7,6 +7,7 @@ import { runQuery } from "@/sanity/lib/client";
 import { getBannerByID, getCampaignByID } from "@/sanity/lib/queries";
 import Image from "next/image";
 import React from "react";
+import CampaignTextArea from "../CampaignTextArea";
 
 export default async function RightImageLeftText({
   params,
@@ -18,8 +19,9 @@ export default async function RightImageLeftText({
   const { campaign: campaignID } = await params;
   const { banner: bannerID } = await searchParams;
   const campaign = await runQuery(getCampaignByID(), { campaignID });
-  const banner = await runQuery(getBannerByID(), { bannerID });
-  // console.log("", campaign);
+  const banner = bannerID ? await runQuery(getBannerByID(), { bannerID }) : null;
+
+  console.log({bannerID, id: !!bannerID })
 
   const mainTitle =
     "In 2023, the average dental office ran $44,925 in credit card payments per month. ";
@@ -28,7 +30,7 @@ export default async function RightImageLeftText({
     <Section className="w-full h-screen overflow-hidden bg-gradient-to-r from-cyan-500 to-cyan-500">
       <Container className={` flex flex-col  pt-4 md:pt-16 gap-3`}>
         <div className="flex items-center gap-3 pb-8">
-        <p>{campaign.slug.current}</p>
+        {/* <p>{campaign.slug.current}</p>
           <BannerHeader
             className="text-center py-20 w-1/2"
             mainTitle={mainTitle}
@@ -44,19 +46,10 @@ export default async function RightImageLeftText({
               width={400}
               height={400}
             />
-          </div>
+          </div> */}
+          <CampaignTextArea/>
         </div>
-        {/* {bannerID ? (
-          <Banner
-
-            className=""
-            bannerHeading="Inner Circle 2025 - Get Early Bird Tickets!"
-            bannerText="CS Customers receive an additional $100 off on early bird pricing available through September 13, 2024. Registration is limited to the first 150 dental practices."
-            registerBtnText="Register Now"
-          />
-        ) : (
-          <></>
-        )} */}
+        <Banner className="" banner={banner} disabled={!Boolean(bannerID)} />
       </Container>
     </Section>
   );

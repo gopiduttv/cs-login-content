@@ -7,6 +7,8 @@ import { runQuery } from "@/sanity/lib/client";
 import { getBannerByID, getCampaignByID } from "@/sanity/lib/queries";
 import Image from "next/image";
 import React from "react";
+import CampaignTextArea from "../CampaignTextArea";
+import CampaignImageArea from "../CampaignImageArea";
 
 export default async function RightImageLeftText({
   params,
@@ -18,8 +20,7 @@ export default async function RightImageLeftText({
   const { campaign: campaignID } = await params;
   const { banner: bannerID } = await searchParams;
   const campaign = await runQuery(getCampaignByID(), { campaignID });
-  const banner = await runQuery(getBannerByID(), { bannerID });
-  // console.log("", campaign);
+  const banner = bannerID ? await runQuery(getBannerByID(), { bannerID }) : null;
 
   const mainTitle =
     "In 2023, the average dental office ran $44,925 in credit card payments per month. ";
@@ -27,10 +28,8 @@ export default async function RightImageLeftText({
   return (
     <Section className="w-full h-screen overflow-hidden bg-gradient-to-r from-cyan-500 to-cyan-500">
       <Container className={` flex flex-col  pt-4 md:pt-16 gap-3`}>
-        
         <div className="flex items-center gap-3 pb-8">
-        <p>{campaign.slug.current}</p>
-          <BannerHeader
+          {/* <BannerHeader
             mainTitle={mainTitle}
             subTitle="That’s a 45.5% increase over the 2019 average of $30,876."
             subText="CSPay offers the most streamlined card payments experience for dental offices. With card-on-file, auto-debit and text-to-pay capabilities, stay on step ahead of shifting patient behavior with CSPay"
@@ -45,18 +44,11 @@ export default async function RightImageLeftText({
               width={400}
               height={400}
             />
-          </div>
+          </div> */}
+          <CampaignTextArea />
+          <CampaignImageArea />
         </div>
-        {/* {bannerID ? (
-          <Banner
-            className=""
-            bannerHeading="Inner Circle 2025 - Get Early Bird Tickets!"
-            bannerText="CS Customers receive an additional $100 off on early bird pricing available through September 13, 2024. Registration is limited to the first 150 dental practices."
-            registerBtnText="Register Now"
-          />
-        ) : (
-          ""
-        )} */}
+        <Banner className="" banner={banner} disabled={!Boolean(bannerID)} />
       </Container>
     </Section>
   );

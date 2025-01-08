@@ -36,7 +36,12 @@ const customComponents: any = {
   },
 };
 
-export default function Banner({ banner }: any) {
+export default function Banner({ className, banner, disabled }: any) {
+
+  if (disabled) {
+    return <></>
+  }
+  
   return (
     <Container style={{backgroundColor: banner?.backgroundColorGradient}}
       className={`text-white p-${banner?.sectionPadding} rounded-lg`}
