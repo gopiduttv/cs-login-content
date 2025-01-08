@@ -22,31 +22,12 @@ export default async function RightImageLeftText({
   const campaign = await runQuery(getCampaignByID(), { campaignID });
   const banner = bannerID ? await runQuery(getBannerByID(), { bannerID }) : null;
 
-  const mainTitle =
-    "In 2023, the average dental office ran $44,925 in credit card payments per month. ";
-
   return (
     <Section className="w-full h-screen overflow-hidden bg-gradient-to-r from-cyan-500 to-cyan-500">
       <Container className={` flex flex-col  pt-4 md:pt-16 gap-3`}>
         <div className="flex items-center gap-3 pb-8">
-          {/* <BannerHeader
-            mainTitle={mainTitle}
-            subTitle="That’s a 45.5% increase over the 2019 average of $30,876."
-            subText="CSPay offers the most streamlined card payments experience for dental offices. With card-on-file, auto-debit and text-to-pay capabilities, stay on step ahead of shifting patient behavior with CSPay"
-            ctaText="Book Free Demo"
-            className="text-center py-20 w-2/4"
-          />
-          <div className="w-2/4">
-            <Image
-              style={{ width: "100%" }}
-              alt=""
-              src="https://cdn.sanity.io/images/bgk0i4de/production/1eb80062b72e340456591ed3936705883b9cae52-1140x1144.png"
-              width={400}
-              height={400}
-            />
-          </div> */}
-          <CampaignTextArea/>
-          <CampaignImageArea/>
+          <CampaignImageArea campaignImage={campaign}/>
+          <CampaignTextArea  campaign={campaign}/>
         </div>
         <Banner className="" banner={banner} disabled={!Boolean(bannerID)} />
       </Container>
