@@ -1,13 +1,13 @@
 import Image from "next/image";
 import React from "react";
 
-function CampaignImageArea({campaignImage}:any) {
+function CampaignImageArea({ campaignImage, className }: any) {
   console.log("tt", campaignImage);
 
   return (
-    <div className="w-1/2">
+    <div className={className}>
       <Image
-        style={{ width: "100%" }}
+        className="h-[350px]"
         alt=""
         src={campaignImage?.image.url}
         width={400}

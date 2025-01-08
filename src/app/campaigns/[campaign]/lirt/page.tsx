@@ -26,8 +26,8 @@ export default async function RightImageLeftText({
     <Section className="w-full h-screen overflow-hidden bg-gradient-to-r from-cyan-500 to-cyan-500">
       <Container className={` flex flex-col  pt-4 md:pt-16 gap-3`}>
         <div className="flex items-center gap-3 pb-8">
-          <CampaignImageArea campaignImage={campaign}/>
-          <CampaignTextArea  campaign={campaign}/>
+          <CampaignImageArea campaignImage={campaign} className="w-1/2"/>
+          <CampaignTextArea  campaign={campaign} className="w-1/2"/>
         </div>
         <Banner className="" banner={banner} disabled={!Boolean(bannerID)} />
       </Container>

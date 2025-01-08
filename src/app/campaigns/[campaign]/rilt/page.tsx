@@ -25,11 +25,11 @@ export default async function RightImageLeftText({
   return (
     <Section className="w-full h-screen overflow-hidden bg-gradient-to-r from-cyan-500 to-cyan-500">
       <Container className={` flex flex-col  pt-4 md:pt-16 gap-3`}>
-        <div className="flex items-center gap-3 pb-8">
-          <CampaignTextArea  campaign={campaign}/>
-          <CampaignImageArea campaignImage={campaign} />
+        <div className="h-[50vh] flex items-center gap-3 pb-8">
+          <CampaignTextArea  campaign={campaign} className="w-1/2 flex flex-col items-center"/>
+          <CampaignImageArea campaignImage={campaign} className="w-1/2 flex flex-col items-center" />
         </div>
-        <Banner className="" banner={banner} disabled={!Boolean(bannerID)} />
+        <Banner className="h-[30vh]" banner={banner} disabled={!Boolean(bannerID)} />
       </Container>
     </Section>
   );
