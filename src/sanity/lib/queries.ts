@@ -13,22 +13,22 @@ const getCampaignIdsByAdjacency = () => {
 };
 
 const getCampaignByID = () => {
-  return groq`*[_type == "campaign" && _id == 'e8e86aa4-ed8b-4aa8-992a-cd67e72de406']{
-    ...,
-    'template':campaignLayoutTemplate[]-> ,
-      'campaignLayoutTemplate':campaignLayoutTemplate[]->
-    
-  }[0]`;
+  return groq`*[_type == "campaign" && _id == $campaignID] | order(_createdAt desc)[0]`;
 };
+
 const getBannerByID = () => {
   return groq`*[_type == "banner" && _id == $bannerID] | order(_createdAt desc)[0]`;
 };
 
+const getCampaignLayoutByID = () => {
+  return groq`*[_type == "campaign" && _id == $campaignID]{ selectedLayout } | order(_createdAt desc)[0]`;
+};
 
 export {
   getViewPorts,
   getViewPortByRegion,
   getCampaignIdsByAdjacency,
   getCampaignByID,
-  getBannerByID
+  getBannerByID,
+  getCampaignLayoutByID
 };

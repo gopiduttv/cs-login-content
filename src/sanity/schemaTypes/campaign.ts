@@ -12,7 +12,7 @@ export const campaign = defineType({
       title: "Basic",
     },
     {
-      name: "dataset",
+      name: "content",
       title: "Content",
     },
     {
@@ -106,37 +106,37 @@ export const campaign = defineType({
       name: "title",
       title: "Title",
       type: "blockContent",
-      group: "dataset",
+      group: "content",
     }),
     defineField({
       name: "subTitle",
       title: "Sub Title",
       type: "blockContent",
-      group: "dataset",
+      group: "content",
     }),
     defineField({
       name: "paragraph",
       title: "Paragraph",
       type: "blockContent",
-      group: "dataset",
+      group: "content",
     }),
     defineField({
       name: "ctaBtnText",
       title: "CTA Button Text",
       type: "string",
-      group: "dataset",
+      group: "content",
     }),
     defineField({
       name: "ctaBtnLink",
       title: "CTA Button Link",
       type: "string",
-      group: "dataset",
+      group: "content",
     }),
     defineField({
       name: "image",
       title: "Campaign Image",
       type: "image",
-      group: "dataset",
+      group: "content",
     }),
 
     defineField({
@@ -144,21 +144,61 @@ export const campaign = defineType({
       type: "string",
       readOnly: true,
       hidden: true,
-      group: "dataset",
+      group: "content",
     }),
 
     defineField({
-      name: "campaignLayoutTemplate",
-      title: "Add Campaign Template",
-      type: "array",
-      group: "template",
-      validation: (Rule) => Rule.max(1),
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "campaignTemplate" }],
-        },
-      ],
+      name: "selectedLayout",
+      title: "Choose Campaign Layout",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+      options: {
+        list: [
+          {
+            title: "Center Aligned",
+            value: "ct",
+          },
+          {
+            title: "Right Image Left Text",
+            value: "rilt",
+          },
+          {
+            title: "Right Image Left Text",
+            value: "lirt",
+          },
+        ],
+      },
+      group: "template"
+    }),
+
+    defineField({
+      name: "sectionPadding",
+      title: "Section Padding (in px)",
+      type: "string",
+      group: "template"
+    }),
+    defineField({
+      name: "containerPadding",
+      title: "Container Padding (in px)",
+      type: "string",
+      group: "template"
+    }),
+    defineField({
+      name: "ctaBtnColor",
+      title: "CTA Button color (Hex)",
+      type: "string",
+    }),
+    defineField({
+      name: "ctaBtnTextColor",
+      title: "CTA Text color (Hex)",
+      type: "string",
+      group: "template"
+    }),
+    defineField({
+      name: "backgroundColorGradient",
+      title: "Background Color (CSS color)",
+      type: "string",
+      group: "template"
     }),
   ],
   preview: {

@@ -8,6 +8,4 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem("campaign").title("Campaign"),
       S.documentTypeListItem("viewport").title("View Port"),
       S.documentTypeListItem("banner").title("Banner"),
-      S.documentTypeListItem("campaignContent").title("campaignContent"),
-      S.documentTypeListItem("campaignTemplate").title("campaignTemplate"),   
     ]);
