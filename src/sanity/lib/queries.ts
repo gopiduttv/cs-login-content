@@ -13,7 +13,20 @@ const getCampaignIdsByAdjacency = () => {
 };
 
 const getCampaignByID = () => {
-  return groq`*[_type == "campaign" && _id == $campaignID] | order(_createdAt desc)[0]`;
+  return groq`*[_type == "campaign" && _id == "d9b9905c-cbe0-4c5c-ba62-840e19c4e3f9"]{
+    ...,
+  "campaignImage": image.asset->{
+          _id,
+          url,
+          metadata {
+            dimensions {
+              width,
+              height,
+              aspectRatio
+            }
+          }
+        }
+  }[0]`;
 };
 
 const getBannerByID = () => {
