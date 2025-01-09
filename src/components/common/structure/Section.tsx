@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function Section(props) {
+export default function Section(props: any) {
     return (
-        <section id={props?.id} className={`w-full flex justify-center px-4 md:px-8 ${props.className}`}>
+        <section id={props?.id} className={`w-full flex justify-center ${props.className}`}>
             {
                 props.children
             }
