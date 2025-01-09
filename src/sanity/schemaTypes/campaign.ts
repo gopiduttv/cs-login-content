@@ -109,8 +109,8 @@ export const campaign = defineType({
     }),
     defineField({
       name: "templateText",
-      title: "Template Logo",
-      type: "image",
+      title: "Template Text",
+      type: "string",
       group: "content",
     }),
     defineField({

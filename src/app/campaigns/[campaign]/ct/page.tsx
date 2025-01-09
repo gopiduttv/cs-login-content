@@ -5,6 +5,7 @@ import { runQuery } from "@/sanity/lib/client";
 import { getBannerByID, getCampaignByID } from "@/sanity/lib/queries";
 import React from "react";
 import CampaignTextArea from "../CampaignTextArea";
+import CampaignHeader from "@/app/components/CampaignHeader";
 
 export default async function CenterText({
   params,
@@ -22,6 +23,14 @@ export default async function CenterText({
     <Section className="w-full h-screen overflow-hidden flex flex-col  bg-gradient-to-r from-cyan-500 to-cyan-500">
       <Container className={` flex flex-col justify-center px-4 md:px-8  pt-4 md:pt-16 gap-3 ${banner?.isFullScreen ? "flex-1" : ""}`}>
         <div className="flex flex-row justify-center gap-3 pb-8 w-full">
+          {campaign?.templateLogo?.url && (
+            <CampaignHeader
+              logoUrl={campaign?.templateLogo?.url}
+              templateHeader={campaign?.templateText}
+              eventType={campaign?.templateEventType}
+              eventDate={campaign?.templateEventDate}
+            />
+          )}
           <CampaignTextArea campaign={campaign} className="w-full" />
         </div>
       </Container>
