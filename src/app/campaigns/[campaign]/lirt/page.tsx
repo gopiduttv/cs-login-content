@@ -7,7 +7,7 @@ import React from "react";
 import CampaignTextArea from "../CampaignTextArea";
 import CampaignImageArea from "../CampaignImageArea";
 
-export default async function RightImageLeftText({
+export default async function LeftImageRightText({
   params,
   searchParams,
 }: {
