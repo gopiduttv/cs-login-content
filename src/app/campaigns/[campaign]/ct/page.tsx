@@ -20,7 +20,7 @@ export default async function CenterText({
   const banner = bannerID ? await runQuery(getBannerByID(), { bannerID }) : null;
  console.log("medbhajq",banner)
   return (
-    <Section className="w-full h-screen overflow-hidden flex flex-col  bg-gradient-to-r from-cyan-500 to-cyan-500">
+    <Section className="w-full h-screen overflow-hidden flex flex-col bg-gray-900">
       <Container className={` flex flex-col justify-center px-4 md:px-8  pt-4 md:pt-16 gap-3 ${banner?.isFullScreen ? "flex-1" : ""}`}>
         <div className="flex flex-row justify-center gap-3 pb-8 w-full">
           {campaign?.templateLogo?.url && (
