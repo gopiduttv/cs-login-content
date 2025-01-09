@@ -1,15 +1,12 @@
 import Banner from "@/components/common/BannerFooter/Banner";
-import BannerHeader from "@/components/common/BannerHeader/BannerHeader";
-import CTAbutton from "@/components/common/CTAButton";
 import Container from "@/components/common/structure/Container";
 import Section from "@/components/common/structure/Section";
 import { runQuery } from "@/sanity/lib/client";
 import { getBannerByID, getCampaignByID, getCampaignLayoutByID, getViewPorts } from "@/sanity/lib/queries";
-import Image from "next/image";
 import React from "react";
 import CampaignTextArea from "../CampaignTextArea";
 
-export default async function RightImageLeftText({
+export default async function CenterText({
   params,
   searchParams,
 }: {
