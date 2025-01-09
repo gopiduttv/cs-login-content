@@ -1,4 +1,4 @@
-import Banner from "@/components/common/BannerFooter/Banner";
+import Banner from "@/components/common/Banner/Banner";
 import Container from "@/components/common/structure/Container";
 import Section from "@/components/common/structure/Section";
 import { runQuery } from "@/sanity/lib/client";

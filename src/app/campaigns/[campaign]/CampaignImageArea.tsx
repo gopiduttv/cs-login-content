@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 
 function CampaignImageArea({ campaignImage, className }: any) {
-  console.log("tt", campaignImage);
 
   return (
     <div className={className}>
