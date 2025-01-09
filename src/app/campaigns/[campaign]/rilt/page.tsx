@@ -22,8 +22,8 @@ export default async function RightImageLeftText({
     ? await runQuery(getBannerByID(), { bannerID })
     : null;
   return (
-    <Section className="w-full h-screen overflow-hidden  bg-gray-900">
-      <Container className={` flex flex-col  pt-4 md:pt-16 gap-3`}>
+    <Section className="w-full h-screen overflow-hidden bg-gradient-to-r from-cyan-500 to-cyan-500 flex-col">
+      <Container className={` flex flex-col px-4 md:px-8 pt-4 md:pt-16 gap-3  ${banner?.isFullScreen ? "flex-1" : ""}`}>
           {campaign?.templateLogo?.url && (
             <CampaignHeader
               logoUrl={campaign?.templateLogo?.url}
@@ -42,12 +42,8 @@ export default async function RightImageLeftText({
             className="w-1/2 flex flex-col items-center"
           />
         </div>
-        <Banner
-          className="h-[30vh]"
-          banner={banner}
-          disabled={!Boolean(bannerID)}
-        />
       </Container>
+        {bannerID && <Banner className="h-[30vh]" banner={banner} /> }
     </Section>
   );
 }

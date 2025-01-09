@@ -18,12 +18,10 @@ export default async function CenterText({
   const { banner: bannerID } = await searchParams;
   const campaign = await runQuery(getCampaignByID(), { campaignID });
   const banner = bannerID ? await runQuery(getBannerByID(), { bannerID }) : null;
- 
+ console.log("medbhajq",banner)
   return (
-    <Section className="w-full h-screen overflow-hidden bg-gray-900">
-      <Container
-        className={` flex flex-col justify-center pt-4 md:pt-16 gap-3`}
-      >
+    <Section className="w-full h-screen overflow-hidden flex flex-col bg-gray-900">
+      <Container className={` flex flex-col justify-center px-4 md:px-8  pt-4 md:pt-16 gap-3 ${banner?.isFullScreen ? "flex-1" : ""}`}>
         <div className="flex flex-row justify-center gap-3 pb-8 w-full">
           {campaign?.templateLogo?.url && (
             <CampaignHeader
@@ -35,12 +33,8 @@ export default async function CenterText({
           )}
           <CampaignTextArea campaign={campaign} className="w-full" />
         </div>
-        <Banner
-          className="w-1/2"
-          banner={banner}
-          disabled={!Boolean(bannerID)}
-        />
       </Container>
+      {bannerID && <Banner className="h-[30vh]" banner={banner} /> }
     </Section>
   );
 }

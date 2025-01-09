@@ -60,6 +60,12 @@ export const Banner = defineType({
       group: "content",
     }),
     defineField({
+      name: "eventLocation",
+      title: "Event Location",
+      type: "string",
+      group: "content",
+    }),
+    defineField({
       name: "eventLocationBadges",
       title: "Event Location Badges",
       type: "array",
