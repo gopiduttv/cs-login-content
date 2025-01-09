@@ -1,4 +1,3 @@
-import BannerHeader from "@/components/common/BannerHeader/BannerHeader";
 import CTAButton from "@/components/common/CTAButton";
 import { PortableText } from "next-sanity";
 import React from "react";
