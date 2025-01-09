@@ -1,5 +1,5 @@
 import { defineField, defineType } from "sanity";
-import {DocumentIcon} from '@sanity/icons'
+import { DocumentIcon } from "@sanity/icons";
 
 export const Banner = defineType({
   name: "banner",
@@ -18,14 +18,26 @@ export const Banner = defineType({
   ],
   fields: [
     defineField({
+      name: "isFullScreen",
+      title: "Show full screen",
+      type: "boolean",
+      group: "content",
+    }),
+    defineField({
       name: "bannerHeading",
       title: "Banner Heading",
       type: "blockContent",
       group: "content",
     }),
     defineField({
-      name: "eventDate",
-      title: "Event Date",
+      name: "eventStartingDate",
+      title: "Event Starting Date",
+      type: "date",
+      group: "content",
+    }),
+    defineField({
+      name: "eventEndingDate",
+      title: "Event Ending Date",
       type: "date",
       group: "content",
     }),
@@ -52,10 +64,10 @@ export const Banner = defineType({
       title: "Event Location Badges",
       type: "array",
       group: "content",
-      of:[
+      of: [
         {
-          type:'object',
-          fields:[
+          type: "object",
+          fields: [
             defineField({
               name: "badgeTitle",
               title: "Badge Title",
@@ -66,9 +78,9 @@ export const Banner = defineType({
               title: "Badge Color (CSS color)",
               type: "string",
             }),
-          ]
-        }
-      ]
+          ],
+        },
+      ],
     }),
     defineField({
       name: "sectionPadding",
