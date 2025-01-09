@@ -23,7 +23,7 @@ export default async function LeftImageRightText({
     : null;
 
   return (
-    <Section className="w-full h-screen overflow-hidden bg-gradient-to-r from-cyan-500 to-cyan-500">
+    <Section className="w-full h-screen overflow-hidden  bg-gray-900">
       <Container className={` flex flex-col  pt-4 md:pt-16 gap-3`}>
           {campaign?.templateLogo?.url && (
             <CampaignHeader

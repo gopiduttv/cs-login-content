@@ -23,6 +23,7 @@ export const blockContent = defineType({
           { title: 'Emphasis', value: 'em' },
         ],
         annotations: [
+          { type: 'textColor',},
           {
             title: 'URL',
             name: 'link',
@@ -32,6 +33,11 @@ export const blockContent = defineType({
                 title: 'URL',
                 name: 'href',
                 type: 'url',
+              },
+              {
+                name: 'backgroundColor',
+                title: 'Background color',
+                type: 'simplerColor',
               },
             ],
           },

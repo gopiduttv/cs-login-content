@@ -20,7 +20,7 @@ export default async function CenterText({
   const banner = bannerID ? await runQuery(getBannerByID(), { bannerID }) : null;
  
   return (
-    <Section className="w-full h-screen overflow-hidden bg-gradient-to-r from-cyan-500 to-cyan-500">
+    <Section className="w-full h-screen overflow-hidden bg-gray-900">
       <Container
         className={` flex flex-col justify-center pt-4 md:pt-16 gap-3`}
       >
