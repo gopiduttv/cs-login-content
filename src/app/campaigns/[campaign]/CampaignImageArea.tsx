@@ -8,7 +8,7 @@ function CampaignImageArea({ campaignImage, className }: any) {
     <div className={className}>
       <Image
         className="h-[350px]"
-        alt={campaignImage?.image.url}
+        alt={campaignImage?.image.url || 'campaign Image'}
         src={campaignImage?.campaignImage.url}
         width={500}
         height={500}
