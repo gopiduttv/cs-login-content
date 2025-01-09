@@ -5,9 +5,9 @@ import { runQuery } from "@/sanity/lib/client";
 import { getBannerByID, getCampaignByID } from "@/sanity/lib/queries";
 import React from "react";
 import CampaignTextArea from "../CampaignTextArea";
-import CampaignHeader from "@/app/components/CampaignHeader";
+import CampaignImageArea from "../CampaignImageArea";
 
-export default async function CenterText({
+export default async function LeftImageRightText({
   params,
   searchParams,
 }: {
@@ -18,28 +18,15 @@ export default async function CenterText({
   const { banner: bannerID } = await searchParams;
   const campaign = await runQuery(getCampaignByID(), { campaignID });
   const banner = bannerID ? await runQuery(getBannerByID(), { bannerID }) : null;
- 
+  console.log(campaign)
   return (
     <Section className="w-full h-screen overflow-hidden bg-gradient-to-r from-cyan-500 to-cyan-500">
-      <Container
-        className={` flex flex-col justify-center pt-4 md:pt-16 gap-3`}
-      >
-        <div className="flex flex-row justify-center gap-3 pb-8 w-full">
-          {campaign?.templateLogo?.url && (
-            <CampaignHeader
-              logoUrl={campaign?.templateLogo?.url}
-              templateHeader={campaign?.templateText}
-              eventType={campaign?.templateEventType}
-              eventDate={campaign?.templateEventDate}
-            />
-          )}
-          <CampaignTextArea campaign={campaign} className="w-full" />
+      <Container className={` flex flex-col  pt-4 md:pt-16 gap-3`}>
+        <div className="flex items-center gap-3 pb-8">
+          <CampaignImageArea campaignImage={campaign} className="w-1/2"/>
+          <CampaignTextArea  campaign={campaign} className="w-1/2"/>
         </div>
-        <Banner
-          className="w-1/2"
-          banner={banner}
-          disabled={!Boolean(bannerID)}
-        />
+        <Banner className="" banner={banner} disabled={!Boolean(bannerID)} />
       </Container>
     </Section>
   );

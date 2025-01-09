@@ -13,7 +13,7 @@ const getCampaignIdsByAdjacency = () => {
 };
 
 const getCampaignByID = () => {
-  return groq`*[_type == "campaign" && _id == "d9b9905c-cbe0-4c5c-ba62-840e19c4e3f9"]{
+  return groq`*[_type == "campaign" &&  _id == $campaignID]{
     ...,
   "campaignImage": image.asset->{
           _id,
@@ -25,7 +25,18 @@ const getCampaignByID = () => {
               aspectRatio
             }
           }
-        }
+        },
+   "templateLogo":templateLogo.asset->{
+          _id,
+          url,
+          metadata {
+            dimensions {
+              width,
+              height,
+              aspectRatio
+            }
+          }
+        },
   }[0]`;
 };
 
@@ -43,5 +54,5 @@ export {
   getCampaignIdsByAdjacency,
   getCampaignByID,
   getBannerByID,
-  getCampaignLayoutByID
+  getCampaignLayoutByID,
 };
