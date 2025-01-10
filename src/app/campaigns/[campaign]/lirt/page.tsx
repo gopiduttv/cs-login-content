@@ -22,14 +22,6 @@ export default async function LeftImageRightText({
   return (
     <Section bgColor={campaign?.backgroundColorGradient} className={`w-full h-screen overflow-hidden`}>
       <Container className={` flex flex-col px-4 md:px-8 pt-4 md:pt-16 gap-3  ${banner?.isFullScreen ? "flex-1" : ""}`}>
-          {campaign?.templateLogo?.url && (
-            <CampaignHeader
-              logoUrl={campaign?.templateLogo?.url}
-              templateHeader={campaign?.templateText}
-              eventType={campaign?.templateEventType}
-              eventDate={campaign?.templateEventDate}
-            />
-          )}
         <div className="flex items-center gap-3 pb-8">
           <CampaignImageArea campaignImage={campaign} className="w-1/2"/>
           <CampaignTextArea  campaign={campaign} className="w-1/2"/>

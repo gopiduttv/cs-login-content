@@ -1,3 +1,4 @@
+import CampaignHeader from "@/app/components/CampaignHeader";
 import CTAButton from "@/components/common/CTAButton";
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "next-sanity";
@@ -54,6 +55,14 @@ function CampaignTextArea({ campaign, className }: any) {
     <div
       className={`${className} ${campaign?.themeMode == "lightMode" ? "text-black" : "text-white"}`}
     >
+      {campaign?.templateLogo?.url && (
+        <CampaignHeader
+          logoUrl={campaign?.templateLogo?.url}
+          templateHeader={campaign?.templateText}
+          eventType={campaign?.templateEventType}
+          eventDate={campaign?.templateEventDate}
+        />
+      )}
       <b>{campaign?.slug?.current}</b>
       {campaign?.title && (
         <PortableText value={campaign?.title} components={customComponents} />
