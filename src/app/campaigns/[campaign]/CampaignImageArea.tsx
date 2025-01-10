@@ -4,13 +4,15 @@ import React from "react";
 function CampaignImageArea({ campaignImage, className }: any) {
   return (
     <div className={className}>
+      {campaignImage?.image?.url &&
       <Image
-        className="h-[350px]"
+        className=""
         alt={campaignImage?.image.url || 'campaign Image'}
         src={campaignImage?.campaignImage.url}
         width={500}
         height={500}
       />
+      }
     </div>
   );
 }
