@@ -4,6 +4,7 @@ import { formatCustomDate, formatDateChange } from "@/utils/page";
 import Link from "next/link";
 import Image from "next/image";
 import locIcon from "../../../../public/Frame.svg";
+import { urlFor } from "@/sanity/lib/image";
 
 export interface IBannerInterface {
   className: string;
@@ -34,6 +35,23 @@ const customComponents: any = {
       >
         {children}
       </a>
+    ),
+  },
+  types: {
+    image: ({ value }: any) => (
+      <div className="my-6">
+        <img
+          src={urlFor(value?.asset).url()}
+          alt={value?.alt || "Image"}
+          width={value?.width ?? 20}
+          height={value?.height ?? 20}
+        />
+        {value?.caption && (
+          <p className="text-center text-gray-400 text-sm mt-2">
+            {value.caption}
+          </p>
+        )}
+      </div>
     ),
   },
 };

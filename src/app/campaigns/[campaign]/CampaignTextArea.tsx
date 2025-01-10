@@ -1,4 +1,5 @@
 import CTAButton from "@/components/common/CTAButton";
+import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "next-sanity";
 import React from "react";
 
@@ -27,6 +28,23 @@ const customComponents: any = {
       >
         {children}
       </a>
+    ),
+  },
+  types: {
+    image: ({ value }: any) => (
+      <div className="my-6">
+        <img
+          src={urlFor(value).url()}
+          width={value?.width ?? 20}
+          height={value?.height ?? 20}
+          alt={value?.alt || "Image"}
+        />
+        {value?.caption && (
+          <p className="text-center text-gray-400 text-sm mt-2">
+            {value.caption}
+          </p>
+        )}
+      </div>
     ),
   },
 };
