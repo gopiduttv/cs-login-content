@@ -4,6 +4,7 @@ import { formatCustomDate, formatDateChange } from "@/utils/page";
 import Link from "next/link";
 import Image from "next/image";
 import locIcon from "../../../../public/Frame.svg";
+import { urlFor } from "@/sanity/lib/image";
 
 export interface IBannerInterface {
   className: string;
@@ -14,6 +15,9 @@ export interface IBannerInterface {
 
 const customComponents: any = {
   block: {
+    h2: ({ children }: any) => (
+      <h2 className=" text-3xl  font-semibold pb-4">{children}</h2>
+    ),
     h3: ({ children }: any) => (
       <h3 className="text-2xl md:text-4xl font-bold">{children}</h3>
     ),
@@ -22,6 +26,10 @@ const customComponents: any = {
     ),
   },
   marks: {
+    textColor: ({children, value}:any) => <span style={{color: value.value}}>{children}</span>,
+    highlightColor: ({children, value}:any) => (
+      <span style={{background: value.value}}>{children}</span>
+    ),
     strong: ({ children }: any) => (
       <strong className="font-bold">{children}</strong>
     ),
@@ -34,6 +42,19 @@ const customComponents: any = {
       >
         {children}
       </a>
+    ),
+  },
+  types: {
+    image: ({ value }: any) => (
+      <div>
+        <img
+          
+          src={urlFor(value?.asset).url()}
+          alt={value?.alt || "Image"}
+          width={value?.width ?? 20}
+          height={value?.height ?? 20}
+        />
+      </div>
     ),
   },
 };
