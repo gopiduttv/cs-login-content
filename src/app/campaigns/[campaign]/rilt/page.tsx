@@ -22,7 +22,7 @@ export default async function RightImageLeftText({
     ? await runQuery(getBannerByID(), { bannerID })
     : null;
   return (
-    <Section className="w-full h-screen overflow-hidden bg-gradient-to-r from-cyan-500 to-cyan-500 flex-col">
+    <Section bgColor={banner?.backgroundColorGradient} className={`w-full h-screen overflow-hidden`}>
       <Container className={` flex flex-col px-4 md:px-8 pt-4 md:pt-16 gap-3  ${banner?.isFullScreen ? "flex-1" : ""}`}>
           {campaign?.templateLogo?.url && (
             <CampaignHeader

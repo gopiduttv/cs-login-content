@@ -4,13 +4,16 @@ type Props = {
   style?: CSSProperties;
   children: ReactNode;
   id?: string | undefined;
+  bgColor?:string
 };
 
-export default function Section(props: Props) {
+export default function Section(props: Props) { debugger
+  console.log(props)
   return (
     <section
       id={props?.id}
-      className={`w-full flex justify-center ${props.className}`}
+      style={{backgroundColor:props?.bgColor}}
+      className={`w-full flex flex-col justify-center ${props.className}`}
     >
       {props.children}
     </section>
