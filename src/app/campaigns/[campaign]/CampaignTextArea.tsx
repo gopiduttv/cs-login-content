@@ -53,41 +53,41 @@ function CampaignTextArea({ campaign, className }: any) {
   console.log(campaign);
   return (
     <div
-    className={`${className} ${campaign?.themeMode == "lightMode" ? "text-black" : "text-white"}`}
+      className={`${className} ${campaign?.themeMode == "lightMode" ? "text-black" : "text-white"}`}
     >
-        {campaign?.templateLogo?.url && (
-          <CampaignHeader
-            logoUrl={campaign?.templateLogo?.url}
-            templateHeader={campaign?.templateText}
-            eventType={campaign?.templateEventType}
-            eventDate={campaign?.templateEventDate}
-          />
-        )}
-        <b>{campaign?.slug?.current}</b>
-        {campaign?.title && (
-          <PortableText value={campaign?.title} components={customComponents} />
-        )}
-        {campaign?.subTitle && (
-          <div className="flex text-left gap-10">
-            <PortableText
-              value={campaign?.subTitle}
-              components={customComponents}
-            />
-          </div>
-        )}
-        {campaign?.paragraph && (
+      {campaign?.templateLogo?.url && (
+        <CampaignHeader
+          logoUrl={campaign?.templateLogo?.url}
+          templateHeader={campaign?.templateText}
+          eventType={campaign?.templateEventType}
+          eventDate={campaign?.templateEventDate}
+        />
+      )}
+      <b>{campaign?.slug?.current}</b>
+      {campaign?.title && (
+        <PortableText value={campaign?.title} components={customComponents} />
+      )}
+      {campaign?.subTitle && (
+        <div className="flex text-left gap-10">
           <PortableText
-            value={campaign?.paragraph}
+            value={campaign?.subTitle}
             components={customComponents}
           />
-        )}
-        {campaign?.ctaBtnText && (
-          <CTAButton
-            ctaText={campaign?.ctaBtnText}
-            themeMode={campaign?.themeMode}
-          />
-        )}
-      </div>
+        </div>
+      )}
+      {campaign?.paragraph && (
+        <PortableText
+          value={campaign?.paragraph}
+          components={customComponents}
+        />
+      )}
+      {campaign?.ctaBtn?.ctaBtnText && (
+        <CTAButton
+          ctaText={campaign?.ctaBtn?.ctaBtnText}
+          themeMode={campaign?.themeMode}
+        />
+      )}
+    </div>
   );
 }
 

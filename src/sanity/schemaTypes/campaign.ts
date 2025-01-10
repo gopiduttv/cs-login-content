@@ -125,7 +125,7 @@ export const campaign = defineType({
       type: "date",
       group: "content",
     }),
-    
+
     defineField({
       name: "title",
       title: "Title",
@@ -144,18 +144,46 @@ export const campaign = defineType({
       type: "blockContent",
       group: "content",
     }),
+
+
     defineField({
-      name: "ctaBtnText",
-      title: "CTA Button Text",
-      type: "string",
+      name: "ctaBtn",
+      title: "Primary Button",
+      type: "object",
       group: "content",
+      fields: [
+        {
+          name: "ctaBtnText",
+          title: "CTA Button Text",
+          type: "string",
+        },
+        {
+          name: "ctaBtnLink",
+          title: "CTA Button Link",
+          type: "url",
+        },
+      ],
     }),
     defineField({
-      name: "ctaBtnLink",
-      title: "CTA Button Link",
-      type: "string",
+      name: "secondaryBtn",
+      title: "Secondary Button",
+      type: "object",
       group: "content",
+      fields: [
+        {
+          name: "secondaryBtnText",
+          title: "Secondary Button Text",
+          type: "string",
+        },
+        {
+          name: "secondaryBtnLink",
+          title: "CTA Button Link",
+          type: "url",
+        },
+      ],
     }),
+    
+
     defineField({
       name: "image",
       title: "Campaign Image",
@@ -192,14 +220,14 @@ export const campaign = defineType({
           },
         ],
       },
-      group: "template"
+      group: "template",
     }),
 
     defineField({
       name: "themeMode",
       title: "Layout Theme Mode",
       type: "string",
-      group:'template',
+      group: "template",
       validation: (Rule) => Rule.required(),
       options: {
         list: [
@@ -218,13 +246,13 @@ export const campaign = defineType({
       name: "sectionPadding",
       title: "Section Padding (in px)",
       type: "string",
-      group: "template"
+      group: "template",
     }),
     defineField({
       name: "containerPadding",
       title: "Container Padding (in px)",
       type: "string",
-      group: "template"
+      group: "template",
     }),
     defineField({
       name: "ctaBtnColor",
@@ -235,13 +263,13 @@ export const campaign = defineType({
       name: "ctaBtnTextColor",
       title: "CTA Text color (Hex)",
       type: "string",
-      group: "template"
+      group: "template",
     }),
     defineField({
       name: "backgroundColorGradient",
       title: "Background Color (CSS color)",
       type: "string",
-      group: "template"
+      group: "template",
     }),
   ],
   preview: {
