@@ -60,7 +60,6 @@ const customComponents: any = {
 };
 
 export default function Banner({ className, banner }: any) {
-  console.log("banner",banner)
   const getMonths = (date: string) => {
     const months = [
       "Jan",
@@ -90,15 +89,14 @@ export default function Banner({ className, banner }: any) {
   };
   return (
     <div
-      className="flex text-white"
+      className={`flex text-white ${banner?.isFullScreen ? "": "max-w-7xl m-auto rounded-lg"}`}
       style={{
         backgroundColor: banner?.backgroundColorGradient,
       }}
     >
       {banner?.isFullScreen ? 
       <div
-        className={`${banner?.isFullScreen ? "w-1/6 bg-slate-700 text-teal-400 font-semibold " : ""}`}
-      >
+        className="w-1/6 bg-slate-700 text-teal-400 font-semibold " >
         <div className="flex flex-col items-center h-full justify-center">
           <span className="text-lg md:text-xl ">
             {getMonths(banner?.eventStartingDate)}
@@ -120,7 +118,7 @@ export default function Banner({ className, banner }: any) {
           backgroundColor: banner?.backgroundColorGradient,
           padding: banner?.sectionPadding,
         }}
-        className={`text-white ${banner?.isFullScreen ? "flex-1" : "w-5/6 rounded-lg"}`}
+        className={`text-white ${banner?.isFullScreen ? "flex-1 w-5/6 " : "rounded-lg"}`}
       >
         <div
           className="container mx-auto"

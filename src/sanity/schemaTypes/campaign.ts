@@ -187,7 +187,7 @@ export const campaign = defineType({
             value: "rilt",
           },
           {
-            title: "Right Image Left Text",
+            title: "Left Image Right Text",
             value: "lirt",
           },
         ],
@@ -195,6 +195,25 @@ export const campaign = defineType({
       group: "template"
     }),
 
+    defineField({
+      name: "themeMode",
+      title: "Layout Theme Mode",
+      type: "string",
+      group:'template',
+      validation: (Rule) => Rule.required(),
+      options: {
+        list: [
+          {
+            title: "Dark Mode(white text)",
+            value: "darkMode",
+          },
+          {
+            title: "Light Mode(black text)",
+            value: "lightMode",
+          },
+        ],
+      },
+    }),
     defineField({
       name: "sectionPadding",
       title: "Section Padding (in px)",
