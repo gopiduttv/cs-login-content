@@ -15,6 +15,9 @@ export interface IBannerInterface {
 
 const customComponents: any = {
   block: {
+    h2: ({ children }: any) => (
+      <h2 className=" text-3xl  font-semibold pb-4">{children}</h2>
+    ),
     h3: ({ children }: any) => (
       <h3 className="text-2xl md:text-4xl font-bold">{children}</h3>
     ),
@@ -23,6 +26,10 @@ const customComponents: any = {
     ),
   },
   marks: {
+    textColor: ({children, value}:any) => <span style={{color: value.value}}>{children}</span>,
+    highlightColor: ({children, value}:any) => (
+      <span style={{background: value.value}}>{children}</span>
+    ),
     strong: ({ children }: any) => (
       <strong className="font-bold">{children}</strong>
     ),
@@ -39,18 +46,14 @@ const customComponents: any = {
   },
   types: {
     image: ({ value }: any) => (
-      <div className="my-6">
+      <div>
         <img
+          
           src={urlFor(value?.asset).url()}
           alt={value?.alt || "Image"}
           width={value?.width ?? 20}
           height={value?.height ?? 20}
         />
-        {value?.caption && (
-          <p className="text-center text-gray-400 text-sm mt-2">
-            {value.caption}
-          </p>
-        )}
       </div>
     ),
   },

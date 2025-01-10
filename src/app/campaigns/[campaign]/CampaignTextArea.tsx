@@ -8,6 +8,9 @@ const customComponents: any = {
     h1: ({ children }: any) => (
       <h1 className="text-white text-4xl  font-semibold pb-4">{children}</h1>
     ),
+    h2: ({ children }: any) => (
+      <h2 className=" text-3xl  font-semibold pb-4">{children}</h2>
+    ),
     h3: ({ children }: any) => (
       <h3 className="text-2xl text-yellow-600">{children}</h3>
     ),
@@ -16,6 +19,12 @@ const customComponents: any = {
     ),
   },
   marks: {
+    textColor: ({ children, value }: any) => (
+      <span style={{ color: value.value }}>{children}</span>
+    ),
+    highlightColor: ({ children, value }: any) => (
+      <span style={{ background: value.value }}>{children}</span>
+    ),
     strong: ({ children }: any) => (
       <strong className="font-bold text-[#42ba78]">{children}</strong>
     ),
@@ -32,18 +41,13 @@ const customComponents: any = {
   },
   types: {
     image: ({ value }: any) => (
-      <div className="my-6">
+      <div>
         <img
           src={urlFor(value).url()}
           width={value?.width ?? 20}
           height={value?.height ?? 20}
           alt={value?.alt || "Image"}
         />
-        {value?.caption && (
-          <p className="text-center text-gray-400 text-sm mt-2">
-            {value.caption}
-          </p>
-        )}
       </div>
     ),
   },
@@ -52,7 +56,13 @@ function CampaignTextArea({ campaign, className }: any) {
   return (
     <div className={className}>
       <PortableText value={campaign?.title} components={customComponents} />
-      <PortableText value={campaign?.subTitle} components={customComponents} />
+      <div className="flex text-left gap-10">
+        <PortableText
+          value={campaign?.subTitle}
+          components={customComponents}
+        />
+      </div>
+
       <PortableText value={campaign?.paragraph} components={customComponents} />
       <CTAButton
         className={"text-white font-medium text-center bg-[#2D353E]"}
