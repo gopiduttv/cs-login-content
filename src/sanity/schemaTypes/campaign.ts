@@ -213,7 +213,6 @@ export const campaign = defineType({
           },
         ],
       },
-      group: "template"
     }),
     defineField({
       name: "sectionPadding",

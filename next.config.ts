@@ -6,9 +6,9 @@ const nextConfig: NextConfig = {
     remotePatterns: [{ hostname: 'cdn.sanity.io' }],
     dangerouslyAllowSVG: true,
   },
-  experimental: {
-    reactCompiler: true,
-  },
+  // experimental: {
+  //   reactCompiler: true,
+  // },
 };
 
 export default nextConfig;
