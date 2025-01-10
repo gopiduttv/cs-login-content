@@ -7,8 +7,7 @@ type Props = {
   bgColor?:string
 };
 
-export default function Section(props: Props) { debugger
-  console.log(props)
+export default function Section(props: Props) {
   return (
     <section
       id={props?.id}
