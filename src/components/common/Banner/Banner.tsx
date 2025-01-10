@@ -39,7 +39,6 @@ const customComponents: any = {
 };
 
 export default function Banner({ className, banner }: any) {
-  console.log("banner",banner)
   const getMonths = (date: string) => {
     const months = [
       "Jan",
@@ -69,7 +68,7 @@ export default function Banner({ className, banner }: any) {
   };
   return (
     <div
-      className={`flex text-white ${banner?.isFullScreen ? "": " m-auto rounded-lg"}`}
+      className={`flex text-white ${banner?.isFullScreen ? "": "max-w-7xl m-auto rounded-lg"}`}
       style={{
         backgroundColor: banner?.backgroundColorGradient,
       }}
