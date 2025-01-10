@@ -12,7 +12,7 @@ export default function Section(props: Props) { debugger
   return (
     <section
       id={props?.id}
-      style={{backgroundColor:props?.bgColor}}
+      style={{background:props?.bgColor}}
       className={`w-full flex flex-col justify-center ${props.className}`}
     >
       {props.children}

@@ -2,6 +2,8 @@ import React from "react";
 import { PortableText } from "next-sanity";
 import { formatCustomDate, formatDateChange } from "@/utils/page";
 import Link from "next/link";
+import Image from "next/image";
+import locIcon from "../../../../public/Frame.svg";
 
 export interface IBannerInterface {
   className: string;
@@ -16,7 +18,7 @@ const customComponents: any = {
       <h3 className="text-2xl md:text-4xl font-bold">{children}</h3>
     ),
     normal: ({ children }: any) => (
-      <p className="pt-4 text-2xl leading-8">{children}</p>
+      <p className="pt-4 text-xl leading-8">{children}</p>
     ),
   },
   marks: {
@@ -37,6 +39,7 @@ const customComponents: any = {
 };
 
 export default function Banner({ className, banner }: any) {
+  console.log("banner",banner)
   const getMonths = (date: string) => {
     const months = [
       "Jan",
@@ -71,6 +74,7 @@ export default function Banner({ className, banner }: any) {
         backgroundColor: banner?.backgroundColorGradient,
       }}
     >
+      {banner?.isFullScreen ? 
       <div
         className={`${banner?.isFullScreen ? "w-1/6 bg-slate-700 text-teal-400 font-semibold " : ""}`}
       >
@@ -87,6 +91,9 @@ export default function Banner({ className, banner }: any) {
           </span>
         </div>
       </div>
+      :
+      ''
+      }
       <div
         style={{
           backgroundColor: banner?.backgroundColorGradient,
@@ -105,13 +112,15 @@ export default function Banner({ className, banner }: any) {
                   <span
                     key={i}
                     style={{ backgroundColor: item?.badgeColor }}
-                    className={`text-base md:text-lg font-semibold mr-2 rounded-sm px-2 py-1`}
+                    className={`text-base font-semibold mr-2 rounded-sm px-2 py-1`}
                   >
                     {item?.badgeTitle}
                   </span>
                 ))}
-
-                <span>{banner?.eventLocation}</span>
+                <div className="flex">
+                  <Image src={locIcon} alt="location" width={20} height={20} />
+                  <span>{banner?.eventLocation}</span>
+                </div>
               </div>
               <PortableText
                 value={banner?.bannerHeading}
