@@ -23,7 +23,7 @@ export default async function RightImageLeftText({
     : null;
   return (
     <Section bgColor={campaign?.backgroundColorGradient} className={`w-full h-screen overflow-hidden`}>
-      <Container className={` flex flex-col px-4 md:px-8 pt-4 md:pt-16 gap-3  ${banner?.isFullScreen ? "flex-1" : ""}`}>
+      <Container className={` flex flex-col px-4 md:px-12 pt-4 md:pt-48 gap-3  ${banner?.isFullScreen ? "flex-1" : ""}`}>
           {campaign?.templateLogo?.url && (
             <CampaignHeader
               logoUrl={campaign?.templateLogo?.url}
@@ -35,7 +35,7 @@ export default async function RightImageLeftText({
         <div className="h-[50vh] flex items-center gap-3 pb-8">
           <CampaignTextArea
             campaign={campaign}
-            className="w-1/2 flex flex-col items-center"
+            className="w-1/2 flex flex-col"
           />
           <CampaignImageArea
             campaignImage={campaign}

@@ -96,7 +96,7 @@ export default function Banner({ className, banner }: any) {
     >
       {banner?.isFullScreen ? 
       <div
-        className="w-1/6 bg-slate-700 text-teal-400 font-semibold " >
+        className="w-1/6 bg-slate-700 text-teal-400 font-medium" >
         <div className="flex flex-col items-center h-full justify-center">
           <span className="text-lg md:text-xl ">
             {getMonths(banner?.eventStartingDate)}

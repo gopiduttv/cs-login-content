@@ -6,17 +6,13 @@ import React from "react";
 const customComponents: any = {
   block: {
     h1: ({ children }: any) => (
-      <h1 className="text-5xl font-semibold pb-4">{children}</h1>
+      <h1 className="text-5xl font-semibold pb-4 leading-tight">{children}</h1>
     ),
     h2: ({ children }: any) => (
       <h2 className=" text-3xl  font-semibold pb-4">{children}</h2>
     ),
-    h3: ({ children }: any) => (
-      <h3 className="text-2xl">{children}</h3>
-    ),
-    normal: ({ children }: any) => (
-      <p className="text-xl py-4">{children}</p>
-    ),
+    h3: ({ children }: any) => <h3 className="text-2xl">{children}</h3>,
+    normal: ({ children }: any) => <p className="text-xl py-4">{children}</p>,
   },
   marks: {
     textColor: ({ children, value }: any) => (
@@ -53,23 +49,32 @@ const customComponents: any = {
   },
 };
 function CampaignTextArea({ campaign, className }: any) {
-  console.log(campaign)
+  console.log(campaign);
   return (
-    <div className={`${className} ${campaign?.themeMode == "lightMode" ? "text-black" : "text-white"}`}>
-        <b>{campaign?.slug?.current}</b>
+    <div
+      className={`${className} ${campaign?.themeMode == "lightMode" ? "text-black" : "text-white"}`}
+    >
+      <b>{campaign?.slug?.current}</b>
+      {campaign?.title &&
       <PortableText value={campaign?.title} components={customComponents} />
+      }
+      {campaign?.subTitle &&
       <div className="flex text-left gap-10">
         <PortableText
           value={campaign?.subTitle}
           components={customComponents}
         />
       </div>
-    
+      }
+      {campaign?.paragraph &&
       <PortableText value={campaign?.paragraph} components={customComponents} />
+      }
+      {campaign?.ctaBtnText &&
       <CTAButton
         className={"text-white font-medium text-center bg-[#2D353E]"}
         ctaText={campaign?.ctaBtnText}
       />
+      }
     </div>
   );
 }
