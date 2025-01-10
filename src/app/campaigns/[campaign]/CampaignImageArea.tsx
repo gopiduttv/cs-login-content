@@ -2,17 +2,17 @@ import Image from "next/image";
 import React from "react";
 
 function CampaignImageArea({ campaignImage, className }: any) {
-  console.log(campaignImage,'campaignImage')
-
   return (
     <div className={className}>
+      {campaignImage?.image &&
       <Image
-        className="h-[350px]"
-        alt={campaignImage?.image.url}
+        className=""
+        alt={campaignImage?.image.url || 'campaign Image'}
         src={campaignImage?.campaignImage.url}
         width={500}
         height={500}
       />
+      }
     </div>
   );
 }

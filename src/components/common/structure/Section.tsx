@@ -4,13 +4,15 @@ type Props = {
   style?: CSSProperties;
   children: ReactNode;
   id?: string | undefined;
+  bgColor?:string
 };
 
 export default function Section(props: Props) {
   return (
     <section
       id={props?.id}
-      className={`w-full flex justify-center px-4 md:px-8 ${props.className}`}
+      style={{background:props?.bgColor}}
+      className={`w-full flex flex-col justify-center ${props.className}`}
     >
       {props.children}
     </section>

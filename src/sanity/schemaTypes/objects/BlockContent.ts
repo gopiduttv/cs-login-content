@@ -1,4 +1,4 @@
-import { defineArrayMember, defineType } from 'sanity'
+import { defineArrayMember, defineType } from 'sanity';
 
 export const blockContent = defineType({
   title: 'Block Content',
@@ -23,6 +23,7 @@ export const blockContent = defineType({
           { title: 'Emphasis', value: 'em' },
         ],
         annotations: [
+          { type: 'textColor' },
           {
             title: 'URL',
             name: 'link',
@@ -33,10 +34,45 @@ export const blockContent = defineType({
                 name: 'href',
                 type: 'url',
               },
+              {
+                name: 'backgroundColor',
+                title: 'Background color',
+                type: 'simplerColor',
+              },
             ],
           },
         ],
       },
     }),
+    defineArrayMember({
+      title: 'Image',
+      type: 'image',
+      options: {
+        hotspot: true, // Enables image cropping
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative Text',
+        },
+        {
+          name: 'width',
+          type: 'number',
+          title: 'Image Width',
+        },
+        {
+          name: 'height',
+          type: 'number',
+          title: 'Image Height',
+        },
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          options: { isHighlighted: true }, // Highlights the field in the image editor
+        },
+      ],
+    }),
   ],
-})
+});
