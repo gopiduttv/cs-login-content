@@ -4,7 +4,7 @@ import React from "react";
 function CampaignImageArea({ campaignImage, className }: any) {
   return (
     <div className={className}>
-      {campaignImage?.image?.url &&
+      {campaignImage?.image &&
       <Image
         className=""
         alt={campaignImage?.image.url || 'campaign Image'}

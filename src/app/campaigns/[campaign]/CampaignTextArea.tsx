@@ -1,3 +1,4 @@
+import CampaignHeader from "@/app/components/CampaignHeader";
 import CTAButton from "@/components/common/CTAButton";
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "next-sanity";
@@ -52,33 +53,41 @@ function CampaignTextArea({ campaign, className }: any) {
   console.log(campaign);
   return (
     <div
-      className={`${className} ${campaign?.themeMode == "lightMode" ? "text-black" : "text-white"}`}
+    className={`${className} ${campaign?.themeMode == "lightMode" ? "text-black" : "text-white"}`}
     >
-      <b>{campaign?.slug?.current}</b>
-      {campaign?.title && (
-        <PortableText value={campaign?.title} components={customComponents} />
-      )}
-      {campaign?.subTitle && (
-        <div className="flex text-left gap-10">
+        {campaign?.templateLogo?.url && (
+          <CampaignHeader
+            logoUrl={campaign?.templateLogo?.url}
+            templateHeader={campaign?.templateText}
+            eventType={campaign?.templateEventType}
+            eventDate={campaign?.templateEventDate}
+          />
+        )}
+        <b>{campaign?.slug?.current}</b>
+        {campaign?.title && (
+          <PortableText value={campaign?.title} components={customComponents} />
+        )}
+        {campaign?.subTitle && (
+          <div className="flex text-left gap-10">
+            <PortableText
+              value={campaign?.subTitle}
+              components={customComponents}
+            />
+          </div>
+        )}
+        {campaign?.paragraph && (
           <PortableText
-            value={campaign?.subTitle}
+            value={campaign?.paragraph}
             components={customComponents}
           />
-        </div>
-      )}
-      {campaign?.paragraph && (
-        <PortableText
-          value={campaign?.paragraph}
-          components={customComponents}
-        />
-      )}
-      {campaign?.ctaBtnText && (
-        <CTAButton
-          ctaText={campaign?.ctaBtnText}
-          themeMode={campaign?.themeMode}
-        />
-      )}
-    </div>
+        )}
+        {campaign?.ctaBtnText && (
+          <CTAButton
+            ctaText={campaign?.ctaBtnText}
+            themeMode={campaign?.themeMode}
+          />
+        )}
+      </div>
   );
 }
 
