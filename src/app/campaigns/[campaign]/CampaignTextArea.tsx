@@ -54,7 +54,6 @@ function CampaignTextArea({ campaign, className }: any) {
     <div
       className={`${className} ${campaign?.themeMode == "lightMode" ? "text-black" : "text-white"}`}
     >
-      <b>{campaign?.slug?.current}</b>
       <PortableText value={campaign?.title} components={customComponents} />
       <div className="flex text-left gap-10">
         <PortableText
