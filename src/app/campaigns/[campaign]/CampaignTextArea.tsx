@@ -72,9 +72,9 @@ function CampaignTextArea({ campaign, className }: any) {
           components={customComponents}
         />
       )}
-      {campaign?.ctaBtnText && (
+      {campaign?.ctaBtn?.ctaBtnText && (
         <CTAButton
-          ctaText={campaign?.ctaBtnText}
+          ctaText={campaign?.ctaBtn?.ctaBtnText}
           themeMode={campaign?.themeMode}
         />
       )}
