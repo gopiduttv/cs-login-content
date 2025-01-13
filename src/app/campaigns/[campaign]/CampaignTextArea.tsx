@@ -8,13 +8,13 @@ import React from "react";
 const customComponents: any = {
   block: {
     h1: ({ children }: any) => (
-      <h1 className="text-5xl font-extrabold pt-4 leading-tight">{children}</h1>
+      <h1 className="xl:text-3xl  font-extrabold py-4 leading-tight">{children}</h1>
     ),
     h2: ({ children }: any) => (
       <h2 className=" text-3xl  font-semibold py-4">{children}</h2>
     ),
     h3: ({ children }: any) => <h3 className="text-2xl">{children}</h3>,
-    normal: ({ children }: any) => <p className="text-xl py-8">{children}</p>,
+    normal: ({ children }: any) => <p className="xl:text-lg pb-2 pt-1 text-[#000000B2]">{children}</p>,
   },
   marks: {
     textColor: ({ children, value }: any) => (

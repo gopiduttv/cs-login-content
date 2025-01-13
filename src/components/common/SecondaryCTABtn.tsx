@@ -28,7 +28,7 @@ export default function SecondaryCTABtn({
   return (
     <div>
       <button
-        className={`font-semibold text-center flex justify-center border border-slate-900 items-center gap-5 w-[162px] h-14 rounded-lg ${
+        className={`font-semibold text-center flex justify-center border border-slate-900 items-center gap-5 w-[162px] h-10 rounded-lg ${
           themeMode !== "darkMode"
             ? "text-black bg-white"
             : "text-white bg-black"

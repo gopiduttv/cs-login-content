@@ -22,13 +22,15 @@ const customComponents: any = {
       <h3 className="text-2xl md:text-4xl font-bold">{children}</h3>
     ),
     normal: ({ children }: any) => (
-      <p className="pt-4 text-xl leading-8">{children}</p>
+      <p className="pt-4 text-[16px] text-[#FFFFFFBF] font-normal">{children}</p>
     ),
   },
   marks: {
-    textColor: ({children, value}:any) => <span style={{color: value.value}}>{children}</span>,
-    highlightColor: ({children, value}:any) => (
-      <span style={{background: value.value}}>{children}</span>
+    textColor: ({ children, value }: any) => (
+      <span style={{ color: value.value }}>{children}</span>
+    ),
+    highlightColor: ({ children, value }: any) => (
+      <span style={{ background: value.value }}>{children}</span>
     ),
     strong: ({ children }: any) => (
       <strong className="font-bold">{children}</strong>
@@ -48,7 +50,6 @@ const customComponents: any = {
     image: ({ value }: any) => (
       <div>
         <img
-          
           src={urlFor(value?.asset).url()}
           alt={value?.alt || "Image"}
           width={value?.width ?? 20}
@@ -89,30 +90,29 @@ export default function Banner({ className, banner }: any) {
   };
   return (
     <div
-      className={`flex text-white ${banner?.isFullScreen ? "": "max-w-7xl m-auto rounded-lg"}`}
+      className={`flex text-white h-52 bottom-0 w-full ${banner?.isFullScreen ? "" : "max-w-7xl m-auto rounded-lg"}`}
       style={{
         backgroundColor: banner?.backgroundColorGradient,
       }}
     >
-      {banner?.isFullScreen ? 
-      <div
-        className="w-1/6 bg-slate-700 text-teal-400 font-medium" >
-        <div className="flex flex-col items-center h-full justify-center">
-          <span className="text-lg md:text-xl ">
-            {getMonths(banner?.eventStartingDate)}
-          </span>
-          <span className="text-4xl">
-            {getDate(banner?.eventStartingDate)} -{" "}
-            {getDate(banner?.eventEndingDate)}
-          </span>
-          <span className="text-lg md:text-xl text-white">
-            {new Date(banner?.eventStartingDate).getFullYear()}
-          </span>
+      {banner?.isFullScreen ? (
+        <div className="w-1/6 bg-slate-700 text-teal-400 font-medium">
+          <div className="flex flex-col items-center h-full justify-center w-52">
+            <span className="xl:font-medium text-lg">
+              {getMonths(banner?.eventStartingDate)}
+            </span> 
+            <span className="text-4xl font-medium">
+              {getDate(banner?.eventStartingDate)} -{" "}
+              {getDate(banner?.eventEndingDate)}
+            </span>
+            <span className="text-lg md:text-xl font-medium text-white">
+              {new Date(banner?.eventStartingDate).getFullYear()}
+            </span>
+          </div>
         </div>
-      </div>
-      :
-      ''
-      }
+      ) : (
+        ""
+      )}
       <div
         style={{
           backgroundColor: banner?.backgroundColorGradient,
@@ -131,14 +131,14 @@ export default function Banner({ className, banner }: any) {
                   <span
                     key={i}
                     style={{ backgroundColor: item?.badgeColor }}
-                    className={`text-base font-semibold mr-2 rounded-sm px-2 py-1`}
+                    className={` text-xs font-semibold p-2 text-center h-7 w-44  rounded-sm`}
                   >
                     {item?.badgeTitle}
                   </span>
                 ))}
-                <div className="flex">
+                <div className="flex gap-2">
                   <Image src={locIcon} alt="location" width={20} height={20} />
-                  <span>{banner?.eventLocation}</span>
+                  <span className="text-lg font-medium">{banner?.eventLocation}</span>
                 </div>
               </div>
               <PortableText
@@ -157,7 +157,7 @@ export default function Banner({ className, banner }: any) {
                   backgroundColor: banner?.ctaBtnColor,
                   color: banner?.ctaBtnTextColor,
                 }}
-                className={` font-bold text-lg py-2 px-4 rounded`}
+                className={` font-bold text-lg h-11 w-40 rounded`}
               >
                 {" "}
                 {banner?.ctaBtnTextForEvent}

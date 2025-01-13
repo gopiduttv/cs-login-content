@@ -19,8 +19,10 @@ export default async function LeftImageRightText({
   const campaign = await runQuery(getCampaignByID(), { campaignID });
   const banner = bannerID ? await runQuery(getBannerByID(), { bannerID }) : null;
   return (
-    <Section bgColor={campaign?.backgroundColorGradient} className={`w-full h-screen overflow-hidden`}>
-      <Container className={` flex flex-col px-4 md:px-8 pt-4 md:pt-16 gap-3  ${banner?.isFullScreen ? "flex-1" : ""}`}>
+    <Section bgColor={campaign?.backgroundColorGradient}
+    //  className={`w-full h-screen`}
+     >
+      <Container className={` flex flex-col px-4 md:px-8 pt-4 md:py-8 gap-3  ${banner?.isFullScreen ? "flex-1" : ""}`}>
         <div className="flex items-center gap-3 pb-8">
           <CampaignImageArea campaignImage={campaign} className="w-1/2"/>
           <CampaignTextArea  campaign={campaign} className="w-1/2"/>

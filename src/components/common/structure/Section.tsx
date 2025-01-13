@@ -12,7 +12,7 @@ export default function Section(props: Props) {
     <section
       id={props?.id}
       style={{background:props?.bgColor}}
-      className={`w-full flex flex-col justify-center ${props.className}`}
+      className={`w-full flex flex-col h-screen justify-center ${props.className}`}
     >
       {props.children}
     </section>

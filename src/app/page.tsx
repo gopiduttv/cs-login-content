@@ -4,7 +4,6 @@ export default async function Home({}) {
   const posts = await client.fetch('*[_type == "post"]')
   return (
     <div className="h-full w-full text-black">
-        Main
     </div>
   );
 }
