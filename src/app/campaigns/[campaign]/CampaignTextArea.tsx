@@ -8,7 +8,7 @@ import React from "react";
 const customComponents: any = {
   block: {
     h1: ({ children }: any) => (
-      <h1 className="xl:text-3xl  font-extrabold py-4 leading-tight">{children}</h1>
+      <h1 className="text-3xl xl:text-5xl  font-extrabold py-4 !leading-tight">{children}</h1>
     ),
     h2: ({ children }: any) => (
       <h2 className=" text-3xl  font-semibold py-4">{children}</h2>
@@ -51,6 +51,7 @@ const customComponents: any = {
   },
 };
 function CampaignTextArea({ campaign, className }: any) {
+  console.log("cc",campaign)
   return (
     <div
       className={`${className} ${campaign?.themeMode == "lightMode" ? "text-black" : "text-white"}`}
@@ -64,10 +65,10 @@ function CampaignTextArea({ campaign, className }: any) {
         />
       )}
       {campaign?.title && (
-        <PortableText value={campaign?.title} components={customComponents} />
+        <PortableText value={campaign?.title} components={customComponents} />  
       )}
       {campaign?.subTitle && (
-        <div className="flex text-left items-center gap-10">
+        <div className={`${campaign?.subTitle[0]?._type == "image" ? "text-left":""} flex items-center gap-10`}>
           <PortableText
             value={campaign?.subTitle}
             components={customComponents}
