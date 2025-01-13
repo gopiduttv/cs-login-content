@@ -82,19 +82,20 @@ function CampaignTextArea({ campaign, className }: any) {
         />
       )}
       <div className="flex gap-6">
-      {campaign?.ctaBtn?.ctaBtnText && (
-        <CTAButton
-          ctaText={campaign?.ctaBtn?.ctaBtnText}
-          themeMode={campaign?.themeMode}
-        />
-      )}
-      {campaign?.secondaryBtn?.secondaryBtnText && (
-        <SecondaryCTABtn
-          ctaText={campaign?.secondaryBtn?.secondaryBtnText}
-          themeMode={campaign?.themeMode}
-          isSecondaryBtn={true}
-        />
-      )}
+        {campaign?.ctaBtn?.ctaBtnText && (
+          <CTAButton
+            ctaText={campaign?.ctaBtn?.ctaBtnText}
+            themeMode={campaign?.themeMode}
+          />
+        )}
+        {campaign?.secondaryBtn?.secondaryBtnText && (
+          <SecondaryCTABtn
+            ctaText={campaign?.secondaryBtn?.secondaryBtnText}
+            themeMode={campaign?.themeMode}
+            isSecondaryBtn={true}
+            videoDetails={campaign?.secondaryBtn?.videoDetails}
+          />
+        )}
       </div>
     </div>
   );
