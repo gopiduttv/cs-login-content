@@ -21,7 +21,7 @@ export default function CampaignHeader({
           <Image src={logoUrl} width={300} height={300} alt={"sampleText"} />
       )}
       {(templateHeader || eventType || eventDate) && (
-        <div className="flex items-center gap-3 text-sm">
+        <div className="flex items-center gap-3 text-sm uppercase">
           <h2 className="text-green-700 font-semibold">{templateHeader}</h2>
           {eventType && (
             <button className="bg-zinc-300 font-medium text-slate-900 p-2 rounded-lg">
@@ -30,7 +30,7 @@ export default function CampaignHeader({
           )}
           {eventDate && (
             <button className="text-white bg-zinc-400	 font-medium p-2 rounded-lg">
-              {formatShortDateChange(eventDate)}
+              {formatDateChange(eventDate)}
             </button>
           )}
         </div>
