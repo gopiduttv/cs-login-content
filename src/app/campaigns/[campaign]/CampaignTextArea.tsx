@@ -1,5 +1,6 @@
 import CampaignHeader from "@/app/components/CampaignHeader";
 import CTAButton from "@/components/common/CTAButton";
+import SecondaryCTABtn from "@/components/common/SecondaryCTABtn";
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "next-sanity";
 import React from "react";
@@ -80,12 +81,21 @@ function CampaignTextArea({ campaign, className }: any) {
           components={customComponents}
         />
       )}
+      <div className="flex gap-6">
       {campaign?.ctaBtn?.ctaBtnText && (
         <CTAButton
           ctaText={campaign?.ctaBtn?.ctaBtnText}
           themeMode={campaign?.themeMode}
         />
       )}
+      {campaign?.secondaryBtn?.secondaryBtnText && (
+        <SecondaryCTABtn
+          ctaText={campaign?.secondaryBtn?.secondaryBtnText}
+          themeMode={campaign?.themeMode}
+          isSecondaryBtn={true}
+        />
+      )}
+      </div>
     </div>
   );
 }
