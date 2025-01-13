@@ -33,7 +33,7 @@ export default function CampaignHeader({
           )}
           {eventDate && (
             <button className="text-white bg-zinc-400	 xl:w-36 font-medium p-2 rounded-lg">
-              {formatShortDateChange(eventDate)}
+              {formatDateChange(eventDate)}
             </button>
           )}
         </div>
