@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        sans: ['Manrope', 'sans-serif'], // Add Manrope as the default sans font
+      },
     },
   },
   plugins: [],

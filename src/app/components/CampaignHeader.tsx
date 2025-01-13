@@ -1,3 +1,4 @@
+import { formatDateChange, formatShortDateChange } from "@/utils/page";
 import Image from "next/image";
 import React from "react";
 
@@ -15,21 +16,21 @@ export default function CampaignHeader({
   eventDate,
 }: ICampaignHeader) {
   return (
-    <div className="flex gap-4 flex-col">
+    <div className="flex gap-8 flex-col">
       {logoUrl && (
           <Image src={logoUrl} width={300} height={300} alt={"sampleText"} />
       )}
       {(templateHeader || eventType || eventDate) && (
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 text-sm">
           <h2 className="text-green-700 font-semibold">{templateHeader}</h2>
           {eventType && (
-            <button className="bg-white font-medium text-slate-900 p-1 rounded-sm">
+            <button className="bg-zinc-300 font-medium text-slate-900 p-2 rounded-lg">
               {eventType}
             </button>
           )}
           {eventDate && (
-            <button className="text-white bg-gray-500 font-medium p-1 rounded-sm">
-              {eventDate}
+            <button className="text-white bg-zinc-400	 font-medium p-2 rounded-lg">
+              {formatShortDateChange(eventDate)}
             </button>
           )}
         </div>

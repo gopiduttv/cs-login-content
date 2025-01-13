@@ -7,7 +7,7 @@ import React from "react";
 const customComponents: any = {
   block: {
     h1: ({ children }: any) => (
-      <h1 className="text-5xl font-semibold pb-4 leading-tight">{children}</h1>
+      <h1 className="text-5xl font-semibold py-4 leading-tight">{children}</h1>
     ),
     h2: ({ children }: any) => (
       <h2 className=" text-3xl  font-semibold pb-4">{children}</h2>
