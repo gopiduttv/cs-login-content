@@ -18,7 +18,7 @@ export default function CampaignHeader({
   return (
     <div className="flex gap-8 flex-col">
       {logoUrl && (
-          <Image src={logoUrl} width={300} height={300} alt={"sampleText"} />
+          <Image src={logoUrl} width={300} height={300} alt={"sampleText"} style={{width: "100%"}} />
       )}
       {(templateHeader || eventType || eventDate) && (
         <div className="flex items-center gap-3 text-sm uppercase">
