@@ -38,7 +38,7 @@ async function getEligibleAdjacencyCampaignsIds(customer: any, campaigns: any) {
     )
   ).reduce((a, b) => a.concat(b));
 
-  console.log(eligibleCampaigns.map((campaign: any) => campaign.name));
+  console.log("eligible",eligibleCampaigns.map((campaign: any) => campaign.name));
   return eligibleCampaigns;
 }
 
