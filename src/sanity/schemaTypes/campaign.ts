@@ -176,13 +176,29 @@ export const campaign = defineType({
           type: "string",
         },
         {
-          name: "secondaryBtnLink",
-          title: "CTA Button Link",
-          type: "url",
+          type: "object",
+          name: "videoDetails",
+          title: "Video Details",
+          fields: [
+            {
+              name: "videoPlatform",
+              title: "Video Platform",
+              type: "string",
+            },
+            {
+              name: "videoId",
+              title: "Video Id",
+              type: "string",
+            },
+            {
+              name: "videotitle",
+              title: "Video Title",
+              type: "string",
+            },
+          ],
         },
       ],
     }),
-    
 
     defineField({
       name: "image",
