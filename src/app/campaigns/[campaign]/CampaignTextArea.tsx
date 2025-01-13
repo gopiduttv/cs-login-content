@@ -63,12 +63,11 @@ function CampaignTextArea({ campaign, className }: any) {
           eventDate={campaign?.templateEventDate}
         />
       )}
-      <b>{campaign?.slug?.current}</b>
       {campaign?.title && (
         <PortableText value={campaign?.title} components={customComponents} />
       )}
       {campaign?.subTitle && (
-        <div className="flex text-left gap-10">
+        <div className="flex text-left items-center gap-10">
           <PortableText
             value={campaign?.subTitle}
             components={customComponents}
