@@ -22,10 +22,10 @@ export default async function LeftImageRightText({
     <Section bgColor={campaign?.backgroundColorGradient}
     //  className={`w-full h-screen`}
      >
-      <Container className={` flex flex-col px-4 md:px-8 pt-4 md:py-8 gap-3  `}>
+      <Container className={` flex flex-col px-4 md:px-12 pt-4 md:py-8 gap-3  `}>
         <div className="flex items-center gap-4 lg:gap-24 pb-8">
-          <CampaignImageArea campaignImage={campaign} className="max-w-500"/>
-          <CampaignTextArea  campaign={campaign} className="w-1/2"/>
+          <CampaignImageArea campaignImage={campaign} className="min-w-[500px]"/>
+          <CampaignTextArea  campaign={campaign} className=""/>
         </div>
       </Container>
         {bannerID && <Banner className="h-[30vh]" banner={banner} /> }
