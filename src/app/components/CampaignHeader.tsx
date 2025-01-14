@@ -42,7 +42,7 @@ export default function CampaignHeader({
           )}
           {eventType && (
             <button
-              className="font-medium xl:w-32 xl:h-8 p-2 rounded-lg uppercase"
+              className="font-medium px-2.5 py-1.5 rounded uppercase"
               style={{ backgroundColor: "#FFFFFF29" }}
             >
               {eventType}
@@ -50,7 +50,7 @@ export default function CampaignHeader({
           )}
           {eventDate && (
             <button
-              className="text-white font-medium p-2 rounded-lg uppercase"
+              className="text-white font-medium px-2.5 py-1.5 rounded uppercase"
               style={{ backgroundColor: "#FFFFFF66" }}
             >
               {formatDateChange(eventDate)} {eventTime? " | " : ""} {eventTime} {eventTimezone}
