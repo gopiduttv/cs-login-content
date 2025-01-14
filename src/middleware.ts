@@ -7,6 +7,7 @@ import {
   getCampaignIdsByAdjacency,
   getCampaignLayoutByID,
 } from "./sanity/lib/queries";
+import { cookies } from "next/headers";
 
 /*
   From customer metadata get eligible campaigns based on adjacencies the customer is subscribed to.
@@ -24,7 +25,7 @@ async function getEligibleAdjacencyCampaignsIds(customer: any, campaigns: any) {
         const campaign = await runQuery(getCampaignIdsByAdjacency(), {
           adjacency: adjacency.adjacencyName,
           campaignIds: campaigns.map((campaign: any) => campaign._ref),
-          customerType
+          customerType,
         });
 
         return campaign.filter(
@@ -38,13 +39,42 @@ async function getEligibleAdjacencyCampaignsIds(customer: any, campaigns: any) {
     )
   ).reduce((a, b) => a.concat(b));
 
-  console.log("eligible",eligibleCampaigns.map((campaign: any) => campaign.name));
   return eligibleCampaigns;
 }
 
-const getCampaignFromPool = (campaigns: any[], selectMode: any = null) => {
-  return selectMode == "random"
-    ? campaigns[Math.floor(Math.random() * campaigns.length)]
+/* motive of below function is to generate a
+ unique banner based of each refresh based on available campaign*/
+
+async function getNextCampaign(params: any[]) {
+  const cookieStore = await cookies();
+  const currentCampaignValue = Number(
+    cookieStore.get("currentCampaign")?.value
+  );
+  if (isNaN(currentCampaignValue) || currentCampaignValue >= params.length) {
+    cookieStore.set("currentCampaign", "0");
+    return 0;
+  }
+
+  const nextCampaignOrder = currentCampaignValue + 1;
+  if (nextCampaignOrder >= params.length) {
+    cookieStore.set("currentCampaign", "0");
+    return 0;
+  }
+  cookieStore.set("currentCampaign", nextCampaignOrder.toString());
+  return nextCampaignOrder;
+}
+
+const getCampaignFromPool = async (
+  campaigns: any[],
+  selectMode: any = null
+) => {
+  const campaignIndex = await getNextCampaign(campaigns);
+  console.log(
+    campaigns?.length + "is the available number of Campaigns and",
+    campaignIndex + "is the position of running campaign"
+  );
+  return selectMode === "random"
+    ? campaigns[Number(campaignIndex)]
     : campaigns[0];
 };
 
@@ -52,7 +82,9 @@ const getTotalCampaignPool = (
   poolOne: any,
   poolTwo: any,
   combiningMode: any
-) => (combiningMode == "override" ? poolTwo : poolOne.concat(poolTwo));
+) => {
+  return combiningMode === "override" ? poolTwo : poolOne.concat(poolTwo);
+};
 
 export async function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
@@ -80,20 +112,22 @@ export async function middleware(request: NextRequest) {
       viewportData.combiningMode
     );
 
-    const campaign = getCampaignFromPool(totalCampaignPool, "random");
+    const campaign = await getCampaignFromPool(totalCampaignPool, "random");
 
-    const campaignLayout = (await runQuery(getCampaignLayoutByID(), { campaignID: campaign._id }))?.selectedLayout
+    const campaignLayout = (
+      await runQuery(getCampaignLayoutByID(), { campaignID: campaign._id })
+    )?.selectedLayout;
 
     url.pathname = `/campaigns/${campaign._id}/${campaignLayout}`;
 
     if (viewportData.showBanner) {
-      url.searchParams.set("banner", viewportData.selectedBanner[0]._ref)
-    } 
-    
+      url.searchParams.set("banner", viewportData.selectedBanner[0]._ref);
+    }
+
     console.log("[ Middleware " + url.pathname + " ]");
     return NextResponse.rewrite(url);
   } catch (error) {
-    console.log(error);
+    console.error("Error in middleware:", error);
     return NextResponse.error();
   }
 }
