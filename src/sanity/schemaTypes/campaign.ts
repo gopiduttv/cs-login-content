@@ -125,7 +125,20 @@ export const campaign = defineType({
       type: "date",
       group: "content",
     }),
-
+    defineField({
+      name: 'eventTime',
+      title: 'Event Time',
+      type: 'string',
+      description: 'Start time and end time of the event',
+      group: "content",
+    }),
+    defineField({
+      name: 'eventTimeZone',
+      title: 'Event Time Zone',
+      type: 'string',
+      description: 'Time zone for the event (e.g., ET for Eastern Time)',
+      group: "content",
+    }),
     defineField({
       name: "title",
       title: "Title",

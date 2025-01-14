@@ -13,7 +13,8 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        sans: ['Manrope', 'sans-serif'], // Add Manrope as the default sans font
+        sans: ['Inter', 'sans-serif'],
+        manrope: ['Manrope', 'sans-serif'] // Add Manrope as the default sans font
       },
     },
   },

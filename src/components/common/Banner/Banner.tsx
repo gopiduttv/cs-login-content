@@ -19,7 +19,7 @@ const customComponents: any = {
       <h2 className=" text-3xl  font-semibold pb-4">{children}</h2>
     ),
     h3: ({ children }: any) => (
-      <h3 className="text-2xl md:text-4xl font-bold">{children}</h3>
+      <h3 className="text-2xl md:text-3xl font-semibold">{children}</h3>
     ),
     normal: ({ children }: any) => (
       <p className="pt-4 text-[16px] text-[#FFFFFFBF] font-normal">{children}</p>
@@ -96,16 +96,16 @@ export default function Banner({ className, banner }: any) {
       }}
     >
       {banner?.isFullScreen ? (
-        <div className="w-1/6 bg-slate-700 text-teal-400 font-medium">
+        <div className="w-1/6 bg-slate-800 text-teal-400 font-medium">
           <div className="flex flex-col items-center h-full justify-center w-52">
-            <span className="xl:font-medium text-lg">
+            <span className="md:font-medium text-base md:text-lg">
               {getMonths(banner?.eventStartingDate)}
             </span> 
             <span className="text-4xl font-medium">
-              {getDate(banner?.eventStartingDate)} -{" "}
+              {getDate(banner?.eventStartingDate)}-
               {getDate(banner?.eventEndingDate)}
             </span>
-            <span className="text-lg md:text-xl font-medium text-white">
+            <span className="text-base md:text-lg font-medium text-white">
               {new Date(banner?.eventStartingDate).getFullYear()}
             </span>
           </div>
@@ -131,7 +131,7 @@ export default function Banner({ className, banner }: any) {
                   <span
                     key={i}
                     style={{ backgroundColor: item?.badgeColor }}
-                    className={` text-xs font-semibold p-2 text-center h-7 w-44  rounded-sm`}
+                    className={`text-xs font-semibold p-2 text-center uppercase rounded text-[#CBD5E1]`}
                   >
                     {item?.badgeTitle}
                   </span>
