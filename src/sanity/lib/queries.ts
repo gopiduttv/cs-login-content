@@ -45,6 +45,17 @@ const getCampaignByID = () => {
             }
           }
         },
+        "backgroundImage": backgroundImage.asset->{
+          _id,
+          url,
+          metadata {
+            dimensions {
+              width,
+              height,
+              aspectRatio
+            }
+          }
+        },
   }[0]`;
 };
 

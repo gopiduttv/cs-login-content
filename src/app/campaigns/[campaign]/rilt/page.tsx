@@ -36,8 +36,9 @@ export default async function RightImageLeftText({
   const banner = bannerID
     ? await runQuery(getBannerByID(), { bannerID })
     : null;
+    console.log("hjd",campaign)
   return (
-    <Section bgColor={campaign?.backgroundColorGradient}
+    <Section bgColor={campaign?.backgroundColorGradient} bgImage={campaign?.backgroundImage?.url}
     //  className={`w-full h-screen`}
      >
       <Container className={` flex flex-col px-4 md:px-12 pt-4 md:py-8  gap-3  ${banner?.isFullScreen ? "flex-1" : ""}`}>
