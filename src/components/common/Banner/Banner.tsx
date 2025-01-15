@@ -126,7 +126,7 @@ export default function Banner({ className, banner }: any) {
         >
           <div className="flex justify-between items-center">
             <div>
-              <div className="flex gap-2 items-center mb-4 border-b-[0.5px] border-b-slate-100">
+              <div className="flex gap-2 items-center mb-4 pb-4 border-b-[0.5px] border-b-slate-700">
                 {banner?.eventLocationBadges?.map((item: any, i: number) => (
                   <span
                     key={i}
