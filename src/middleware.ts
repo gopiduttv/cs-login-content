@@ -49,19 +49,28 @@ async function getEligibleAdjacencyCampaignsIds(customer: any, campaigns: any) {
 async function getNextCampaign(params: any[]) {
   const cookieStore = await cookies();
   const currentCampaignValue = Number(
-    cookieStore.get("6+o+y%y|oH~0P:.")?.value
+    cookieStore.get("_CsL_kv")?.value
   );
   if (isNaN(currentCampaignValue) || currentCampaignValue >= params.length) {
-    cookieStore.set("6+o+y%y|oH~0P:.", "0");
+    cookieStore.set("_CsL_kv", "0",{
+      sameSite:"none",        // cookie is update for iframe,  we can use samesite
+      secure: true,
+    });
     return 0;
   }
 
   const nextCampaignOrder = currentCampaignValue + 1;
   if (nextCampaignOrder >= params.length) {
-    cookieStore.set("6+o+y%y|oH~0P:.", "0");
+    cookieStore.set("_CsL_kv", "0",{
+      sameSite:"none",
+      secure: true,
+    });
     return 0;
   }
-  cookieStore.set("6+o+y%y|oH~0P:.", nextCampaignOrder.toString());
+  cookieStore.set("_CsL_kv", nextCampaignOrder.toString(),{
+    sameSite:"none",
+    secure: true,
+  });
   return nextCampaignOrder;
 }
 
