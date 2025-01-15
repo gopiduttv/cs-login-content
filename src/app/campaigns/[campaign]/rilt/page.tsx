@@ -33,7 +33,7 @@ export default async function RightImageLeftText({
           />
           <CampaignImageArea
             campaignImage={campaign}
-            className="flex flex-col items-center min-w-[500px]"
+            className="flex flex-col items-center min-w-[500px] hidden lg:block"
           />
         </div>
       </Container>

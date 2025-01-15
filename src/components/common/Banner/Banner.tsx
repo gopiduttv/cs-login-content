@@ -90,7 +90,7 @@ export default function Banner({ className, banner }: any) {
   };
   return (
     <div
-      className={`flex text-white h-52 bottom-0 w-full ${banner?.isFullScreen ? "" : "max-w-7xl m-auto rounded-lg"}`}
+      className={`flex text-white bottom-0 w-full ${banner?.isFullScreen ? "" : "max-w-7xl m-auto rounded-lg"}`}
       style={{
         backgroundColor: banner?.backgroundColorGradient,
       }}
@@ -126,7 +126,7 @@ export default function Banner({ className, banner }: any) {
         >
           <div className="flex justify-between items-center">
             <div>
-              <div className="flex gap-2 items-center mb-4">
+              <div className="flex gap-2 items-center mb-4 border-b-[0.5px] border-b-slate-100">
                 {banner?.eventLocationBadges?.map((item: any, i: number) => (
                   <span
                     key={i}
