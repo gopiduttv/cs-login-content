@@ -28,7 +28,7 @@ export default async function CenterText({
       <Container
         className={`flex flex-col justify-center max-w-5xl px-4  md:px-8  pt-4 md:pb-8 gap-3 ${banner?.isFullScreen ? "flex-1" : ""}`}
       >
-        <div className="text-center gap-3 pb-8 w-full">
+        <div className="text-center gap-3 pb-8 w-full max-w-[950px] m-auto">
           <CampaignTextArea campaign={campaign} className="w-full justify-items-center" />
         </div>
       </Container>
