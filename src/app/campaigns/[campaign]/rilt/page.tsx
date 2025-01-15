@@ -26,14 +26,14 @@ export default async function RightImageLeftText({
     //  className={`w-full h-screen`}
      >
       <Container className={` flex flex-col px-4 md:px-12 pt-4 md:py-8  gap-3  ${banner?.isFullScreen ? "flex-1" : ""}`}>
-        <div className="flex-grow flex items-center gap-3">
+        <div className="flex-grow flex items-center gap-4 lg:gap-24">
           <CampaignTextArea
             campaign={campaign}
-            className="w-1/2 flex flex-col"
+            className="flex flex-col"
           />
           <CampaignImageArea
             campaignImage={campaign}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center min-w-[500px]"
           />
         </div>
       </Container>

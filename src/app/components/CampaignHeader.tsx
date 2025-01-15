@@ -22,13 +22,6 @@ export default function CampaignHeader({
   return (
     <div className="flex gap-8 flex-col">
       {logoUrl && (
-        // <Image
-        //   src={logoUrl}
-        //   width={300}
-        //   height={300}
-        //   alt={"sampleText"}
-        //   className=""
-        // />
         <div className="max-h-16">
           <img src={logoUrl} alt={"sampleText"} className="max-h-full"/>
         </div>
@@ -50,7 +43,7 @@ export default function CampaignHeader({
           )}
           {eventDate && (
             <button
-              className="text-white font-medium px-2.5 py-1.5 rounded uppercase"
+              className="font-medium px-2.5 py-1.5 rounded uppercase"
               style={{ backgroundColor: "#FFFFFF66" }}
             >
               {formatDateChange(eventDate)} {eventTime? " | " : ""} {eventTime} {eventTimezone}
