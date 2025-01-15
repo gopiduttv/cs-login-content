@@ -16,6 +16,10 @@ const getCampaignIdsByAdjacency = () => {
   return groq`*[_type == "campaign" && campaignType == "adjacencyOriented" && adjacencyName == $adjacency && _id in $campaignIds && customerType == $customerType ]`;
 };
 
+const getAllCampaignsByLayout = () => {
+  return groq`*[_type == "campaign" && selectedLayout == $layout]`;
+};
+
 const getCampaignByID = () => {
   return groq`*[_type == "campaign" &&  _id == $campaignID]{
     ...,
@@ -60,4 +64,5 @@ export {
   getCampaignByID,
   getBannerByID,
   getCampaignLayoutByID,
+  getAllCampaignsByLayout
 };
