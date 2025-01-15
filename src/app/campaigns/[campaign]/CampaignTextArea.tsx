@@ -51,7 +51,6 @@ const customComponents: any = {
   },
 };
 function CampaignTextArea({ campaign, className }: any) {
-  console.log("cc",campaign)
   return (
     <div
       className={`${className} ${campaign?.themeMode == "lightMode" ? "text-black" : "text-white"}`}

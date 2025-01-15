@@ -6,6 +6,7 @@ import {
   getViewPortByRegion,
   getCampaignIdsByAdjacency,
   getCampaignLayoutByID,
+  getViewPortByProductRegion,
 } from "./sanity/lib/queries";
 import { cookies } from "next/headers";
 
@@ -89,13 +90,19 @@ const getTotalCampaignPool = (
 export async function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   try {
-    const { searchParams } = request.nextUrl;
+    const { searchParams, pathname } = request.nextUrl;
 
+    const splitPath = pathname.trim().split('/')
+  
+    const country = splitPath[splitPath.length - 1] ?? "us"
+    const product = splitPath[splitPath.length - 2] 
+
+    
     const customer = searchParams.get("domain");
-    const country = searchParams.get("country") ?? "us";
+    // const country = searchParams.get("country") ?? "us";
 
-    const viewportData = await runQuery(getViewPortByRegion(), {
-      region: country,
+    const viewportData = await runQuery(getViewPortByProductRegion(), {
+      productRegion: [product,country].join("-"),
     });
 
     const adjacencyOrientedCampaigns: any =
