@@ -8,12 +8,12 @@ export const Banner = defineType({
   icon: DocumentIcon,
   groups: [
     {
-      name: "content",
-      title: "Content",
-    },
-    {
       name: "template",
       title: "Template",
+    },
+    {
+      name: "content",
+      title: "Content",
     },
   ],
   fields: [
@@ -31,37 +31,25 @@ export const Banner = defineType({
     }),
     defineField({
       name: "eventStartingDate",
-      title: "Event Starting Date",
+      title: "Starting Date",
       type: "date",
       group: "content",
     }),
     defineField({
       name: "eventEndingDate",
-      title: "Event Ending Date",
+      title: "Ending Date",
       type: "date",
       group: "content",
     }),
     defineField({
-      name: "ctaBtnTextForEvent",
-      title: "CTA Button Text for Event",
-      type: "string",
-      group: "content",
-    }),
-    defineField({
-      name: "ctaBtnTextLink",
-      title: "CTA Button Text Link",
-      type: "string",
-      group: "content",
-    }),
-    defineField({
       name: "eventDescription",
-      title: "Event Description",
+      title: "Description",
       type: "blockContent",
       group: "content",
     }),
     defineField({
       name: "eventLocation",
-      title: "Event Location",
+      title: "Location",
       type: "string",
       group: "content",
     }),
@@ -89,39 +77,23 @@ export const Banner = defineType({
       ],
     }),
     defineField({
-      name: "sectionPadding",
-      title: "Section Padding (in px)",
+      name: "ctaBtnTextForEvent",
+      title: "CTA Button Text",
       type: "string",
-      group: "template",
+      group: "content",
     }),
     defineField({
-      name: "containerPadding",
-      title: "Container Padding (in px)",
+      name: "ctaBtnTextLink",
+      title: "CTA Button Url",
       type: "string",
-      group: "template",
+      group: "content",
     }),
-    defineField({
-      name: "ctaBtnColor",
-      title: "CTA Button color (Hex)",
-      type: "string",
-      group: "template",
-    }),
-    defineField({
-      name: "ctaBtnTextColor",
-      title: "CTA Text color (Hex)",
-      type: "string",
-      group: "template",
-    }),
+
+    //gradient we provide schema with limited color access
     defineField({
       name: "backgroundColorGradient",
       title: "Background Color (CSS color)",
       type: "string",
-      group: "template",
-    }),
-    defineField({
-      name: "backgroundImage",
-      title: "Background Image",
-      type: "image",
       group: "template",
     }),
   ],

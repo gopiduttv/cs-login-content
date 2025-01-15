@@ -10,21 +10,26 @@ export const campaign = defineType({
     {
       name: "basic",
       title: "Basic",
-    },
-    {
-      name: "content",
-      title: "Content",
+      default: true
     },
     {
       name: "template",
       title: "Template",
     },
+    {
+      name: "content",
+      title: "Content",
+    },
   ],
   fieldsets: [
-    {name: 'pillElement', title: 'Pill Element', options:{
-      collapsible:true,
-      collapsed:true
-    } }
+    {
+      name: "pillElement",
+      title: "Pill Element",
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
   ],
   fields: [
     defineField({
@@ -124,30 +129,30 @@ export const campaign = defineType({
       title: "Pill Text",
       type: "string",
       group: "content",
-      fieldset:"pillElement"
+      fieldset: "pillElement",
     }),
     defineField({
       name: "templateEventDate",
       title: "Pill Date",
       type: "date",
       group: "content",
-       fieldset:"pillElement"
+      fieldset: "pillElement",
     }),
     defineField({
-      name: 'eventTime',
-      title: 'Pill Time',
-      type: 'string',
-      description: 'Start time and end time of the event',
+      name: "eventTime",
+      title: "Pill Time",
+      type: "string",
+      description: "Start time and end time of the event",
       group: "content",
-      fieldset:"pillElement"
+      fieldset: "pillElement",
     }),
     defineField({
-      name: 'eventTimeZone',
-      title: 'Event Time Zone',
-      type: 'string',
-      description: 'Time zone for the event (e.g., ET for Eastern Time)',
+      name: "eventTimeZone",
+      title: "Event Time Zone",
+      type: "string",
+      description: "Time zone for the event (e.g., ET for Eastern Time)",
       group: "content",
-      fieldset:"pillElement"
+      fieldset: "pillElement",
     }),
     defineField({
       name: "title",
@@ -168,16 +173,14 @@ export const campaign = defineType({
       group: "content",
     }),
 
-
-
     defineField({
       name: "ctaBtn",
       title: "Primary Button",
       type: "object",
       group: "content",
-      options:{
-        collapsed:true,
-        collapsible:true
+      options: {
+        collapsed: true,
+        collapsible: true,
       },
       fields: [
         {
@@ -197,10 +200,6 @@ export const campaign = defineType({
       title: "Secondary Button",
       type: "object",
       group: "content",
-      options:{
-        collapsed:true,
-        collapsible:true
-      },
       fields: [
         {
           name: "secondaryBtnText",
@@ -291,26 +290,9 @@ export const campaign = defineType({
       },
     }),
     defineField({
-      name: "sectionPadding",
-      title: "Section Padding (in px)",
-      type: "string",
-      group: "template",
-    }),
-    defineField({
-      name: "containerPadding",
-      title: "Container Padding (in px)",
-      type: "string",
-      group: "template",
-    }),
-    defineField({
-      name: "ctaBtnColor",
-      title: "CTA Button color (Hex)",
-      type: "string",
-    }),
-    defineField({
-      name: "ctaBtnTextColor",
-      title: "CTA Text color (Hex)",
-      type: "string",
+      name: "backgroundImage",
+      title: "Background Image",
+      type: "image",
       group: "template",
     }),
     defineField({
