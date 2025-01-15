@@ -20,14 +20,14 @@ export default function CampaignHeader({
   eventTimezone
 }: ICampaignHeader) {
   return (
-    <div className="flex gap-8 flex-col">
+    <>
       {logoUrl && (
         <div className="max-h-16">
           <img src={logoUrl} alt={"sampleText"} className="max-h-full"/>
         </div>
       )}
       {(templateHeader || eventType || eventDate) && (
-        <div className="flex items-center gap-6 text-sm">
+        <div className="flex items-center gap-6 text-sm mt-6">
           {templateHeader && (
             <h2 className="text-green-700 font-semibold uppercase">
               {templateHeader}
@@ -51,6 +51,6 @@ export default function CampaignHeader({
           )}
         </div>
       )}
-    </div>
+    </>
   );
 }
