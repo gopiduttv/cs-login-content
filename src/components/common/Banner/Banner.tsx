@@ -118,7 +118,7 @@ export default function Banner({ className, banner }: any) {
           backgroundColor: banner?.backgroundColorGradient,
           padding: banner?.sectionPadding,
         }}
-        className={`text-white ${banner?.isFullScreen ? "flex-1 w-5/6 " : "rounded-lg"}`}
+        className={`text-white px-12 py-8 ${banner?.isFullScreen ? "flex-1 w-5/6 " : "rounded-lg"}`}
       >
         <div
           className="container mx-auto"
@@ -126,7 +126,7 @@ export default function Banner({ className, banner }: any) {
         >
           <div className="flex justify-between items-center">
             <div>
-              <div className="flex gap-2 items-center mb-4 pb-4 border-b-[0.5px] border-b-slate-700">
+              <div className="flex gap-2 items-center mb-4 pb-3 border-b-[0.5px] border-b-slate-700">
                 {banner?.eventLocationBadges?.map((item: any, i: number) => (
                   <span
                     key={i}
