@@ -24,7 +24,8 @@
     "sanity": "^3.64.2",
     "sanity-plugin-media": "^2.3.2",
     "sanity-plugin-simpler-color-input": "^3.0.0",
-    "styled-components": "6"
+    "styled-components": "6",
+    "swiper": "^11.2.1"
   },
   "devDependencies": {
     "@types/node": "^20",

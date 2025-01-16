@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'swiper/css';
 
 :root {
   --background: #ffffff;
@@ -18,4 +19,28 @@ body {
   color: var(--foreground);
   background: var(--background);
   /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: var(--swiper-pagination-bottom, 8px);
+  top: var(--swiper-pagination-top, auto);
+  left: unset;
+  width: 100%;
+  top: 0 !important;
+
+  right: 0 !important;
+  height: 20px;
+  display: flex;
+  justify-content: flex-end !important;
+}
+
+.swiper-wrapper {
+  padding-top: 20px;
+}
+
+.swiper-pagination-bullet-active {
+  width: 29px !important;
+  border-radius: 11px !important;
+  background-color: rgb(23, 23, 24) !important;
 }
