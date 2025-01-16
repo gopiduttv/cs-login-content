@@ -1,5 +1,6 @@
 'use client'
 import { media } from 'sanity-plugin-media'
+import { SetAndPublishAction } from './actions'
 
 /**
  * This configuration is used to for the Sanity Studio that’s mounted on the `/app/studio/[[...tool]]/page.tsx` route
@@ -63,4 +64,12 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
   ],
+  document: {
+    actions: (prev) =>
+      prev.map((originalAction) =>
+        originalAction.action === 'publish'
+          ? SetAndPublishAction
+          : originalAction,
+      ),
+  },
 })

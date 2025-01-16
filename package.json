@@ -16,6 +16,7 @@
     "@sanity/structure": "^2.36.2",
     "@sanity/vision": "^3.64.3",
     "csv-parser": "^3.1.0",
+    "lodash": "^4.17.21",
     "next": "15.0.3",
     "next-sanity": "9",
     "react": "18",
