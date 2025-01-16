@@ -8,34 +8,15 @@ import {
   getCampaignByID,
 } from "@/sanity/lib/queries";
 import React from "react";
-import CampaignTextArea from "../CampaignTextArea";
-
-// Next.js will invalidate the cache when a
-// request comes in, at most once every 15 mins.
-export let revalidate = 15 * 60
- 
-// We'll prerender only the params from `generateStaticParams` at build time.
-// If a request comes in for a path that hasn't been generated,
-// Next.js will server-render the page on-demand.
-export const dynamicParams = true // or false, to 404 on unknown paths
-
-export async function generateStaticParams() {
-  const campaigns = await runQuery(getAllCampaignsByLayout(), { layout: "ct" });
-
-  return campaigns.map((campaign: any) => ({
-    campaign: campaign._id, // Ensure IDs are strings
-  }));
-}
+import CampaignTextArea from "../../components/CampaignTextArea";
 
 export default async function CenterText({
-  params,
-  searchParams,
+  campaignID,
+  bannerID,
 }: {
-  params: any;
-  searchParams: any;
+  campaignID: any;
+  bannerID: any;
 }) {
-  const { campaign: campaignID } = await params;
-  const { banner: bannerID } = await searchParams;
   const campaign = await runQuery(getCampaignByID(), { campaignID });
   const banner = bannerID
     ? await runQuery(getBannerByID(), { bannerID })
