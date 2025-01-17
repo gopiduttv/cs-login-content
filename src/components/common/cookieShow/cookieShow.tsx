@@ -1,12 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { PortableText } from "next-sanity";
-import { formatCustomDate, formatDateChange } from "@/utils/page";
-import Link from "next/link";
-import Image from "next/image";
-import locIcon from "../../../../public/Frame.svg";
-import { urlFor } from "@/sanity/lib/image";
-import CTAButton from "../CTAButton";
-import SecondaryCTABtn from "../SecondaryCTABtn";
+import {CloseIcon} from '@sanity/icons'
+
 import CookieCTAButton from "../cookieCTABtn";
 
 export interface IBannerInterface {
@@ -19,7 +14,7 @@ export interface IBannerInterface {
 const customComponents: any = {
   block: {
     normal: ({ children }: any) => (
-      <p className="pt-4 text-[16px] text-[#FFFFFFBF] font-normal">
+      <p className="pt-4 text-[16px] text-white font-normal">
         {children}
       </p>
     ),
@@ -42,7 +37,14 @@ const customComponents: any = {
 };
 
 export default function CookieShow({ cookie, campaign }: any) {
+    console.log("hjg",cookie);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+    const toggleDrawer = () => {
+      setIsDrawerOpen(!isDrawerOpen);
+    };
   return (
+    <>
     <div
       className={`flex text-white bottom-0 w-full`}
       style={{
@@ -53,7 +55,7 @@ export default function CookieShow({ cookie, campaign }: any) {
         style={{
           backgroundColor: cookie?.backgroundColorGradient,
         }}
-        className={`text-white px-12 py-8 max-w-7xl m-auto`}
+        className={`flex text-white px-12 py-8 max-w-7xl m-auto`}
       >
         <PortableText value={cookie?.Content} />
         <div className="flex gap-6 mt-6">
@@ -67,10 +69,26 @@ export default function CookieShow({ cookie, campaign }: any) {
             <CookieCTAButton
               ctaText={cookie?.secondaryCtaBtn?.secondaryBtnText}
               cookieMode={false}
+              toggleDrawer={toggleDrawer}
             />
           )}
         </div>
       </div>
     </div>
+    <div
+        style={{background: cookie?.backgroundColorGradient,  height: "calc(100% - 150px)" }}
+        className={`fixed bottom-0 left-0 right-0 shadow-lg transition-transform duration-300 ease-in-out ${
+          isDrawerOpen ? "translate-y-0" : "translate-y-full"
+        } z-10`}
+      >
+        <button
+          onClick={toggleDrawer}
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+        >
+         <CloseIcon/>
+        </button>
+          <PortableText value={cookie?.cookiesDetail}/>
+      </div>
+    </>
   );
 }

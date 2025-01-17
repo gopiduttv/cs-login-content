@@ -1,16 +1,24 @@
-import React from "react";
+import { PortableText } from "next-sanity";
+import React, { useState } from "react";
 
 export interface CtaBtnProps {
   ctaText: string;
   cookieMode: boolean;
+  toggleDrawer?: any;
 }
 
-export default function CookieCTAButton({ ctaText, cookieMode }: CtaBtnProps) {
+export default function CookieCTAButton({ ctaText, cookieMode, toggleDrawer }: CtaBtnProps) {
+
   return (
-    <button
-      className={`font-semibold text-center py-3 px-8 rounded-lg  ${cookieMode ? "text-white bg-[#1e8fa3]" : "text-white bg-transparent !border-[#1e8fa3]"}`}
-    >
-      {ctaText}
-    </button>
+    <>
+      <button
+        className={`font-semibold md:text-sm text-center py-2 px-4 rounded-lg  ${cookieMode ? "text-white bg-[#1e8fa3]" : "text-white bg-transparent border-[#1e8fa3]"}`}
+        onClick={toggleDrawer}
+      >
+        {ctaText}
+      </button>
+     
+    
+    </>
   );
 }

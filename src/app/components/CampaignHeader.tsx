@@ -22,7 +22,7 @@ export default function CampaignHeader({
   return (
     <>
       {logoUrl && (
-        <div className="max-h-16">
+        <div className="">
           <img src={logoUrl} alt={"sampleText"} className="max-h-full"/>
         </div>
       )}

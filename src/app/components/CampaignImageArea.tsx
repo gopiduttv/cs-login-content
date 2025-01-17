@@ -24,7 +24,6 @@ function CampaignImageArea({
     <div className={className}>
       {campaignImage?.campaignImage && !isCarousal && (
         <Image
-          className="max-w-[500px]"
           alt={
             campaignImage?.campaignImage?.metadata?.altText || "campaign Image"
           }

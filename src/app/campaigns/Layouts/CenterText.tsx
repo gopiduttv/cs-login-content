@@ -32,7 +32,7 @@ export default function CenterText({
           />
         </div>
       </Container>
-      {banner && <Banner className="h-[30vh]" banner={banner} />}
+      {banner && <Banner className="" banner={banner} />}
     </Section>
   );
 }
