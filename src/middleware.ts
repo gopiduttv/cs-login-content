@@ -13,9 +13,8 @@ export async function middleware(request: NextRequest) {
 
     const customer = searchParams.get("domain");
 
-    url.pathname = `${product}-${country}/`;
-    if (customer)
-      url.searchParams.set("domain", customer);
+    if (product && country && customer)
+      url.pathname = `${product}-${country}/${customer}`;
 
     console.log("[ Middleware " + url.pathname + " ]");
     return NextResponse.rewrite(url);

@@ -1,29 +1,19 @@
 import Banner from "@/components/common/Banner/Banner";
 import Container from "@/components/common/structure/Container";
 import Section from "@/components/common/structure/Section";
-import { runQuery } from "@/sanity/lib/client";
-import {
-  getAllCampaignsByLayout,
-  getBannerByID,
-  getCampaignByID,
-  getCookiesData,
-} from "@/sanity/lib/queries";
 import React from "react";
 import CampaignTextArea from "../../components/CampaignTextArea";
 import CookieShow from "@/components/common/cookieShow/cookieShow";
 
-export default async function CenterText({
-  campaignID,
-  bannerID,
+export default function CenterText({
+  campaign,
+  cookies,
+  banner = null,
 }: {
-  campaignID: any;
-  bannerID: any;
+  campaign: any;
+  cookies: any;
+  banner: any;
 }) {
-  const campaign = await runQuery(getCampaignByID(), { campaignID });
-  const banner = bannerID
-    ? await runQuery(getBannerByID(), { bannerID })
-    : null;
-    const cookies = await runQuery(getCookiesData());
   return (
     <Section
       bgColor={campaign?.backgroundColorGradient}
@@ -42,7 +32,7 @@ export default async function CenterText({
           />
         </div>
       </Container>
-      {bannerID && <Banner className="" banner={banner} />}
+      {banner && <Banner className="" banner={banner} />}
     </Section>
   );
 }
