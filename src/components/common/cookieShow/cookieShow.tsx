@@ -7,6 +7,7 @@ import locIcon from "../../../../public/Frame.svg";
 import { urlFor } from "@/sanity/lib/image";
 import CTAButton from "../CTAButton";
 import SecondaryCTABtn from "../SecondaryCTABtn";
+import CookieCTAButton from "../cookieCTABtn";
 
 export interface IBannerInterface {
   className: string;
@@ -57,17 +58,15 @@ export default function CookieShow({ cookie, campaign }: any) {
         <PortableText value={cookie?.Content} />
         <div className="flex gap-6 mt-6">
           {cookie?.ctaBtn?.ctaBtnText && (
-            <CTAButton
+            <CookieCTAButton
               ctaText={cookie?.ctaBtn?.ctaBtnText}
               cookieMode={true}
-              themeMode={""}
             />
           )}
           {cookie?.secondaryCtaBtn?.secondaryBtnText && (
-            <CTAButton
+            <CookieCTAButton
               ctaText={cookie?.secondaryCtaBtn?.secondaryBtnText}
               cookieMode={false}
-              themeMode={""}
             />
           )}
         </div>

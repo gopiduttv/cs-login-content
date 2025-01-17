@@ -123,16 +123,14 @@ function CampaignTextArea({ campaign, className }: any) {
         {campaign?.ctaBtn?.ctaBtnText && (
           <CTAButton
             ctaText={campaign?.ctaBtn?.ctaBtnText}
-            themeMode={campaign?.themeMode}
-          />
+            themeMode={campaign?.themeMode} />
         )}
         {campaign?.secondaryBtn?.secondaryBtnText && (
           <SecondaryCTABtn
             ctaText={campaign?.secondaryBtn?.secondaryBtnText}
             themeMode={campaign?.themeMode}
             isSecondaryBtn={true}
-            videoDetails={campaign?.secondaryBtn?.videoDetails}
-          />
+            videoDetails={campaign?.secondaryBtn?.videoDetails}/>
         )}
       </div>
     </div>

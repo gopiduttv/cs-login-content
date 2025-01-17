@@ -41,7 +41,7 @@ export default async function RightImageLeftText({
           />
         </div>
       </Container>
-      {bannerID && <Banner className="h-[30vh]" banner={banner} />}
+      {bannerID && <Banner className="" banner={banner} />}
     </Section>
   );
 }
