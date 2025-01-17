@@ -13,7 +13,12 @@ export default function Section(props: Props) {
     <section
       id={props?.id}
       style={{
-        background: `${props?.bgColor} , url(${props?.bgImage}) no-repeat center/cover`,
+        background: `
+          ${props?.bgImage ? `url(${props.bgImage})` : ''} 
+          ${props?.bgImage && props?.bgColor ? ',' : ''} 
+          ${props?.bgColor || ''} 
+          no-repeat center/cover
+        `.trim(),
       }}
       className={`w-full flex flex-col h-screen justify-center relative ${props.className}`}
     >

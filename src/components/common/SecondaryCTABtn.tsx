@@ -14,7 +14,6 @@ export interface CtaBtnProps {
   themeMode: string;
   isSecondaryBtn: boolean;
   videoDetails:VideoModal ;
-  cookieMode: boolean;
 }
 
 export default function SecondaryCTABtn({
@@ -22,7 +21,6 @@ export default function SecondaryCTABtn({
   themeMode,
   isSecondaryBtn = true,
   videoDetails,
-  cookieMode
 }: CtaBtnProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [openForm, setOpenForm] = useState(false);
@@ -34,7 +32,7 @@ export default function SecondaryCTABtn({
           themeMode !== "darkMode"
             ? "text-black border-black"
             : "text-white border-white"
-        } ${cookieMode && "text-white bg-transparent !border-[#1e8fa3]"}`}
+        } `}
         onClick={(e: React.SyntheticEvent) => setIsOpen(!isOpen)}
       >
         {isSecondaryBtn && (
