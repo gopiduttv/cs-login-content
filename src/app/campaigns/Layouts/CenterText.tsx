@@ -42,7 +42,7 @@ export default async function CenterText({
           />
         </div>
       </Container>
-      {bannerID && <Banner className="h-[30vh]" banner={banner} />}
+      {bannerID && <Banner className="" banner={banner} />}
     </Section>
   );
 }

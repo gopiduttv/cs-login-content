@@ -40,7 +40,7 @@ export default async function LeftImageRightText({
           <CampaignTextArea campaign={campaign} className="" />
         </div>
       </Container>
-      {bannerID && <Banner className="h-[30vh]" banner={banner} />}
+      {bannerID && <Banner className="" banner={banner} />}
     </Section>
   );
 }

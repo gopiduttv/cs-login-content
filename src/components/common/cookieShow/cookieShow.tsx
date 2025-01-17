@@ -42,6 +42,7 @@ const customComponents: any = {
 };
 
 export default function CookieShow({ cookie, campaign }: any) {
+    // console.log("hjg",cookie);
   return (
     <div
       className={`flex text-white bottom-0 w-full`}
@@ -61,6 +62,7 @@ export default function CookieShow({ cookie, campaign }: any) {
             <CookieCTAButton
               ctaText={cookie?.ctaBtn?.ctaBtnText}
               cookieMode={true}
+            //   cookieContent={cookie?.}
             />
           )}
           {cookie?.secondaryCtaBtn?.secondaryBtnText && (

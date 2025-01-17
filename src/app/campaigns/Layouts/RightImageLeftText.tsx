@@ -31,7 +31,7 @@ export default async function RightImageLeftText({
         className={` flex flex-col px-4 md:px-12 pt-4 md:py-8  gap-3  ${banner?.isFullScreen ? "flex-1" : ""}`}
       >
         <div className="flex-grow flex items-center gap-4 lg:gap-24">
-          <CampaignTextArea campaign={campaign} className="flex flex-col" />
+          <CampaignTextArea campaign={campaign} className="flex flex-col max-w-3xl" />
           <CampaignImageArea
             campaignImage={campaign}
             className="items-center max-w-[500px] lg:w-[30%]  w-100% hidden lg:block"

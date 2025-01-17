@@ -25,6 +25,19 @@ export const blockContent = defineType({
         annotations: [
           { type: 'textColor' },
           {
+            title: 'Highlight',
+            name: 'highlight',
+            type: 'object',
+            fields: [
+              {
+                title: 'Text Color',
+                name: 'textColor',
+                type: 'string',
+                description: 'Specify a text color (e.g., #ff0000, red, rgb(255,0,0))',
+              }
+            ],
+          },
+          {
             title: 'URL',
             name: 'link',
             type: 'object',
