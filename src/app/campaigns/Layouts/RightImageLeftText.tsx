@@ -35,6 +35,9 @@ export default async function RightImageLeftText({
           <CampaignImageArea
             campaignImage={campaign}
             className="items-center min-w-[500px] hidden lg:block"
+            isCarousal={
+              campaign?.campaignCarousalImage?.length >= 1 ? true : false
+            }
           />
         </div>
       </Container>

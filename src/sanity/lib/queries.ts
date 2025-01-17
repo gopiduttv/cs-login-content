@@ -61,6 +61,21 @@ const getCampaignByID = () => {
             }
           }
         },
+    campaignCarousalImage[]{
+    speakerName,
+      speakerDesignation,
+   'image':speakerImage.asset->{
+          _id,
+          url,
+          metadata {
+            dimensions {
+              width,
+              height,
+              aspectRatio
+            }
+          }
+        },
+  }
   }[0]`;
 };
 

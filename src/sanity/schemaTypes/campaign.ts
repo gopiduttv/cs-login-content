@@ -10,7 +10,7 @@ export const campaign = defineType({
     {
       name: "basic",
       title: "Basic",
-      default: true
+      default: true,
     },
     {
       name: "template",
@@ -236,6 +236,34 @@ export const campaign = defineType({
       title: "Campaign Image",
       type: "image",
       group: "content",
+    }),
+    defineField({
+      name: "campaignCarousalImage",
+      title: "Campaign Image For Carousel",
+      type: "array",
+      group: "content",
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              name: "speakerImage",
+              title: "Speaker Image",
+              type: "image",
+            },
+            {
+              name: "speakerName",
+              title: "Speaker Name",
+              type: "string",
+            },
+            {
+              name: "speakerDesignation",
+              title: "Speaker Designation",
+              type: "string",
+            },
+          ],
+        },
+      ],
     }),
 
     defineField({
