@@ -301,6 +301,12 @@ export const campaign = defineType({
       type: "string",
       group: "template",
     }),
+    defineField({
+      name: "isCookieShow",
+      title: "Cookie Notification show",
+      type: "boolean",
+      group: "template",
+    }),
   ],
   preview: {
     select: {

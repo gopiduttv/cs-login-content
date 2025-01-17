@@ -20,6 +20,11 @@ const getAllCampaignsByLayout = () => {
   return groq`*[_type == "campaign" && selectedLayout == $layout]`;
 };
 
+const getCookiesData = () => {
+  return groq`*[_type == "cookiePreference" ][0]`;
+};
+
+
 const getCampaignByID = () => {
   return groq`*[_type == "campaign" &&  _id == $campaignID]{
     ...,
@@ -75,5 +80,6 @@ export {
   getCampaignByID,
   getBannerByID,
   getCampaignLayoutByID,
-  getAllCampaignsByLayout
+  getAllCampaignsByLayout,
+  getCookiesData
 };

@@ -18,14 +18,14 @@ export const CookiePreference = defineType({
   ],
   fields: [
     defineField({
-      name: "isCookieShow",
-      title: "Cookie Notification show",
-      type: "boolean",
+      name: "content",
+      title: "Content",
+      type: "blockContent",
       group: "content",
     }),
     defineField({
-      name: "Content",
-      title: "Content",
+      name: "cookiesDetail",
+      title: "Cookie Settings",
       type: "blockContent",
       group: "content",
     }),
@@ -65,6 +65,12 @@ export const CookiePreference = defineType({
     }),
 
     //gradient we provide schema with limited color access
+    defineField({
+      name: "templateName",
+      title: "Template Name",
+      type: "string",
+      group: "template",
+    }),
     defineField({
       name: "backgroundColorGradient",
       title: "Background Color (CSS color)",

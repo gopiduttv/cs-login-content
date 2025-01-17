@@ -8,8 +8,8 @@ async function Campaign({
   campaignID,
   bannerID,
 }: {
-  campaignID: any;
-  bannerID: any;
+  campaignID: string;
+  bannerID: string;
 }) {
   const layout = (
     await runQuery(getCampaignLayoutByID(), { campaignID: campaignID })
