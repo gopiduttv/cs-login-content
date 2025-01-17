@@ -24,7 +24,7 @@ function CampaignImageArea({
     <div className={className}>
       {campaignImage?.campaignImage && !isCarousal && (
         <Image
-          className=""
+          className="max-w-[500px]"
           alt={
             campaignImage?.campaignImage?.metadata?.altText || "campaign Image"
           }
@@ -37,14 +37,14 @@ function CampaignImageArea({
       {isCarousal && campaignImage?.campaignCarousalImage?.length > 0 && (
         <Swiper
           navigation={true}
-          className="w-[500px]"
+          // className="w-[500px]"
           pagination={{
             clickable: true,
           }}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
+          // autoplay={{
+          //   delay: 2500,
+          //   disableOnInteraction: false,
+          // }}
           modules={[Pagination, Autoplay, Navigation]}
         >
           {campaignImage?.campaignCarousalImage?.map(
