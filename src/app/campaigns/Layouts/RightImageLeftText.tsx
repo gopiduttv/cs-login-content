@@ -19,8 +19,8 @@ export default async function RightImageLeftText({
   const banner = bannerID
     ? await runQuery(getBannerByID(), { bannerID })
     : null;
-    
-    const cookies = await runQuery(getCookiesData());
+
+  const cookies = await runQuery(getCookiesData());
 
   return (
     <Section bgColor={campaign?.backgroundColorGradient} bgImage={campaign?.backgroundImage?.url}>
@@ -34,7 +34,7 @@ export default async function RightImageLeftText({
           <CampaignTextArea campaign={campaign} className="flex flex-col" />
           <CampaignImageArea
             campaignImage={campaign}
-            className="items-center min-w-[500px] hidden lg:block"
+            className="items-center max-w-[500px] lg:w-[30%]  w-100% hidden lg:block"
             isCarousal={
               campaign?.campaignCarousalImage?.length >= 1 ? true : false
             }
