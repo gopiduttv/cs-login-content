@@ -1,26 +1,20 @@
 import Banner from "@/components/common/Banner/Banner";
 import Container from "@/components/common/structure/Container";
 import Section from "@/components/common/structure/Section";
-import { runQuery } from "@/sanity/lib/client";
-import { getBannerByID, getCampaignByID, getCookiesData } from "@/sanity/lib/queries";
 import React from "react";
 import CampaignTextArea from "../../components/CampaignTextArea";
 import CampaignImageArea from "../../components/CampaignImageArea";
 import CookieShow from "@/components/common/cookieShow/cookieShow";
 
-export default async function LeftImageRightText({
-  campaignID,
-  bannerID,
+export default function LeftImageRightText({
+  campaign,
+  cookies,
+  banner = null,
 }: {
-  campaignID: any;
-  bannerID: any;
+  campaign: any;
+  cookies: any;
+  banner: any;
 }) {
-  const campaign = await runQuery(getCampaignByID(), { campaignID });
-  const banner = bannerID
-    ? await runQuery(getBannerByID(), { bannerID })
-    : null;
-   const cookies = await runQuery(getCookiesData());
-   
   return (
     <Section
       bgColor={campaign?.backgroundColorGradient}
@@ -40,7 +34,7 @@ export default async function LeftImageRightText({
           <CampaignTextArea campaign={campaign} className="" />
         </div>
       </Container>
-      {bannerID && <Banner className="h-[30vh]" banner={banner} />}
+      {banner && <Banner className="h-[30vh]" banner={banner} />}
     </Section>
   );
 }
