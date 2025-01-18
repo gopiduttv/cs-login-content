@@ -275,6 +275,14 @@ export const campaign = defineType({
     }),
 
     defineField({
+      name: "colorSchema",
+      type: "reference",
+      title: "Color Schema",
+      to: [{ type: "color" }],
+      group: "content",
+    }),
+    
+    defineField({
       name: "selectedLayout",
       title: "Choose Campaign Layout",
       type: "string",

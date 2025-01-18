@@ -28,6 +28,7 @@ const getCookiesData = () => {
 const getCampaignByID = () => {
   return groq`*[_type == "campaign" &&  _id == $campaignID]{
     ...,
+  "colorSchema":colorSchema->,
   "campaignImage": image.asset->{
           _id,
           url,
