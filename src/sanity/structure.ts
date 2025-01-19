@@ -9,5 +9,5 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem("viewport").title("View Port"),
       S.documentTypeListItem("banner").title("Banner"),
       S.documentTypeListItem("cookiePreference").title("Cookie Preference"),
-      S.documentTypeListItem("backgroundLinearGradient").title("Background Linear Color Gradient")
+      S.documentTypeListItem("color").title("color")
     ]);
