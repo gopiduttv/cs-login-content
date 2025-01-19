@@ -14,7 +14,11 @@ function CampaignTextArea({ campaign, className }: any) {
         </p>
       ),
     },
-    marks: {},
+    marks: {
+      highlightColor: ({ children, value }: any) => (
+        <span style={{ background: value.value }}>{children}</span>
+      ),
+    },
   };
   const subTitleComponent: any = {
     block: {
@@ -24,7 +28,11 @@ function CampaignTextArea({ campaign, className }: any) {
         </p>
       ),
     },
-    marks: {},
+    marks: {
+      highlightColor: ({ children, value }: any) => (
+        <span style={{ background: value.value }}>{children}</span>
+      ),
+    },
   };
 
   const paragraphComponents: any = {
@@ -33,7 +41,11 @@ function CampaignTextArea({ campaign, className }: any) {
         <p style={{color:campaign?.colorSchema?.textColor}} className="xl:text-lg pb-2 pt-1">{children}</p>
       ),
     },
-    marks: {},
+    marks: {
+      highlightColor: ({ children, value }: any) => (
+        <span style={{ background: value.value }}>{children}</span>
+      ),
+    },
   };
 
   return (
