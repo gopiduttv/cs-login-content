@@ -9,7 +9,7 @@ function CampaignTextArea({ campaign, className }: any) {
   const titleComponent: any = {
     block: {
       normal: ({ children }: any) => (
-        <p style={{color:campaign?.colorSchema?.headingColor}} className="text-3xl md:text-5xl font-extrabold py-4 !leading-tight font-manrope">
+        <p style={{color:campaign?.colorSchema?.headingColor}} className="text-3xl lg:text-5xl font-extrabold py-4 !leading-tight font-manrope">
           {children}
         </p>
       ),
@@ -19,7 +19,7 @@ function CampaignTextArea({ campaign, className }: any) {
   const subTitleComponent: any = {
     block: {
       normal: ({ children }: any) => (
-        <p className="text-2xl md:text-3xl  font-semibold py-4 !leading-snug">
+        <p className="text-2xl lg:text-3xl  font-semibold py-4 !leading-snug">
           {children}
         </p>
       ),
