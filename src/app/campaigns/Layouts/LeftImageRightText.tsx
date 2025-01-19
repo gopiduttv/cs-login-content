@@ -29,9 +29,9 @@ export default function LeftImageRightText({
         <div className="flex items-center gap-4 lg:gap-24 pb-8">
           <CampaignImageArea
             campaignImage={campaign}
-            className="min-w-[500px]"
+            className=" max-w-[500px] hidden lg:block"
           />
-          <CampaignTextArea campaign={campaign} className="" />
+          <CampaignTextArea campaign={campaign} className="max-w-xl xl:max-w-3xl" />
         </div>
       </Container>
       {banner && <Banner className="" banner={banner} />}

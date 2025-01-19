@@ -157,7 +157,7 @@ export default function Banner({ className, banner }: any) {
                   backgroundColor: banner?.ctaBtnColor,
                   color: banner?.ctaBtnTextColor,
                 }}
-                className={` font-bold text-lg h-11 w-40 rounded`}
+                className={` font-bold text-lg h-11 w-40 rounded bg-white text-[#1E293B]`}
               >
                 {" "}
                 {banner?.ctaBtnTextForEvent}
