@@ -50,7 +50,7 @@ function CampaignImageArea({
             (e: any, index: number) => (
               <SwiperSlide key={index}>
                 <Image
-                  className=""
+                  className="max-h-[48vh] w-auto justify-self-end"
                   src={e?.image?.url}
                   alt={"campaign carousel image"}
                   width={500}

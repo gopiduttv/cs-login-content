@@ -29,7 +29,7 @@ export default function LeftImageRightText({
         <div className="flex items-center gap-4 lg:gap-24 pb-8">
           <CampaignImageArea
             campaignImage={campaign}
-            className="min-w-[500px]"
+            className="xl:min-w-[500px] min-w-[400px] "
           />
           <CampaignTextArea campaign={campaign} className="" />
         </div>
