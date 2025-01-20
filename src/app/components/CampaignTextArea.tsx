@@ -47,7 +47,7 @@ function CampaignTextArea({ campaign, className }: any) {
       ),
     },
   };
-
+console.log("co",campaign)
   return (
     <div
       className={`${className} ${campaign?.themeMode == "lightMode" ? "text-black" : "text-white"}`}
@@ -81,7 +81,7 @@ function CampaignTextArea({ campaign, className }: any) {
           components={paragraphComponents}
         />
       )}
-      <div className="flex gap-6 mt-6">
+      <div className="flex gap-6 mt-6 items-center	">
         {campaign?.ctaBtn?.ctaBtnText && (
           <CTAButton
             ctaText={campaign?.ctaBtn?.ctaBtnText}
@@ -94,6 +94,9 @@ function CampaignTextArea({ campaign, className }: any) {
             isSecondaryBtn={true}
             videoDetails={campaign?.secondaryBtn?.videoDetails}/>
         )}
+        {campaign?.Note && 
+        <PortableText value={campaign?.Note}/>
+        }
       </div>
     </div>
   );
