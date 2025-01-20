@@ -16,7 +16,9 @@ function CampaignTextArea({ campaign, className }: any) {
     },
     marks: {
       highlightColor: ({ children, value }: any) => (
-        <span style={{ background: value.value }}>{children}</span>
+        <span style={{ background: campaign?.colorSchema?.highlightColor }}>
+          {children}
+        </span>
       ),
     },
   };
@@ -47,7 +49,6 @@ function CampaignTextArea({ campaign, className }: any) {
       ),
     },
   };
-console.log("co",campaign)
   return (
     <div
       className={`${className} ${campaign?.themeMode == "lightMode" ? "text-black" : "text-white"}`}
