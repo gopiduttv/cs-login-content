@@ -230,6 +230,12 @@ export const campaign = defineType({
         },
       ],
     }),
+    defineField({
+      name: "Note",
+      title: "note",
+      type: "blockContent",
+      group: "content",
+    }),
 
     defineField({
       name: "image",
