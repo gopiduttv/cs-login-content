@@ -32,7 +32,7 @@ const headingComponents: any = {
 const descriptionComponents: any = {
   block: {
     normal: ({ children }: any) => (
-      <p className="pt-4 text-sm lg:text-[16px] text-[#FFFFFFBF] font-normal">{children}</p>
+      <p className="pt-4 text-sm md:text-[16px] text-[#FFFFFFBF] font-normal">{children}</p>
     ),
   },
   marks: {
