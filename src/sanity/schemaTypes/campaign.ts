@@ -284,8 +284,10 @@ export const campaign = defineType({
       name: "colorSchema",
       type: "reference",
       title: "Color Schema",
+      readOnly:true,
       to: [{ type: "color" }],
       group: "content",
+      weak:true
     }),
     
     defineField({
