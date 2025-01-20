@@ -1,4 +1,12 @@
 import { defineArrayMember, defineType } from 'sanity';
+import React from 'react'
+
+const HighlightIcon = () => (
+  <span style={{ fontWeight: 'bold' }}>H</span>
+)
+const HighlightDecorator = (props: any) => (
+  <span style={{ backgroundColor: 'yellow' }}>{props.children}</span>
+)
 
 export const blockContent = defineType({
   title: 'Block Content',
@@ -21,22 +29,28 @@ export const blockContent = defineType({
         decorators: [
           { title: 'Strong', value: 'strong' },
           { title: 'Emphasis', value: 'em' },
+          {
+            title: 'Highlight',
+            value: 'highlight',
+            icon: () => <span style={{fontWeight: 'bold'}}>H</span>,
+            component: (props: any) => <span style={{ backgroundColor: 'yellow' }}>{props.children}</span>,
+          }
         ],
         annotations: [
           { type: 'textColor' },
-          {
-            title: 'Highlight',
-            name: 'highlight',
-            type: 'object',
-            fields: [
-              {
-                title: 'Text Color',
-                name: 'textColor',
-                type: 'string',
-                description: 'Specify a text color (e.g., #ff0000, red, rgb(255,0,0))',
-              }
-            ],
-          },
+          // {
+          //   title: 'Highlight',
+          //   name: 'highlight',
+          //   type: 'object',
+          //   fields: [
+          //     {
+          //       title: 'Text Color',
+          //       name: 'textColor',
+          //       type: 'string',
+          //       description: 'Specify a text color (e.g., #ff0000, red, rgb(255,0,0))',
+          //     }
+          //   ],
+          // },
           {
             title: 'URL',
             name: 'link',
