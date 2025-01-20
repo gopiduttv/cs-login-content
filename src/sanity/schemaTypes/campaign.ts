@@ -286,7 +286,7 @@ export const campaign = defineType({
       title: "Color Schema",
       readOnly:true,
       to: [{ type: "color" }],
-      group: "content",
+      group: "template",
       weak:true
     }),
     
