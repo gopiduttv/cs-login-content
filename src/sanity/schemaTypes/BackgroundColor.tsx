@@ -23,7 +23,6 @@ const DynamicColorDropdown = (props: any) => {
       : [];
 
   const safeOptions = Array.isArray(options) ? options : [];
-
   return (
     <>
       <Card border padding={3}>
