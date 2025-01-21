@@ -31,6 +31,7 @@ export function SetAndPublishAction(props) {
       // patch.execute([{ set: { publishedAt: new Date().toISOString() }}]);
 
       // Perform the publish operation
+      console.log({draft:props.draft})
       publish.execute();
 
       // Signal that the action is complete

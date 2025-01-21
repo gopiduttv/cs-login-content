@@ -285,9 +285,8 @@ export const campaign = defineType({
       type: "reference",
       title: "Color Schema",
       readOnly:true,
-      to: [{ type: "color" }],
-      group: "template",
-      weak:true
+      to: [{ type: "backgroundLinearGradient"}],
+      group: "template"
     }),
     
     defineField({

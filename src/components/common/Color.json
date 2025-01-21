@@ -1,0 +1,29 @@
+{
+    "themes": [
+      {
+        "title": "Blue Gradient Dark",
+        "id": 1,
+        "value": "linear-gradient(76.86deg, #1D4ED8 0%, #111827 98.41%)",
+        "ParagraphColor": ["#DBEAFE", "#93C5FD"],
+        "highlightColor": ["sampleBlue"],
+        "h1Color": ["#FFFFFF"]
+      },
+      {
+        "title": "Teal Gradient Dark 1",
+        "id": 2,
+        "value": "linear-gradient(76.86deg, #15803D 0%, #111827 98.41%)",
+        "ParagraphColor": ["teal1", "teal2"],
+        "highlightColor": ["#5EEAD4"],
+        "h1Color": ["#EEEEEE"]
+      },
+      {
+        "title": "Blue Gradient Light",
+        "id": 6,
+        "value": "linear-gradient(76.86deg, #93C5FD 0%, #DBEAFE 98.41%)",
+        "ParagraphColor": ["#FAF5FF", "#D8B4FE"],
+        "h1Color": ["#050505"],
+        "highlightColor": ["#DBEAFE"]
+      }
+    ]
+  }
+  
