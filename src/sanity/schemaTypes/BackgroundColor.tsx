@@ -24,7 +24,6 @@ const DynamicColorDropdown = (props: any) => {
 
   return (
     <>
-      {" "}
       <Card border padding={3}>
         <Stack space={3} marginBottom={3}>
           <Text size={1} weight="bold">
@@ -40,9 +39,6 @@ const DynamicColorDropdown = (props: any) => {
           value={props.value}
           onChange={(e: any) => onChange(set(e.target.value))}
         >
-          {/* <option value={'1'}>One</option>
-        <option value={'2'}>Two</option> */}
-          {console.log(options)}
           {options?.map((e) => (
             <option key={e} value={e}>
               {e}
