@@ -112,173 +112,6 @@ export const campaign = defineType({
         ],
       },
     }),
-    defineField({
-      name: "templateLogo",
-      title: "Top Logo",
-      type: "image",
-      group: "content",
-    }),
-    defineField({
-      name: "templateText",
-      title: "Sub Title",
-      type: "string",
-      group: "content",
-    }),
-    defineField({
-      name: "templateEventType",
-      title: "Pill Text",
-      type: "string",
-      group: "content",
-      fieldset: "pillElement",
-    }),
-    defineField({
-      name: "templateEventDate",
-      title: "Pill Date",
-      type: "date",
-      group: "content",
-      fieldset: "pillElement",
-    }),
-    defineField({
-      name: "eventTime",
-      title: "Pill Time",
-      type: "string",
-      description: "Start time and end time of the event",
-      group: "content",
-      fieldset: "pillElement",
-    }),
-    defineField({
-      name: "eventTimeZone",
-      title: "Event Time Zone",
-      type: "string",
-      description: "Time zone for the event (e.g., ET for Eastern Time)",
-      group: "content",
-      fieldset: "pillElement",
-    }),
-    defineField({
-      name: "title",
-      title: "Heading",
-      type: "blockContent",
-      group: "content",
-    }),
-    defineField({
-      name: "subTitle",
-      title: "Sub Heading",
-      type: "blockContent",
-      group: "content",
-    }),
-    defineField({
-      name: "paragraph",
-      title: "Paragraph",
-      type: "blockContent",
-      group: "content",
-    }),
-
-    defineField({
-      name: "ctaBtn",
-      title: "Primary Button",
-      type: "object",
-      group: "content",
-      options: {
-        collapsed: true,
-        collapsible: true,
-      },
-      fields: [
-        {
-          name: "ctaBtnText",
-          title: "CTA Button Text",
-          type: "string",
-        },
-        {
-          name: "ctaBtnLink",
-          title: "CTA Button Link",
-          type: "url",
-        },
-      ],
-    }),
-    defineField({
-      name: "secondaryBtn",
-      title: "Secondary Button",
-      type: "object",
-      group: "content",
-      fields: [
-        {
-          name: "secondaryBtnText",
-          title: "Secondary Button Text",
-          type: "string",
-        },
-        {
-          type: "object",
-          name: "videoDetails",
-          title: "Video Details",
-          fields: [
-            {
-              name: "videoPlatform",
-              title: "Video Platform",
-              type: "string",
-            },
-            {
-              name: "videoId",
-              title: "Video Id",
-              type: "string",
-            },
-            {
-              name: "videotitle",
-              title: "Video Title",
-              type: "string",
-            },
-          ],
-        },
-      ],
-    }),
-    defineField({
-      name: "Note",
-      title: "note",
-      type: "blockContent",
-      group: "content",
-    }),
-
-    defineField({
-      name: "image",
-      title: "Campaign Image",
-      type: "image",
-      group: "content",
-    }),
-    defineField({
-      name: "campaignCarousalImage",
-      title: "Campaign Image For Carousel",
-      type: "array",
-      group: "content",
-      of: [
-        {
-          type: "object",
-          fields: [
-            {
-              name: "speakerImage",
-              title: "Speaker Image",
-              type: "image",
-            },
-            {
-              name: "speakerName",
-              title: "Speaker Name",
-              type: "string",
-            },
-            {
-              name: "speakerDesignation",
-              title: "Speaker Designation",
-              type: "string",
-            },
-          ],
-        },
-      ],
-    }),
-
-    defineField({
-      name: "language",
-      type: "string",
-      readOnly: true,
-      hidden: true,
-      group: "content",
-    }),
 
     defineField({
       name: "colorSchema",
@@ -287,7 +120,7 @@ export const campaign = defineType({
       of: [{ type: "reference", to: [{ type: "backgroundLinearGradient" }] }],
       group: "template"
     }),
-    
+
     defineField({
       name: "selectedLayout",
       title: "Choose Campaign Layout",
@@ -348,6 +181,256 @@ export const campaign = defineType({
       title: "Cookie Notification show",
       type: "boolean",
       group: "template",
+    }),
+
+    // strcture schema
+
+    defineField({
+      name: "structure",
+      title: "Template Structure",
+      group: "content",
+      type: "document",
+      fields: [
+        defineField({
+          name: "components",
+          title: "Components",
+          type: "array",
+          of: [
+            {
+              type: "object",
+              name: "topTemplateLogo",
+              title: "Top logo Component",
+              fields: [
+                {
+                  name: "templateLogo",
+                  title: "Top Logo",
+                  type: "image",
+                }
+              ]
+            },
+            {
+              type: "object",
+              name: "pillElement",
+              title: "Top Pills Component",
+              fields: [
+                {
+                  name: "subTitle",
+                  title: "Sub Title",
+                  type: "string",
+                },
+                {
+                  name: "templateEventType",
+                  title: "Pill Text",
+                  type: "string",
+                },
+                {
+                  name: "templateEventDate",
+                  title: "Pill Date and time",
+                  type: "string",
+                },
+                {
+                  name: "eventLocation",
+                  title: "Pill Location",
+                  type: "string",
+                }
+              ],
+            },
+            // Heading Component
+            {
+              type: "object",
+              name: "headingComponent",
+              title: "Heading Component",
+              fields: [
+                {
+                  name: "title",
+                  title: "Heading",
+                  type: "blockContent",
+                },
+              ],
+              preview: {
+                select: {
+                  title: "title[0].children[0].text", // Display the first block's text
+                },
+                prepare({ title }) {
+                  return {
+                    title: "Heading Component",
+                    subtitle: title || "No heading provided",
+                  };
+                },
+              },
+            },
+            // Sub Heading Component
+            {
+              type: "object",
+              name: "subHeadingComponent",
+              title: "Sub Heading Component",
+              fields: [
+                {
+                  name: "subTitle",
+                  title: "Sub Heading",
+                  type: "blockContent",
+                },
+              ],
+              preview: {
+                select: {
+                  title: "subTitle[0].children[0].text", // Display the first block's text
+                },
+                prepare({ title }) {
+                  return {
+                    title: "Sub Title Component",
+                    subtitle: title || "No heading provided",
+                  };
+                },
+              },
+            },
+            // Paragraph Component
+            {
+              type: "object",
+              name: "paragraphComponent",
+              title: "Paragraph Component",
+              fields: [
+                {
+                  name: "paragraph",
+                  title: "Paragraph",
+                  type: "blockContent",
+                },
+              ],
+              preview: {
+                select: {
+                  title: "paragraph[0].children[0].text", // Display the first block's text
+                },
+                prepare({ title }) {
+                  return {
+                    title: "Paragraph Component",
+                    subtitle: title || "No heading provided",
+                  };
+                },
+              },
+            },
+            // Button Component
+            {
+              type: "object",
+              name: "buttonComponents",
+              title: "Button Component",
+              fields: [
+                {
+                  name: "ctaBtn",
+                  title: "Primary Button",
+                  type: "object",
+                  options: {
+                    collapsed: true,
+                    collapsible: true,
+                  },
+                  fields: [
+                    {
+                      name: "ctaBtnText",
+                      title: "CTA Button Text",
+                      type: "string",
+                    },
+                    {
+                      name: "ctaBtnLink",
+                      title: "CTA Button Link",
+                      type: "url",
+                    },
+                  ],
+                },
+                {
+                  type: "object",
+                  name: "secondaryBtnComponent",
+                  title: "Secondary Button Component",
+                  options: {
+                    collapsed: true,
+                    collapsible: true,
+                  },
+                  fields: [
+                    {
+                      name: "secondaryBtnText",
+                      title: "Secondary Button Text",
+                      type: "string",
+                    },
+                    {
+                      name: "videoDetails",
+                      title: "Video Details",
+                      type: "object",
+                      fields: [
+                        {
+                          name: "videoPlatform",
+                          title: "Video Platform",
+                          type: "string",
+                        },
+                        {
+                          name: "videoId",
+                          title: "Video ID",
+                          type: "string",
+                        },
+                        {
+                          name: "videoTitle",
+                          title: "Video Title",
+                          type: "string",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  name: "note",
+                  title: "Note",
+                  type: "blockContent",
+                },
+              ],
+              preview: {
+                select: {
+                  primaryBtn: "ctaBtn.ctaBtnText",
+                  secondaryBtn: "secondaryBtnComponent.secondaryBtnText",
+                  note: "note",
+                },
+                prepare(selection) {
+                  const { primaryBtn, secondaryBtn, note } = selection;
+                  return {
+                    title: primaryBtn || "No Primary Button",
+                    subtitle: `${secondaryBtn || "No Secondary Button"} ${
+                      note ? "| Note included" : ""
+                    }`,
+                  };
+                },
+              },
+            },
+          ],      
+        }),
+        // Image Component
+        defineField({
+          name: "campaignImage",
+          title: "Campaign Image",
+          type: "image",
+        }),
+        defineField({
+          name: "campaignCarousalImage",
+          title: "Campaign Image For Carousel",
+          type: "array",
+          of: [
+            {
+              type: "object",
+              fields: [
+                {
+                  name: "speakerImage",
+                  title: "Speaker Image",
+                  type: "image",
+                },
+                {
+                  name: "speakerName",
+                  title: "Speaker Name",
+                  type: "string",
+                },
+                {
+                  name: "speakerDesignation",
+                  title: "Speaker Designation",
+                  type: "string",
+                },
+              ],
+            },
+          ],
+        }),
+      ], 
     }),
   ],
   preview: {

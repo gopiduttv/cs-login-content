@@ -59,8 +59,7 @@ function CampaignTextArea({ campaign, className }: any) {
           templateHeader={campaign?.templateText}
           eventType={campaign?.templateEventType}
           eventDate={campaign?.templateEventDate}
-          eventTime={campaign?.eventTime}
-          eventTimezone={campaign?.eventTimeZone}
+          eventLocation={campaign?.eventLocation}
         />
       )}
       {campaign?.title && (

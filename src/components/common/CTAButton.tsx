@@ -10,6 +10,7 @@ export default function CTAButton({
   themeMode,
 }: CtaBtnProps) {
   return (
+    <div>
     <button
       className={`font-semibold text-center py-3 px-8 rounded-lg  ${
         themeMode === "darkMode"
@@ -19,5 +20,7 @@ export default function CTAButton({
     >
       {ctaText}
     </button>
+
+    </div>
   );
 }
