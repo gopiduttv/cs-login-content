@@ -20,7 +20,7 @@ const getCookie = (name: string) => {
 };
 
 function Campaign({ campaigns, cookies, banner }: { campaigns: any; cookies: any; banner: any }) {
-  const [campaignIdx, selectedCampaignIdx] = useState<number>(0);
+  const [campaignIdx, selectedCampaignIdx] = useState<any>(null);
 
   useEffect(() => {
     if (parseInt(getCookie("_csi_idx") ?? "0") >= campaigns.length - 1) {

@@ -7,8 +7,7 @@ interface ICampaignHeader {
   templateHeader: string;
   eventType: string;
   eventDate: string;
-  eventTime:string;
-  eventTimezone:string;
+  eventLocation:string;
 }
 
 export default function CampaignHeader({
@@ -16,16 +15,10 @@ export default function CampaignHeader({
   templateHeader,
   eventType,
   eventDate,
-  eventTime,
-  eventTimezone
+  eventLocation
 }: ICampaignHeader) {
   return (
     <>
-      {logoUrl && (
-        <div className="">
-          <img src={logoUrl} alt={"sampleText"} className="max-h-full"/>
-        </div>
-      )}
       {(templateHeader || eventType || eventDate) && (
         <div className="flex items-center gap-6 text-sm mt-6">
           {templateHeader && (
@@ -46,7 +39,7 @@ export default function CampaignHeader({
               className="font-medium px-2.5 py-1.5 rounded uppercase"
               style={{ backgroundColor: "#FFFFFF66" }}
             >
-              {formatDateChange(eventDate)} {eventTime? " | " : ""} {eventTime} {eventTimezone}
+              {eventDate.replace(/\s*\|\s*/g, "   |   ")} {eventLocation? "  |  " : ""}  {eventLocation}
             </button>
           )}
         </div>

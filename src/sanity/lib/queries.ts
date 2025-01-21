@@ -28,7 +28,7 @@ const getCampaignByID = () => {
   return groq`*[_type == "campaign" &&  _id == $campaignID]{
     ...,
   "colorSchema":colorSchema->,
-  "campaignImage": image.asset->{
+  "campaignImage": structure.campaignImage.asset->{
           _id,
           url,
           metadata {
