@@ -24,7 +24,6 @@ const getCookiesData = () => {
   return groq`*[_type == "cookiePreference" ][0]`;
 };
 
-
 const getCampaignByID = () => {
   return groq`*[_type == "campaign" &&  _id == $campaignID]{
     ...,
@@ -40,6 +39,11 @@ const getCampaignByID = () => {
             }
           }
         },
+        "colorTemplate1":colorTemplate[]->{paragraphColor,
+                                     h1Color,
+                                     highlightColor,
+                                     selectedBgColor
+                                    },
    "templateLogo":templateLogo.asset->{
           _id,
           url,
@@ -97,5 +101,5 @@ export {
   getBannerByID,
   getCampaignLayoutByID,
   getAllCampaignsByLayout,
-  getCookiesData
+  getCookiesData,
 };

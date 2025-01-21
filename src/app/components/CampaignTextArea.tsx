@@ -5,7 +5,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "next-sanity";
 import React from "react";
 
-function CampaignTextArea({ campaign, className }: any) {
+function CampaignTextArea({ campaign, className,colors }: any) {
   const titleComponent: any = {
     block: {
       normal: ({ children }: any) => (
