@@ -4,12 +4,12 @@ import React from "react";
 import CTAButton from "./CTAButton";
 import SecondaryCTABtn from "./SecondaryCTABtn";
 
-const DynamicComponents = ({ campaign, components, className }: any) => {
+const DynamicComponents = ({ campaign, components, className,colors }: any) => {
   const titleComponent: any = {
     block: {
       normal: ({ children }: any) => (
         <p
-          style={{ color: campaign?.colorSchema?.headingColor }}
+          style={{ color: colors?.paragraphColor }}
           className="text-3xl lg:text-5xl font-extrabold py-4 !leading-tight font-manrope"
         >
           {children}
@@ -18,7 +18,7 @@ const DynamicComponents = ({ campaign, components, className }: any) => {
     },
     marks: {
       highlight: ({ children }: any) => (
-        <span style={{ color: campaign?.colorSchema?.highlightColor }}>
+        <span style={{ color: colors?.highlightColor }}>
           {children}
         </span>
       ),
@@ -35,7 +35,7 @@ const DynamicComponents = ({ campaign, components, className }: any) => {
     },
     marks: {
       highlight: ({ children }: any) => (
-        <span style={{ color: campaign?.colorSchema?.highlightColor }}>
+        <span style={{ color: colors?.highlightColor }}>
           {children}
         </span>
       ),
@@ -46,7 +46,7 @@ const DynamicComponents = ({ campaign, components, className }: any) => {
     block: {
       normal: ({ children }: any) => (
         <p
-          style={{ color: campaign?.colorSchema?.textColor }}
+        style={{ color: colors?.paragraphColor }}
           className="xl:text-lg pb-2 pt-1"
         >
           {children}
@@ -55,7 +55,7 @@ const DynamicComponents = ({ campaign, components, className }: any) => {
     },
     marks: {
       highlight: ({ children }: any) => (
-        <span style={{ color: campaign?.colorSchema?.highlightColor }}>
+        <span style={{ color: colors?.highlightColor }}>
           {children}
         </span>
       ),

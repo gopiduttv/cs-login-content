@@ -7,19 +7,30 @@ import CampaignImageArea from "../../components/CampaignImageArea";
 import CookieShow from "@/components/common/cookieShow/cookieShow";
 import DynamicStructure from "@/components/common/dynamicStructure";
 
+export  interface Color{
+  h1Color:string
+  highlightColor:string
+  paragraphColor:string
+  selectedBgColor:string
+
+}
+
 export default function RightImageLeftText({
   campaign,
   cookies,
   banner = null,
+  colors
 }: {
   campaign: any;
   cookies: any;
   banner: any;
+  colors:Color
 }) {
-
+  console.log(JSON.stringify(colors))
   return (
+  
     <Section
-      bgColor={campaign?.backgroundColorGradient}
+      bgColor={colors?.selectedBgColor}
       bgImage={campaign?.backgroundImage?.url}
     >
       {campaign?.isCookieShow &&
@@ -30,7 +41,7 @@ export default function RightImageLeftText({
       >
         <div className="flex-grow flex items-center gap-4 lg:gap-24">
           {/* <CampaignTextArea campaign={campaign} className="flex flex-col max-w-xl xl:max-w-3xl" /> */}
-          <DynamicStructure campaign={campaign} components={campaign?.structure?.components} className="flex flex-col max-w-xl xl:max-w-3xl" />
+          <DynamicStructure colors={colors} campaign={campaign} components={campaign?.structure?.components} className="flex flex-col max-w-xl xl:max-w-3xl" />
           <CampaignImageArea
             campaignImage={campaign}
             className="items-center max-w-[500px] hidden lg:block"

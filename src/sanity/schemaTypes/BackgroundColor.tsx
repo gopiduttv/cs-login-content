@@ -1,27 +1,28 @@
 import { defineField, defineType, set, unset, useFormValue } from "sanity";
 import { Stack, Text, Card, Select } from "@sanity/ui";
 import list from "../../components/common/Color.json";
-import { useCallback } from "react";
 
 const DynamicColorDropdown = (props: any) => {
-  debugger;
-  const { onChange, description, title, name, id, ...restProps } = props;
+  const { onChange, description, title, name, id, value, ...restProps } = props;
   const selectedBgColor = useFormValue(["selectedBgColor"]);
 
   const selectedItem = list?.themes?.find(
     (item: { value: unknown }) => item.value === selectedBgColor
   );
-  console.log({ selectedBgColor }, { id });
+  console.log({ selectedItem }, { id });
 
-  const options =
+  const options: any =
     selectedItem && id === "h1Color"
       ? selectedItem.h1Color || []
       : selectedItem && id === "paragraphColor"
-        ? selectedItem.ParagraphColor
-        : selectedItem && id === "highlightColor"
-          ? selectedItem.highlightColor || []
-          : [];
+      ? selectedItem.ParagraphColor || []
+      : selectedItem && id === "highlightColor"
+      ? selectedItem.highlightColor || []
+      : selectedItem && id === "title"
+      ? selectedItem.title || []
+      : [];
 
+  const safeOptions = Array.isArray(options) ? options : [];
   return (
     <>
       <Card border padding={3}>
@@ -39,12 +40,12 @@ const DynamicColorDropdown = (props: any) => {
           value={props.value}
           onChange={(e: any) => onChange(set(e.target.value))}
         >
-          {options?.map((e) => (
-            <option key={e} value={e}>
-              {e}
+          {safeOptions.map((e: any, index: number) => (
+            <option key={index} value={e} style={{ background: e }}>
+              {e} 
             </option>
           ))}
-          Characters: {props.value?.length || 0}
+          Characters: {value?.length || 0}
         </Select>
       </Card>
     </>
@@ -68,7 +69,12 @@ export const BackgroundColor = defineType({
         })),
       },
     }),
-
+    defineField({
+      name: "title",
+      title: "Title",
+      type: "string",
+      readOnly: true, 
+    }),
     defineField({
       name: "h1Color",
       title: "Heading Text Color (h1)",
@@ -77,7 +83,6 @@ export const BackgroundColor = defineType({
         input: DynamicColorDropdown,
       },
     }),
-
     defineField({
       name: "paragraphColor",
       title: "Paragraph Color",
@@ -86,7 +91,6 @@ export const BackgroundColor = defineType({
         input: DynamicColorDropdown,
       },
     }),
-
     defineField({
       name: "highlightColor",
       title: "Highlight Color",
@@ -96,4 +100,17 @@ export const BackgroundColor = defineType({
       },
     }),
   ],
+  preview: {
+    select: {
+      title: "selectedBgColor",
+    },
+    prepare({ title }: any) {
+      const selectedItem = list?.themes?.find(
+        (item: { value: unknown }) => item.value === title
+      );
+      return {
+        title: selectedItem?.title || "No Title Selected",
+      };
+    },
+  },
 });

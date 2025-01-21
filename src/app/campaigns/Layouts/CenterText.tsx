@@ -4,19 +4,22 @@ import Section from "@/components/common/structure/Section";
 import React from "react";
 import CampaignTextArea from "../../components/CampaignTextArea";
 import CookieShow from "@/components/common/cookieShow/cookieShow";
+import { Color } from "./RightImageLeftText";
 
 export default function CenterText({
   campaign,
   cookies,
   banner = null,
+  colors
 }: {
   campaign: any;
   cookies: any;
   banner: any;
+  colors:Color
 }) {
   return (
     <Section
-      bgColor={campaign?.backgroundColorGradient}
+      bgColor={colors?.selectedBgColor}
       // className={`w-full h-screen`}
     >
        {campaign?.isCookieShow &&
@@ -29,6 +32,7 @@ export default function CenterText({
           <CampaignTextArea
             campaign={campaign}
             className="w-full justify-items-center"
+            colors={colors}
           />
         </div>
       </Container>

@@ -114,7 +114,7 @@ export const campaign = defineType({
     }),
 
     defineField({
-      name: "colorSchema",
+      name: "colorTemplate",
       type: "array",
       title: "Color Schema",
       of: [{ type: "reference", to: [{ type: "backgroundLinearGradient" }] }],

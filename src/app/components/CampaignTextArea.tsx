@@ -5,18 +5,21 @@ import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "next-sanity";
 import React from "react";
 
-function CampaignTextArea({ campaign, className }: any) {
+function CampaignTextArea({ campaign, className, colors }: any) {
   const titleComponent: any = {
     block: {
       normal: ({ children }: any) => (
-        <p style={{color:campaign?.colorSchema?.headingColor}} className="text-3xl lg:text-5xl font-extrabold py-4 !leading-tight font-manrope">
+        <p
+          style={{ color: colors?.paragraphColor }}
+          className="text-3xl lg:text-5xl font-extrabold py-4 !leading-tight font-manrope"
+        >
           {children}
         </p>
       ),
     },
     marks: {
       highlight: ({ children, value }: any) => (
-        <span style={{ color: campaign?.colorSchema?.highlightColor }}>
+        <span style={{ color: colors?.highlightColor }}>
           {children}
         </span>
       ),
@@ -32,7 +35,9 @@ function CampaignTextArea({ campaign, className }: any) {
     },
     marks: {
       highlight: ({ children, value }: any) => (
-        <span style={{ color: campaign?.colorSchema?.highlightColor }}>{children}</span>
+        <span style={{ color: colors?.highlightColor }}>
+          {children}
+        </span>
       ),
     },
   };
@@ -40,12 +45,19 @@ function CampaignTextArea({ campaign, className }: any) {
   const paragraphComponents: any = {
     block: {
       normal: ({ children }: any) => (
-        <p style={{color:campaign?.colorSchema?.textColor}} className="xl:text-lg pb-2 pt-1">{children}</p>
+        <p
+          style={{ color: colors?.paragraphColor }}
+          className="xl:text-lg pb-2 pt-1"
+        >
+          {children}
+        </p>
       ),
     },
     marks: {
       highlight: ({ children, value }: any) => (
-        <span style={{ color: campaign?.colorSchema?.highlightColor }}>{children}</span>
+        <span style={{ color: colors?.highlightColor }}>
+          {children}
+        </span>
       ),
     },
   };
@@ -85,18 +97,18 @@ function CampaignTextArea({ campaign, className }: any) {
         {campaign?.ctaBtn?.ctaBtnText && (
           <CTAButton
             ctaText={campaign?.ctaBtn?.ctaBtnText}
-            themeMode={campaign?.themeMode} />
+            themeMode={campaign?.themeMode}
+          />
         )}
         {campaign?.secondaryBtn?.secondaryBtnText && (
           <SecondaryCTABtn
             ctaText={campaign?.secondaryBtn?.secondaryBtnText}
             themeMode={campaign?.themeMode}
             isSecondaryBtn={true}
-            videoDetails={campaign?.secondaryBtn?.videoDetails}/>
+            videoDetails={campaign?.secondaryBtn?.videoDetails}
+          />
         )}
-        {campaign?.Note && 
-        <PortableText value={campaign?.Note}/>
-        }
+        {campaign?.Note && <PortableText value={campaign?.Note} />}
       </div>
     </div>
   );

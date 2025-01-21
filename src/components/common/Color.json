@@ -1,29 +1,77 @@
 {
-    "themes": [
-      {
-        "title": "Blue Gradient Dark",
-        "id": 1,
-        "value": "linear-gradient(76.86deg, #1D4ED8 0%, #111827 98.41%)",
-        "ParagraphColor": ["#DBEAFE", "#93C5FD"],
-        "highlightColor": ["sampleBlue"],
-        "h1Color": ["#FFFFFF"]
-      },
-      {
-        "title": "Teal Gradient Dark 1",
-        "id": 2,
-        "value": "linear-gradient(76.86deg, #15803D 0%, #111827 98.41%)",
-        "ParagraphColor": ["teal1", "teal2"],
-        "highlightColor": ["#5EEAD4"],
-        "h1Color": ["#EEEEEE"]
-      },
-      {
-        "title": "Blue Gradient Light",
-        "id": 6,
-        "value": "linear-gradient(76.86deg, #93C5FD 0%, #DBEAFE 98.41%)",
-        "ParagraphColor": ["#FAF5FF", "#D8B4FE"],
-        "h1Color": ["#050505"],
-        "highlightColor": ["#DBEAFE"]
+  "themes": [
+    {
+      "title": "Golden Yellow",
+      "id": 1,
+      "value": "linear-gradient(76.86deg, #FDE047 0%, #FEFCE8 98.41%)",
+      "ParagraphColor": ["", "black"],
+      "highlightColor": ["", "yellow", "green", "red", "wheat"],
+      "h1Color": ["", "#black"]
+    },
+    {
+      "title": "sky-200",
+      "id": "2",
+      "value": "#dbeafe",
+      "ParagraphColor": ["", "#0c0c0d"],
+      "highlightColor": ["", "yellow"],
+      "h1Color": ["", "#0c0c0d"]
+    },
+
+    {
+      "title": "blue-900",
+      "id": "4",
+      "value": "#07447d",
+      "ParagraphColor": ["", "#fafbfc"],
+      "highlightColor": ["", "yellow"],
+      "h1Color": ["", "#fafbfc"]
+    },
+    {
+      "title": "Aqua Jade",
+      "id": "5",
+      "value": "linear-gradient(63deg, #14B8A6 0%, #111827 100%)",
+      "ParagraphColor": ["", "#fafbfc"],
+      "highlightColor": ["", "yellow"],
+      "h1Color": ["", "#fafbfc"]
+    },
+    {
+      "title": "Deep Teal",
+      "id": "6",
+      "value": "Linear-gradient(63deg, #0F766E 0%, #111827 100%)",
+      "ParagraphColor": ["", "#fafbfc"],
+      "highlightColor": ["", "yellow"],
+      "h1Color": ["", "#fafbfc"]
+    },
+    {
+      "title": "Electric Blue",
+      "id": "7",
+      "value": "linear-gradient(77deg, #3B82F6 0%, #111827 98.41%)",
+      "ParagraphColor": ["", "#fafbfc"],
+      "highlightColor": ["", "yellow"],
+      "h1Color": ["", "#fafbfc"]
+    },
+    {
+      "title": "Black Fade",
+      "id": "8",
+      "value": "linear-gradient(90deg,#000,transparent)",
+      "ParagraphColor": ["", "#fafbfc"],
+      "highlightColor": ["", "yellow"],
+      "h1Color": ["", "#fafbfc"]
+    },
+    {
+      "title": "Deep Blue",
+      "id": "9",
+      "value": "linear-gradient(296.33deg,#05406b 1.22%,#2f648a 150.5%)",
+      "ParagraphColor": ["", "#fafbfc"],
+      "highlightColor": ["", "yellow"],
+      "h1Color": ["", "#fafbfc"]
+    },
+    {
+        "title": "Spring Glow",
+        "id": "9",
+        "value": "linear-gradient(77deg, #86EFAC 0%, #F0FDF4 98.41%)",
+        "ParagraphColor": ["", "#fafbfc"],
+        "highlightColor": ["", "yellow"],
+        "h1Color": ["", "#fafbfc"]
       }
-    ]
-  }
-  
+  ]
+}
