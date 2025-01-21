@@ -6,7 +6,7 @@ import CampaignTextArea from "../../components/CampaignTextArea";
 import CampaignImageArea from "../../components/CampaignImageArea";
 import CookieShow from "@/components/common/cookieShow/cookieShow";
 
-interface Color{
+export  interface Color{
   h1Color:string
   highlightColor:string
   paragraphColor:string
@@ -25,10 +25,11 @@ export default function RightImageLeftText({
   banner: any;
   colors:Color
 }) {
-
+  console.log(JSON.stringify(colors))
   return (
+  
     <Section
-      bgColor={campaign?.backgroundColorGradient}
+      bgColor={colors?.selectedBgColor}
       bgImage={campaign?.backgroundImage?.url}
     >
       {campaign?.isCookieShow &&

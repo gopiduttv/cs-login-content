@@ -20,8 +20,7 @@ const getCookie = (name: string) => {
 };
 
 function Campaign({ campaigns, cookies, banner }: { campaigns: any; cookies: any; banner: any }) {
-  const [campaignIdx, selectedCampaignIdx] = useState<any>(null);
-  console.log(campaigns);
+  const [campaignIdx, selectedCampaignIdx] = useState<number>(0);
 
   useEffect(() => {
     if (parseInt(getCookie("_csi_idx") ?? "0") >= campaigns.length - 1) {
@@ -35,18 +34,33 @@ function Campaign({ campaigns, cookies, banner }: { campaigns: any; cookies: any
   if (!(campaignIdx || campaignIdx == 0))
     return <></>;
 
+  console.log(campaigns[campaignIdx]);
+  console.log(campaigns)
   if (campaigns[campaignIdx]?.selectedLayout == "rilt") {
     return (
-      <RightImageLeftText campaign={campaigns[campaignIdx]} banner={banner} cookies={cookies}/>
+      <RightImageLeftText 
+      campaign={campaigns[campaignIdx]}
+       banner={banner} 
+       cookies={cookies}
+       colors={campaigns[campaignIdx]?.colorTemplate1[0]}
+       />
     );
   }
   if (campaigns[campaignIdx]?.selectedLayout == "lirt") {
     return (
-      <LeftImageRightText campaign={campaigns[campaignIdx]} banner={banner} cookies={cookies}/>
+      <LeftImageRightText 
+      campaign={campaigns[campaignIdx]} 
+      banner={banner}
+       cookies={cookies}
+       colors={campaigns[campaignIdx]?.colorTemplate1[0]}/>
     );
   }
 
-  return <CenterText campaign={campaigns[campaignIdx]} banner={banner} cookies={cookies}/>;
+  return <CenterText 
+  campaign={campaigns[campaignIdx]}
+   banner={banner} 
+   cookies={cookies}
+   colors={campaigns[campaignIdx]?.colorTemplate1[0]}/>;
 }
 
 export default Campaign;

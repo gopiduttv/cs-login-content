@@ -64,6 +64,14 @@
       "ParagraphColor": ["", "#fafbfc"],
       "highlightColor": ["", "yellow"],
       "h1Color": ["", "#fafbfc"]
-    }
+    },
+    {
+        "title": "Spring Glow",
+        "id": "9",
+        "value": "linear-gradient(77deg, #86EFAC 0%, #F0FDF4 98.41%)",
+        "ParagraphColor": ["", "#fafbfc"],
+        "highlightColor": ["", "yellow"],
+        "h1Color": ["", "#fafbfc"]
+      }
   ]
 }
