@@ -15,8 +15,8 @@ function CampaignTextArea({ campaign, className }: any) {
       ),
     },
     marks: {
-      highlightColor: ({ children, value }: any) => (
-        <span style={{ background: campaign?.colorSchema?.highlightColor }}>
+      highlight: ({ children, value }: any) => (
+        <span style={{ color: campaign?.colorSchema?.highlightColor }}>
           {children}
         </span>
       ),
@@ -31,8 +31,8 @@ function CampaignTextArea({ campaign, className }: any) {
       ),
     },
     marks: {
-      highlightColor: ({ children, value }: any) => (
-        <span style={{ background: value.value }}>{children}</span>
+      highlight: ({ children, value }: any) => (
+        <span style={{ color: campaign?.colorSchema?.highlightColor }}>{children}</span>
       ),
     },
   };
@@ -44,8 +44,8 @@ function CampaignTextArea({ campaign, className }: any) {
       ),
     },
     marks: {
-      highlightColor: ({ children, value }: any) => (
-        <span style={{ background: value.value }}>{children}</span>
+      highlight: ({ children, value }: any) => (
+        <span style={{ color: campaign?.colorSchema?.highlightColor }}>{children}</span>
       ),
     },
   };

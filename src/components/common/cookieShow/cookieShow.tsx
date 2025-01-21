@@ -18,8 +18,8 @@ const customComponents: any = {
     ),
   },
   marks: {
-    highlightColor: ({ children, value }: any) => (
-      <span style={{ background: value.value }}>{children}</span>
+    highlight: ({ children, value }: any) => (
+      <span style={{ color: value.value}}>{children}</span>
     ),
     strong: ({ children }: any) => (
       <span className="md:text-2xl text-lg font-semibold">{children}</span>
