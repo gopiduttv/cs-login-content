@@ -21,7 +21,6 @@ const getCookie = (name: string) => {
 
 function Campaign({ campaigns, cookies, banner }: { campaigns: any; cookies: any; banner: any }) {
   const [campaignIdx, selectedCampaignIdx] = useState<any>(null);
-  console.log(campaigns);
 
   useEffect(() => {
     if (parseInt(getCookie("_csi_idx") ?? "0") >= campaigns.length - 1) {
