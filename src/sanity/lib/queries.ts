@@ -42,7 +42,8 @@ const getCampaignByID = () => {
         "colorTemplate1":colorTemplate[]->{paragraphColor,
           h1Color,
           highlightColor,
-          selectedBgColor
+          selectedBgColor,
+          subtitleText
         },
         "templateLogos":
         structure {

@@ -32,7 +32,7 @@ const DynamicComponents = ({
   const subTitleComponent: any = {
     block: {
       normal: ({ children }: any) => (
-        <p className="text-2xl lg:text-3xl font-semibold py-4 !leading-snug">
+        <p style={{ color: colors?.subtitleText }} className="text-2xl lg:text-3xl font-semibold py-4 !leading-snug">
           {children}
         </p>
       ),
