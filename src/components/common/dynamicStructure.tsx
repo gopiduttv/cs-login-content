@@ -10,7 +10,6 @@ const DynamicComponents = ({
   className,
   colors,
 }: any) => {
-  console.log(colors)
   const titleComponent: any = {
     block: {
       normal: ({ children }: any) => (
