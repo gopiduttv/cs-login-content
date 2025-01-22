@@ -15,7 +15,8 @@
       "value": "#dbeafe",
       "ParagraphColor": ["","#FFFFFF", "#0c0c0d", "#000000B2","#0F172A"],
       "highlightColor": ["", "yellow","#FFFFFF", "#2563EB", "#0F172A"],
-      "h1Color": ["", "#FFFFFF","#0c0c0d","#3B82F6","#2563EB", "#0F172A"]
+      "h1Color": ["", "#FFFFFF","#0c0c0d","#3B82F6","#2563EB", "#0F172A"],
+      "subtitleText":["","red", "#EAB308","#FFF", "#93C5FD", "#3B82F6"]
     },
 
     {
@@ -49,10 +50,10 @@
       "title": "Electric Blue",
       "id": "7",
       "value": "linear-gradient(77deg, #3B82F6 0%, #111827 98.41%)",
-      "ParagraphColor": ["", "#fafbfc", "#EAB308","#FFF"],
-      "highlightColor": ["", "yellow", "#EAB308","#FFF"],
-      "h1Color": ["", "#fafbfc", "#EAB308","#FFF"],
-      "subtitleText":["","red", "#EAB308","#FFF"]
+      "ParagraphColor": ["", "#fafbfc", "#EAB308","#FFF", "#93C5FD"],
+      "highlightColor": ["", "yellow", "#EAB308","#FFF", "#93C5FD"],
+      "h1Color": ["", "#fafbfc", "#EAB308","#FFF", "#93C5FD"],
+      "subtitleText":["","red", "#EAB308","#FFF", "#93C5FD"]
     },
     {
       "title": "Black Fade",

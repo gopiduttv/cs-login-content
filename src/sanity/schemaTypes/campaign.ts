@@ -171,12 +171,6 @@ export const campaign = defineType({
       group: "template",
     }),
     defineField({
-      name: "backgroundColorGradient",
-      title: "Background Color (CSS color)",
-      type: "string",
-      group: "template",
-    }),
-    defineField({
       name: "isCookieShow",
       title: "Cookie Notification show",
       type: "boolean",
