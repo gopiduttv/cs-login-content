@@ -74,6 +74,7 @@ export const BackgroundColor = defineType({
       title: "Title",
       type: "string",
       readOnly: true, 
+      hidden:true
     }),
     defineField({
       name: "h1Color",
