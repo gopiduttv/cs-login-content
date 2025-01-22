@@ -10,7 +10,7 @@ export default async function triggerISR(props: any) {
 
     if (props.type == "viewport") {
         console.log(`Revalidating ... ${props.draft.dimensionValue.current}/[customer]`)
-        revalidatePath(`${props.draft.dimensionValue.current}/[customer]`, "page")
+        revalidatePath(`/${props.draft.dimensionValue.current}/[customer]`, "page")
         console.log(`Revalidated ... ${props.draft.dimensionValue.current}/[customer]`)
     } 
     if (props.type == "campaign") {
