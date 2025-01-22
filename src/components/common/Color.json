@@ -12,9 +12,9 @@
       "title": "sky-200",
       "id": "2",
       "value": "#dbeafe",
-      "ParagraphColor": ["", "#0c0c0d", "#000000B2"],
-      "highlightColor": ["", "yellow", "#2563EB"],
-      "h1Color": ["", "#0c0c0d","#3B82F6","#2563EB"]
+      "ParagraphColor": ["","#FFFFFF", "#0c0c0d", "#000000B2"],
+      "highlightColor": ["", "yellow","#FFFFFF", "#2563EB"],
+      "h1Color": ["", "#FFFFFF","#0c0c0d","#3B82F6","#2563EB"]
     },
 
     {
@@ -53,17 +53,17 @@
       "title": "Black Fade",
       "id": "8",
       "value": "linear-gradient(90deg,#000,transparent)",
-      "ParagraphColor": ["", "#fafbfc"],
-      "highlightColor": ["", "yellow"],
-      "h1Color": ["", "#fafbfc"]
+      "ParagraphColor": ["", "#fafbfc","#FFF"],
+      "highlightColor": ["", "yellow", "#FFF"],
+      "h1Color": ["", "#fafbfc", "#FFF"]
     },
     {
       "title": "Deep Blue",
       "id": "9",
       "value": "linear-gradient(296.33deg,#05406b 1.22%,#2f648a 150.5%)",
-      "ParagraphColor": ["", "#fafbfc"],
-      "highlightColor": ["", "yellow"],
-      "h1Color": ["", "#fafbfc"]
+      "ParagraphColor": ["", "#fafbfc","#FFF"],
+      "highlightColor": ["", "yellow", "#FFF"],
+      "h1Color": ["", "#fafbfc", "#FFF"]
     },
     {
         "title": "Spring Glow",

@@ -213,6 +213,18 @@ export const campaign = defineType({
                   ],
                 },
               ],
+              preview: {
+                select: {
+                  logos: "templateLogos",
+                },
+                prepare(selection) {
+                  const { logos } = selection;
+                  return {
+                    title: `Top Logos (${logos?.length || 0})`,
+                    media: logos?.[0]?.asset?.url,
+                  };
+                },
+              },
             },
             {
               type: "object",

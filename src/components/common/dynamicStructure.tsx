@@ -3,6 +3,7 @@ import { PortableText } from "next-sanity";
 import React from "react";
 import CTAButton from "./CTAButton";
 import SecondaryCTABtn from "./SecondaryCTABtn";
+import Image from "next/image";
 
 const DynamicComponents = ({
   campaign,
@@ -14,7 +15,7 @@ const DynamicComponents = ({
     block: {
       normal: ({ children }: any) => (
         <p
-          style={{ color: colors?.paragraphColor }}
+          style={{ color: colors?.h1Color }}
           className="text-3xl lg:text-5xl font-extrabold py-4 !leading-tight font-manrope"
         >
           {children}
@@ -60,37 +61,62 @@ const DynamicComponents = ({
       ),
     },
   };
-// console.log("com",components)
+
   return (
     <div
       className={`${className} ${
-        campaign?.themeMode == "lightMode" ? "text-black" : "text-white"
+        campaign?.themeMode == "lightMode" ? "text-[#000000B2]" : "text-[#FFFFFFB2]"
       }`}
     >
       {components?.map((component: any, index: number) => {
         switch (component._type) {
-          // case "topTemplateLogo":
-          //   return (
-          //     <div key={`topTemplateLogo-${index}`} className="">
-          //       {component?.templateLogo?.length > 1 ? (
-          //         component?.templateLogo?.map((item: any, i: number) => (
-          //           <div className="flex" key={`logo-${i}`}>
-          //             <img
-          //               src={item?.url}
-          //               alt={"sampleText"}
-          //               className="max-h-full"
-          //             />
-          //           </div>
-          //         ))
-          //       ) : (
-          //         <img
-          //           src={component?.templateLogo[0]?.url}
-          //           alt={"sampleText"}
-          //           className="max-h-full"
-          //         />
-          //       )}
-          //     </div>
-          //   );
+          case "topTemplateLogo":
+            return (
+              <div key={`topTemplateLogo-${index}`} className="">
+                {campaign?.templateLogos?.components[0]?.templateLogos?.length >
+                1 ? (
+                  <div className="flex gap-6 flex-wrap">
+                    {campaign?.templateLogos?.components[0]?.templateLogos?.map(
+                      (item: any, i: number) => (
+                        <Image
+                          className="w-auto h-16"
+                          src={item?.asset?.url}
+                          width={
+                            item?.asset?.metadata?.dimensions?.width || 200
+                          }
+                          height={
+                            item?.asset?.metadata?.dimensions?.height || 200
+                          }
+                          alt={"sampleText"}
+                          key={item?.asset?._id}
+                        />
+                      )
+                    )}
+                  </div>
+                ) : (
+                  <Image
+                    src={
+                      campaign?.templateLogos?.components[0]?.templateLogos[0]
+                        ?.asset?.url
+                    }
+                    alt={"sampleText"}
+                    // className="max-h-full"
+                    width={
+                      campaign?.templateLogos?.components[0]?.templateLogos[0]
+                        ?.asset?.metadata?.dimensions?.width || 200
+                    }
+                    height={
+                      campaign?.templateLogos?.components[0]?.templateLogos[0]
+                        ?.asset?.metadata?.dimensions?.height || 200
+                    }
+                    key={
+                      campaign?.templateLogos?.components[0]?.templateLogos[0]
+                        ?.asset?._id
+                    }
+                  />
+                )}
+              </div>
+            );
 
           case "pillElement":
             return (
