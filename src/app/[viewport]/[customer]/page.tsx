@@ -40,13 +40,18 @@ export default async function ViewPort({ params }: { params: any }) {
   }
 
   const requiredCampaigns = await getCampaigns(customer, viewportData);
-  const campaigns = await Promise.all(requiredCampaigns.map( async (campaign: any) => await runQuery(getCampaignByID(), { campaignID: campaign._id})))
-  
+  const campaigns = await Promise.all(
+    requiredCampaigns.map(
+      async (campaign: any) =>
+        await runQuery(getCampaignByID(), { campaignID: campaign._id }, [
+          campaign._id,
+        ])
+    )
+  );
+
   const bannerID = viewportData.showBanner
     ? viewportData.selectedBanner?.[0]?._ref
     : null;
-
-  
   const banner = bannerID
     ? await runQuery(getBannerByID(), { bannerID })
     : null;
@@ -55,5 +60,5 @@ export default async function ViewPort({ params }: { params: any }) {
 
   // const campaign = campaigns[Math.floor(Math.random() * campaigns.length)];
   // const campaigns = campaigns.map((campaign: any) => campaign._id )
-  return <Campaign campaigns={campaigns} banner={banner} cookies={cookies}/>;
+  return <Campaign campaigns={campaigns} banner={banner} cookies={cookies} />;
 }
