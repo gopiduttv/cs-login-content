@@ -4,7 +4,12 @@ import React from "react";
 import CTAButton from "./CTAButton";
 import SecondaryCTABtn from "./SecondaryCTABtn";
 
-const DynamicComponents = ({ campaign, components, className,colors }: any) => {
+const DynamicComponents = ({
+  campaign,
+  components,
+  className,
+  colors,
+}: any) => {
   const titleComponent: any = {
     block: {
       normal: ({ children }: any) => (
@@ -18,9 +23,7 @@ const DynamicComponents = ({ campaign, components, className,colors }: any) => {
     },
     marks: {
       highlight: ({ children }: any) => (
-        <span style={{ color: colors?.highlightColor }}>
-          {children}
-        </span>
+        <span style={{ color: colors?.highlightColor }}>{children}</span>
       ),
     },
   };
@@ -35,9 +38,7 @@ const DynamicComponents = ({ campaign, components, className,colors }: any) => {
     },
     marks: {
       highlight: ({ children }: any) => (
-        <span style={{ color: colors?.highlightColor }}>
-          {children}
-        </span>
+        <span style={{ color: colors?.highlightColor }}>{children}</span>
       ),
     },
   };
@@ -46,7 +47,7 @@ const DynamicComponents = ({ campaign, components, className,colors }: any) => {
     block: {
       normal: ({ children }: any) => (
         <p
-        style={{ color: colors?.paragraphColor }}
+          style={{ color: colors?.paragraphColor }}
           className="xl:text-lg pb-2 pt-1"
         >
           {children}
@@ -55,13 +56,11 @@ const DynamicComponents = ({ campaign, components, className,colors }: any) => {
     },
     marks: {
       highlight: ({ children }: any) => (
-        <span style={{ color: colors?.highlightColor }}>
-          {children}
-        </span>
+        <span style={{ color: colors?.highlightColor }}>{children}</span>
       ),
     },
   };
-
+// console.log("com",components)
   return (
     <div
       className={`${className} ${
@@ -70,16 +69,33 @@ const DynamicComponents = ({ campaign, components, className,colors }: any) => {
     >
       {components?.map((component: any, index: number) => {
         switch (component._type) {
-          case "topTemplateLogo":
-            return (
-              <div className="">
-              <img src={component?.templateLogo?.url} alt={"sampleText"} className="max-h-full"/>
-            </div>
-            );
+          // case "topTemplateLogo":
+          //   return (
+          //     <div key={`topTemplateLogo-${index}`} className="">
+          //       {component?.templateLogo?.length > 1 ? (
+          //         component?.templateLogo?.map((item: any, i: number) => (
+          //           <div className="flex" key={`logo-${i}`}>
+          //             <img
+          //               src={item?.url}
+          //               alt={"sampleText"}
+          //               className="max-h-full"
+          //             />
+          //           </div>
+          //         ))
+          //       ) : (
+          //         <img
+          //           src={component?.templateLogo[0]?.url}
+          //           alt={"sampleText"}
+          //           className="max-h-full"
+          //         />
+          //       )}
+          //     </div>
+          //   );
+
           case "pillElement":
             return (
               <CampaignHeader
-                key={index}
+                key={`pillElement-${index}`}
                 logoUrl={component?.templateLogo?.url}
                 templateHeader={component?.templateText}
                 eventType={component?.templateEventType}
@@ -91,7 +107,7 @@ const DynamicComponents = ({ campaign, components, className,colors }: any) => {
           case "headingComponent":
             return (
               <PortableText
-                key={index}
+                key={`headingComponent-${index}`}
                 value={component?.title}
                 components={titleComponent}
               />
@@ -99,7 +115,10 @@ const DynamicComponents = ({ campaign, components, className,colors }: any) => {
 
           case "subHeadingComponent":
             return (
-              <div key={index} className="flex items-center gap-10">
+              <div
+                key={`subHeadingComponent-${index}`}
+                className="flex items-center gap-10"
+              >
                 <PortableText
                   value={component?.subTitle}
                   components={subTitleComponent}
@@ -110,7 +129,7 @@ const DynamicComponents = ({ campaign, components, className,colors }: any) => {
           case "paragraphComponent":
             return (
               <PortableText
-                key={index}
+                key={`paragraphComponent-${index}`}
                 value={component?.paragraph}
                 components={paragraphComponents}
               />
@@ -118,7 +137,10 @@ const DynamicComponents = ({ campaign, components, className,colors }: any) => {
 
           case "buttonComponents":
             return (
-              <div className="flex gap-6 mt-6 items-center	">
+              <div
+                key={`buttonComponents-${index}`}
+                className="flex gap-6 mt-6 items-center"
+              >
                 {component?.ctaBtn?.ctaBtnText && (
                   <CTAButton
                     ctaText={component?.ctaBtn?.ctaBtnText}
@@ -138,7 +160,7 @@ const DynamicComponents = ({ campaign, components, className,colors }: any) => {
             );
 
           default:
-            return <div key={index}>Unknown component</div>;
+            return <div key={`unknown-${index}`}>Unknown component</div>;
         }
       })}
     </div>
