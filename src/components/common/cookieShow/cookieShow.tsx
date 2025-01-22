@@ -38,16 +38,20 @@ const customComponents: any = {
 };
 
 export default function CookieShow({ cookie, campaign }: any) {
-  console.log("hjg", cookie);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
+  const closeDrawer = () => {
+    setIsVisible(false);
+  };
+
   return (
     <>
       <div
-        className={`flex text-white bottom-0 w-full`}
+        className={`flex text-white bottom-0 w-full ${isVisible ? 'block' : 'hidden'}`}
         style={{
           backgroundColor: cookie?.backgroundColorGradient,
         }}
@@ -64,6 +68,7 @@ export default function CookieShow({ cookie, campaign }: any) {
               <CookieCTAButton
                 ctaText={cookie?.ctaBtn?.ctaBtnText}
                 cookieMode={true}
+                toggleDrawer={closeDrawer}
               />
             )}
             {cookie?.secondaryCtaBtn?.secondaryBtnText && (
