@@ -252,6 +252,13 @@ export const campaign = defineType({
                   type: "string",
                 }
               ],
+              preview: {
+                prepare() {
+                  return {
+                    title: `Top Pills Component`,
+                  };
+                },
+              },
             },
             // Heading Component
             {

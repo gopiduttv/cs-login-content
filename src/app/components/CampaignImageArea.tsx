@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { urlFor } from "@/sanity/lib/image";
 
 interface ICampaignImageArea {
   campaignImage: any;
@@ -33,7 +34,7 @@ function CampaignImageArea({
         />
       )}
 
-      {isCarousal && campaignImage?.campaignCarousalImage?.length > 0 && (
+      {isCarousal && campaignImage?.structure?.campaignCarousalImage?.length > 0 && (
         <Swiper
           navigation={true}
           // className="w-[500px]"
@@ -46,12 +47,12 @@ function CampaignImageArea({
           }}
           modules={[Pagination, Autoplay, Navigation]}
         >
-          {campaignImage?.campaignCarousalImage?.map(
+         {campaignImage?.structure?.campaignCarousalImage?.map(
             (e: any, index: number) => (
               <SwiperSlide key={index}>
                 <Image
                   className="max-h-[48vh] w-auto justify-self-end"
-                  src={e?.image?.url}
+                  src={urlFor(e.speakerImage).url()}
                   alt={"campaign carousel image"}
                   width={500}
                   height={500}

@@ -26,8 +26,8 @@ export default function RightImageLeftText({
   banner: any;
   colors:Color
 }) {
+  console.log("tttttttt",campaign)
   return (
-  
     <Section
       bgColor={colors?.selectedBgColor}
       bgImage={campaign?.backgroundImage?.url}
@@ -45,7 +45,7 @@ export default function RightImageLeftText({
             campaignImage={campaign}
             className="items-center max-w-[500px] hidden lg:block"
             isCarousal={
-              campaign?.campaignCarousalImage?.length >= 1 ? true : false
+              campaign?.structure?.campaignCarousalImage?.length >= 1 ? true : false
             }
           />
             {/* <CampaignImageArea
