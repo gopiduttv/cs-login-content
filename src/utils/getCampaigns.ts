@@ -17,12 +17,14 @@ async function getEligibleAdjacencyCampaignsIds(customer: any, campaigns: any) {
   const customerType =
     DB[customer].locations >= 15 ? "largeScale" : "smallScale";
 
+  if (!campaigns || campaigns.length == 0 ) return []
+  
   const eligibleCampaigns = (
     await Promise.all(
       adjacencies.map(async (adjacency: any) => {
         const campaign = await runQuery(getCampaignIdsByAdjacency(), {
           adjacency: adjacency.adjacencyName,
-          campaignIds: campaigns.map((campaign: any) => campaign._ref),
+          campaignIds: campaigns?.map((campaign: any) => campaign._ref),
           customerType,
         });
 
