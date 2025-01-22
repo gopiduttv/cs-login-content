@@ -40,25 +40,29 @@ const getCampaignByID = () => {
           }
         },
         "colorTemplate1":colorTemplate[]->{paragraphColor,
-                                     h1Color,
-                                     highlightColor,
-                                     selectedBgColor
-                                    },
-   "templateLogo":structure {
-    components[]{
-      'data':templateLogos[0].asset->{
-          _id,
-          url,
-          metadata {
-            dimensions {
-              width,
-              height,
-              aspectRatio
+          h1Color,
+          highlightColor,
+          selectedBgColor
+        },
+        "templateLogos":
+        structure {
+          components[ _type == "topTemplateLogo"] {
+            _key, 
+            templateLogos[] {
+              asset->{
+                _id,
+                url,
+                metadata {
+                  dimensions {
+                    width,
+                    height,
+                    aspectRatio
+                  }
+                }
+              }
             }
           }
-        }
-    }
-  },
+        },
         "backgroundImage": backgroundImage.asset->{
           _id,
           url,
