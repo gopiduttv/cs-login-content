@@ -12,9 +12,9 @@
       "title": "sky-200",
       "id": "2",
       "value": "#dbeafe",
-      "ParagraphColor": ["","#FFFFFF", "#0c0c0d", "#000000B2"],
-      "highlightColor": ["", "yellow","#FFFFFF", "#2563EB"],
-      "h1Color": ["", "#FFFFFF","#0c0c0d","#3B82F6","#2563EB"]
+      "ParagraphColor": ["","#FFFFFF", "#0c0c0d", "#000000B2","#0F172A"],
+      "highlightColor": ["", "yellow","#FFFFFF", "#2563EB", "#0F172A"],
+      "h1Color": ["", "#FFFFFF","#0c0c0d","#3B82F6","#2563EB", "#0F172A"]
     },
 
     {
