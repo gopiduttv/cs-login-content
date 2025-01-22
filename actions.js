@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDocumentOperation } from 'sanity';
-import { revalidatePath } from 'next/cache'
+import triggerISR from '@/actions/revalidate';
 
 
 export function SetAndPublishAction(props) {
@@ -32,7 +32,9 @@ export function SetAndPublishAction(props) {
 
       // Perform the publish operation
       publish.execute();
-
+      console.log("Triggering ISR")
+      triggerISR(props)
+      console.log("ISR Triggered")
       // Signal that the action is complete
       props.onComplete();
     },
