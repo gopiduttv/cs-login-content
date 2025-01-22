@@ -9,18 +9,20 @@ const DynamicColorDropdown = (props: any) => {
   const selectedItem = list?.themes?.find(
     (item: { value: unknown }) => item.value === selectedBgColor
   );
-  console.log({ selectedItem }, { id });
-
-  const options: any =
-    selectedItem && id === "h1Color"
-      ? selectedItem.h1Color || []
-      : selectedItem && id === "paragraphColor"
+ 
+  const options: string | Array<any> =
+  selectedItem && id === "h1Color"
+    ? selectedItem.h1Color || []
+    : selectedItem && id === "paragraphColor"
       ? selectedItem.ParagraphColor || []
       : selectedItem && id === "highlightColor"
-      ? selectedItem.highlightColor || []
-      : selectedItem && id === "title"
-      ? selectedItem.title || []
-      : [];
+        ? selectedItem.highlightColor || []
+        : selectedItem && id === "title"
+          ? selectedItem.title || []
+          : selectedItem && id === "subtitleText"
+            ? selectedItem.subtitleText || []
+            : [];
+
 
   const safeOptions = Array.isArray(options) ? options : [];
   return (
@@ -40,6 +42,7 @@ const DynamicColorDropdown = (props: any) => {
           value={props.value}
           onChange={(e: any) => onChange(set(e.target.value))}
         >
+           <div style={{width:'10px', height:'100px', background:selectedItem?.value}}></div>
           {safeOptions.map((e: any, index: number) => (
             <option key={index} value={e} style={{ background: e }}>
               {e} 
@@ -74,6 +77,7 @@ export const BackgroundColor = defineType({
       title: "Title",
       type: "string",
       readOnly: true, 
+      hidden:true
     }),
     defineField({
       name: "h1Color",
@@ -86,6 +90,14 @@ export const BackgroundColor = defineType({
     defineField({
       name: "paragraphColor",
       title: "Paragraph Color",
+      type: "string",
+      components: {
+        input: DynamicColorDropdown,
+      },
+    }),
+    defineField({
+      name: "subtitleText",
+      title: "SubTitle Color",
       type: "string",
       components: {
         input: DynamicColorDropdown,
@@ -110,6 +122,16 @@ export const BackgroundColor = defineType({
       );
       return {
         title: selectedItem?.title || "No Title Selected",
+        media: () => (
+          <div
+            style={{
+              width: "24px",
+              height: "24px",
+              background: selectedItem?.value || "#ccc",
+              borderRadius: "4px",
+            }}
+          />
+        ),
       };
     },
   },

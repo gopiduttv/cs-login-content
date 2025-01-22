@@ -6,7 +6,8 @@
       "value": "linear-gradient(76.86deg, #FDE047 0%, #FEFCE8 98.41%)",
       "ParagraphColor": ["", "black"],
       "highlightColor": ["", "yellow", "green", "red", "wheat"],
-      "h1Color": ["", "#black"]
+      "h1Color": ["", "#black"],
+      "subtitleText":["","red"]
     },
     {
       "title": "sky-200",
@@ -14,7 +15,8 @@
       "value": "#dbeafe",
       "ParagraphColor": ["","#FFFFFF", "#0c0c0d", "#000000B2"],
       "highlightColor": ["", "yellow","#FFFFFF", "#2563EB"],
-      "h1Color": ["", "#FFFFFF","#0c0c0d","#3B82F6","#2563EB"]
+      "h1Color": ["", "#FFFFFF","#0c0c0d","#3B82F6","#2563EB"],
+      "subtitleText":["","red"]
     },
 
     {
@@ -22,8 +24,9 @@
       "id": "4",
       "value": "#07447d",
       "ParagraphColor": ["", "#fafbfc"],
-      "highlightColor": ["", "yellow"],
-      "h1Color": ["", "#fafbfc"]
+      "highlightColor": ["", "yellow","#42BA78"],
+      "h1Color": ["", "#fafbfc"],
+      "subtitleText":["","red"]
     },
     {
       "title": "Aqua Jade",
@@ -31,7 +34,8 @@
       "value": "linear-gradient(63deg, #14B8A6 0%, #111827 100%)",
       "ParagraphColor": ["", "#fafbfc"],
       "highlightColor": ["", "yellow"],
-      "h1Color": ["", "#fafbfc"]
+      "h1Color": ["", "#fafbfc"],
+      "subtitleText":["","red"]
     },
     {
       "title": "Deep Teal",
@@ -39,7 +43,8 @@
       "value": "Linear-gradient(63deg, #0F766E 0%, #111827 100%)",
       "ParagraphColor": ["", "#fafbfc"],
       "highlightColor": ["", "yellow"],
-      "h1Color": ["", "#fafbfc"]
+      "h1Color": ["", "#fafbfc"],
+      "subtitleText":["","red"]
     },
     {
       "title": "Electric Blue",
@@ -47,7 +52,8 @@
       "value": "linear-gradient(77deg, #3B82F6 0%, #111827 98.41%)",
       "ParagraphColor": ["", "#fafbfc"],
       "highlightColor": ["", "yellow"],
-      "h1Color": ["", "#fafbfc"]
+      "h1Color": ["", "#fafbfc"],
+      "subtitleText":["","red"]
     },
     {
       "title": "Black Fade",
@@ -55,7 +61,8 @@
       "value": "linear-gradient(90deg,#000,transparent)",
       "ParagraphColor": ["", "#fafbfc","#FFF"],
       "highlightColor": ["", "yellow", "#FFF"],
-      "h1Color": ["", "#fafbfc", "#FFF"]
+      "h1Color": ["", "#fafbfc", "#FFF"],
+      "subtitleText":["","red"]
     },
     {
       "title": "Deep Blue",
@@ -63,7 +70,8 @@
       "value": "linear-gradient(296.33deg,#05406b 1.22%,#2f648a 150.5%)",
       "ParagraphColor": ["", "#fafbfc","#FFF"],
       "highlightColor": ["", "yellow", "#FFF"],
-      "h1Color": ["", "#fafbfc", "#FFF"]
+      "h1Color": ["", "#fafbfc", "#FFF"],
+      "subtitleText":["","red"]
     },
     {
         "title": "Spring Glow",
@@ -71,7 +79,8 @@
         "value": "linear-gradient(77deg, #86EFAC 0%, #F0FDF4 98.41%)",
         "ParagraphColor": ["", "#fafbfc"],
         "highlightColor": ["", "yellow"],
-        "h1Color": ["", "#fafbfc"]
+        "h1Color": ["", "#fafbfc"],
+        "subtitleText":["","red"]
       }
   ]
 }
