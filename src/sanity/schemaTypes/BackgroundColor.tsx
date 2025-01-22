@@ -11,15 +11,18 @@ const DynamicColorDropdown = (props: any) => {
   );
  
   const options: string | Array<any> =
-    selectedItem && id === "h1Color"
-      ? selectedItem.h1Color || []
-      : selectedItem && id === "paragraphColor"
-        ? selectedItem.ParagraphColor || []
-        : selectedItem && id === "highlightColor"
-          ? selectedItem.highlightColor || []
-          : selectedItem && id === "title"
-            ? selectedItem.title || []
+  selectedItem && id === "h1Color"
+    ? selectedItem.h1Color || []
+    : selectedItem && id === "paragraphColor"
+      ? selectedItem.ParagraphColor || []
+      : selectedItem && id === "highlightColor"
+        ? selectedItem.highlightColor || []
+        : selectedItem && id === "title"
+          ? selectedItem.title || []
+          : selectedItem && id === "subtitleText"
+            ? selectedItem.subtitleText || []
             : [];
+
 
   const safeOptions = Array.isArray(options) ? options : [];
   return (
@@ -87,6 +90,14 @@ export const BackgroundColor = defineType({
     defineField({
       name: "paragraphColor",
       title: "Paragraph Color",
+      type: "string",
+      components: {
+        input: DynamicColorDropdown,
+      },
+    }),
+    defineField({
+      name: "subtitleText",
+      title: "SubTitle Color",
       type: "string",
       components: {
         input: DynamicColorDropdown,
