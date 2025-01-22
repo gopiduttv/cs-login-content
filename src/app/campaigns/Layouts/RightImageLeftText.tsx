@@ -26,7 +26,6 @@ export default function RightImageLeftText({
   banner: any;
   colors:Color
 }) {
-  console.log(JSON.stringify(colors))
   return (
   
     <Section

@@ -193,20 +193,26 @@ export const campaign = defineType({
       fields: [
         defineField({
           name: "components",
-          title: "Components",
+          title: "",
           type: "array",
           of: [
             {
               type: "object",
               name: "topTemplateLogo",
-              title: "Top logo Component",
+              title: "Top Logo Component",
               fields: [
                 {
-                  name: "templateLogo",
-                  title: "Top Logo",
-                  type: "image",
-                }
-              ]
+                  name: "templateLogos",
+                  title: "Top Logos",
+                  type: "array",
+                  of: [
+                    {
+                      type: "image",
+                      title: "Logo",
+                    },
+                  ],
+                },
+              ],
             },
             {
               type: "object",

@@ -44,7 +44,9 @@ const getCampaignByID = () => {
                                      highlightColor,
                                      selectedBgColor
                                     },
-   "templateLogo":templateLogo.asset->{
+   "templateLogo":structure {
+    components[]{
+      'data':templateLogos[0].asset->{
           _id,
           url,
           metadata {
@@ -54,7 +56,9 @@ const getCampaignByID = () => {
               aspectRatio
             }
           }
-        },
+        }
+    }
+  },
         "backgroundImage": backgroundImage.asset->{
           _id,
           url,
