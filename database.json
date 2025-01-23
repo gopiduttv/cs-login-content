@@ -7699,7 +7699,7 @@
         "locations": 2,
         "region": "US"
     },
-    "edgertonandglenn/": {
+    "edgertonandglenn": {
         "subscriptions": [
             {
                 "adjacencyName": "us-pms",
@@ -9129,7 +9129,7 @@
         "locations": 3,
         "region": "US"
     },
-    "sfdental/": {
+    "sfdental": {
         "subscriptions": [
             {
                 "adjacencyName": "us-pms",
@@ -9151,7 +9151,7 @@
         "locations": 4,
         "region": "US"
     },
-    "miamidental/": {
+    "miamidental": {
         "subscriptions": [
             {
                 "adjacencyName": "us-pms",
@@ -10669,7 +10669,7 @@
         "locations": 17,
         "region": "US"
     },
-    "holisticdental/": {
+    "holisticdental": {
         "subscriptions": [
             {
                 "adjacencyName": "us-pms",
