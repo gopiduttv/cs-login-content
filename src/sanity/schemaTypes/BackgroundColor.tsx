@@ -42,7 +42,6 @@ const DynamicColorDropdown = (props: any) => {
           value={props.value}
           onChange={(e: any) => onChange(set(e.target.value))}
         >
-           <div style={{width:'10px', height:'100px', background:selectedItem?.value}}></div>
           {safeOptions.map((e: any, index: number) => (
             <option key={index} value={e} style={{ background: e }}>
               {e} 

@@ -85,11 +85,11 @@
       {
         "title": "light SkyBlue",
         "id": "10",
-        "value": "",
+        "value": "linear-gradient(232deg, #00c3b8 -14.28%, #0e3c66 105.73%)",
         "ParagraphColor": ["", "#fafbfc", "#15803D", "#0F172A"],
-        "highlightColor": ["", "yellow", "#15803D", "#0F172A"],
+        "highlightColor": ["", "yellow","#fafbfc", "#15803D", "#0F172A"],
         "h1Color": ["", "#fafbfc", "#15803D", "#0F172A"],
-        "subtitleText":["","15803D", "#15803D", "#0F172A"]
+        "subtitleText":["","15803D", "#15803D","#fafbfc", "#0F172A"]
       },
         {"title": "Transparent",
         "id": "10",
