@@ -42,14 +42,14 @@ export default async function ViewPort({ params }: { params: any }) {
   }
 
   const requiredCampaigns = await getCampaigns(customer, viewportData);
-  const campaigns = await Promise.all(
+  const campaigns = requiredCampaigns ? await Promise.all(
     requiredCampaigns.map(
       async (campaign: any) =>
         await runQuery(getCampaignByID(), { campaignID: campaign._id }, [
           campaign._id,
         ])
     )
-  );
+  ) : []
 
   const bannerID = viewportData.showBanner
     ? viewportData.selectedBanner?.[0]?._ref

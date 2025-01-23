@@ -95,7 +95,6 @@ const getTotalCampaignPool = (
 
 export async function getCampaigns(customer: string, viewportData: any) {
   try {
-
     const adjacencyOrientedCampaigns: any =
       await getEligibleAdjacencyCampaignsIds(
         customer,
@@ -104,12 +103,11 @@ export async function getCampaigns(customer: string, viewportData: any) {
 
     const totalCampaignPool: any = getTotalCampaignPool(
       adjacencyOrientedCampaigns,
-      viewportData.additionalCampaigns.map((campaign: any) => {
+      viewportData.additionalCampaigns?.map((campaign: any) => {
         return { _id: campaign._ref };
       }),
       viewportData.combiningMode
     );
-
     return totalCampaignPool;
   } catch (error) {
     console.error("Error in getting current campaign:", error);
