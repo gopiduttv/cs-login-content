@@ -17,7 +17,7 @@ export default function LeftImageRightText({
   campaign: any;
   cookies: any;
   banner: any;
-  colors: Color;
+  colors?: Color;
 }) {
   console.log(colors);
   return (

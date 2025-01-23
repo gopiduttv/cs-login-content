@@ -16,7 +16,7 @@ export default function CenterText({
   campaign: any;
   cookies: any;
   banner: any;
-  colors: Color;
+  colors?: Color;
 }) {
   return (
     <Section
