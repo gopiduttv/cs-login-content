@@ -42,7 +42,7 @@ function Campaign({ campaigns, cookies, banner }: { campaigns: any; cookies: any
       campaign={campaigns[campaignIdx]}
        banner={banner} 
        cookies={cookies}
-       colors={campaigns[campaignIdx]?.colorTemplate1[0]}
+       colors={campaigns[campaignIdx]?.colorTemplate1?.[0] ?? 'defaultColor'}
        />
     );
   }
@@ -52,7 +52,7 @@ function Campaign({ campaigns, cookies, banner }: { campaigns: any; cookies: any
       campaign={campaigns[campaignIdx]} 
       banner={banner}
        cookies={cookies}
-       colors={campaigns[campaignIdx]?.colorTemplate1[0]}/>
+       colors={campaigns[campaignIdx]?.colorTemplate1?.[0] ?? 'defaultColor'}/>
     );
   }
 
@@ -60,7 +60,7 @@ function Campaign({ campaigns, cookies, banner }: { campaigns: any; cookies: any
   campaign={campaigns[campaignIdx]}
    banner={banner} 
    cookies={cookies}
-   colors={campaigns[campaignIdx]?.colorTemplate1[0]}/>;
+   colors={campaigns[campaignIdx]?.colorTemplate1?.[0] ?? 'defaultColor'}/>;
 }
 
 export default Campaign;

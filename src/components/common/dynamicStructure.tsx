@@ -184,6 +184,10 @@ const DynamicComponents = ({
                 {component?.note && <PortableText value={component?.note} />}
               </div>
             );
+          case "noteComponent":
+            return (
+              <p className="mt-8 text-base" key={`disclaimer-${index}`}>{component?.disclaimer}</p>
+            );
 
           default:
             return <div key={`unknown-${index}`}>Unknown component</div>;

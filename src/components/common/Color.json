@@ -90,6 +90,14 @@
         "highlightColor": ["", "yellow", "#15803D", "#0F172A"],
         "h1Color": ["", "#fafbfc", "#15803D", "#0F172A"],
         "subtitleText":["","15803D", "#15803D", "#0F172A"]
+      },
+        {"title": "Transparent",
+        "id": "10",
+        "value": "linear-gradient(25deg,#000,transparent)",
+        "ParagraphColor": ["", "#fafbfc", "#09b895", "#0F172A", "#FFF"],
+        "highlightColor": ["", "yellow", "#09b895", "#0F172A", "#FFF"],
+        "h1Color": ["", "#fafbfc", "#09b895", "#0F172A", "#FFF"],
+        "subtitleText":["","red", "#09b895", "#0F172A", "#FFF"]
       }
   ]
 }
