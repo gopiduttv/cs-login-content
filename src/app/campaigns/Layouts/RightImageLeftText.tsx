@@ -12,7 +12,7 @@ export  interface Color{
   highlightColor:string
   paragraphColor:string
   selectedBgColor:string
-
+  subtitleText: string
 }
 
 export default function RightImageLeftText({
