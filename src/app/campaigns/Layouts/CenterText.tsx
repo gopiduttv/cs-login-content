@@ -21,6 +21,7 @@ export default function CenterText({
   return (
     <Section
       bgColor={colors?.selectedBgColor}
+      bgImage={campaign?.backgroundImage?.url}
       // className={`w-full h-screen`}
     >
       {campaign?.isCookieShow && (

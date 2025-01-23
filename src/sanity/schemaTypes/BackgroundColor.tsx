@@ -60,6 +60,11 @@ export const BackgroundColor = defineType({
   type: "document",
   fields: [
     defineField({
+      name: "colorTitle",
+      title: "Color Title",
+      type: "string",
+    }),
+    defineField({
       name: "selectedBgColor",
       title: "Select Background Color Gradient",
       type: "string",
