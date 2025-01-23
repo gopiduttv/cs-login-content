@@ -17,7 +17,7 @@ const DynamicComponents = ({
 }: any) => {
   const urlBuilder: any = (source: any) => urlBuilder(client).image(source);
 
-  const SampleImageComponent = ({ value, isInline }: any) => { debugger
+  const ImageComponent = ({ value, isInline }: any) => {
     if (!value?.asset?._ref) return null;
   
     const { width, height } = value.asset.metadata?.dimensions || { width: 800, height: 600 };
@@ -56,7 +56,7 @@ const DynamicComponents = ({
       ),
     },
     types: {
-      image: SampleImageComponent
+      image: ImageComponent
       
     },
   };
