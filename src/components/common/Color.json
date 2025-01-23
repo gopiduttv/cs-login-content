@@ -81,6 +81,15 @@
         "highlightColor": ["", "yellow", "#15803D", "#0F172A"],
         "h1Color": ["", "#fafbfc", "#15803D", "#0F172A"],
         "subtitleText":["","red", "#15803D", "#0F172A"]
+      },
+      {
+        "title": "light SkyBlue",
+        "id": "10",
+        "value": "",
+        "ParagraphColor": ["", "#fafbfc", "#15803D", "#0F172A"],
+        "highlightColor": ["", "yellow", "#15803D", "#0F172A"],
+        "h1Color": ["", "#fafbfc", "#15803D", "#0F172A"],
+        "subtitleText":["","15803D", "#15803D", "#0F172A"]
       }
   ]
 }
