@@ -1,9 +1,13 @@
 import CampaignHeader from "@/app/components/CampaignHeader";
 import { PortableText } from "next-sanity";
-import React from "react";
+import React, { Children } from "react";
 import CTAButton from "./CTAButton";
 import SecondaryCTABtn from "./SecondaryCTABtn";
 import Image from "next/image";
+import urlBuilder from "@sanity/image-url";
+import { urlFor } from "@/sanity/lib/image";
+import { client } from "@/sanity/lib/client";
+const builder = urlBuilder(client);
 
 const DynamicComponents = ({
   campaign,
@@ -11,6 +15,30 @@ const DynamicComponents = ({
   className,
   colors,
 }: any) => {
+  const urlBuilder: any = (source: any) => urlBuilder(client).image(source);
+
+  const ImageComponent = ({ value, isInline }: any) => {
+    if (!value?.asset?._ref) return null;
+  
+    const { width, height } = value.asset.metadata?.dimensions || { width: 800, height: 600 };
+  
+    return (
+      <img
+        src={builder.image(value).width(isInline ? 100 : 100).fit('max').auto('format').url()}
+        alt={value.alt || 'Sanity Image'}
+        // className="w-24 h-6"
+        loading="eager"
+        style={{
+         
+          aspectRatio: width / height,
+          width:value?.width,
+          height:value?.height
+
+        }}
+      />
+    );
+  };
+  
   const titleComponent: any = {
     block: {
       normal: ({ children }: any) => (
@@ -27,12 +55,19 @@ const DynamicComponents = ({
         <span style={{ color: colors?.highlightColor }}>{children}</span>
       ),
     },
+    types: {
+      image: ImageComponent
+      
+    },
   };
 
   const subTitleComponent: any = {
     block: {
       normal: ({ children }: any) => (
-        <p style={{ color: colors?.subtitleText }} className="text-2xl lg:text-3xl font-semibold py-4 !leading-snug">
+        <p
+          style={{ color: colors?.subtitleText }}
+          className="text-2xl lg:text-3xl font-semibold py-4 !leading-snug"
+        >
           {children}
         </p>
       ),
@@ -65,7 +100,9 @@ const DynamicComponents = ({
   return (
     <div
       className={`${className} ${
-        campaign?.themeMode == "lightMode" ? "text-[#000000B2]" : "text-[#FFFFFFB2]"
+        campaign?.themeMode == "lightMode"
+          ? "text-[#000000B2]"
+          : "text-[#FFFFFFB2]"
       }`}
     >
       {components?.map((component: any, index: number) => {
@@ -132,11 +169,13 @@ const DynamicComponents = ({
 
           case "headingComponent":
             return (
+              <div className="flex"  key={`headingComponent-${index+Math.random()}`}>
               <PortableText
                 key={`headingComponent-${index}`}
                 value={component?.title}
                 components={titleComponent}
               />
+              </div>
             );
 
           case "subHeadingComponent":
@@ -186,7 +225,9 @@ const DynamicComponents = ({
             );
           case "noteComponent":
             return (
-              <p className="mt-8 text-base" key={`disclaimer-${index}`}>{component?.disclaimer}</p>
+              <p className="mt-8 text-base" key={`disclaimer-${index}`}>
+                {component?.disclaimer}
+              </p>
             );
 
           default:

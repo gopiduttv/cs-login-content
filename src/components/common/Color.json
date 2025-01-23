@@ -83,7 +83,15 @@
         "subtitleText":["","red", "#15803D", "#0F172A"]
       },
       {
-        "title": "Transparent",
+        "title": "light SkyBlue",
+        "id": "10",
+        "value": "linear-gradient(232deg, #00c3b8 -14.28%, #0e3c66 105.73%)",
+        "ParagraphColor": ["", "#fafbfc", "#15803D", "#0F172A"],
+        "highlightColor": ["", "yellow","#fafbfc", "#15803D", "#0F172A"],
+        "h1Color": ["", "#fafbfc", "#15803D", "#0F172A"],
+        "subtitleText":["","15803D", "#15803D","#fafbfc", "#0F172A"]
+      },
+        {"title": "Transparent",
         "id": "10",
         "value": "linear-gradient(25deg,#000,transparent)",
         "ParagraphColor": ["", "#fafbfc", "#09b895", "#0F172A", "#FFF"],
