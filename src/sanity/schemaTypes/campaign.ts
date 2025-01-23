@@ -398,18 +398,30 @@ export const campaign = defineType({
                 },
               ],
               preview: {
-                select: {
-                  primaryBtn: "ctaBtn.ctaBtnText",
-                  secondaryBtn: "secondaryBtnComponent.secondaryBtnText",
-                  note: "note",
-                },
-                prepare(selection) {
-                  const { primaryBtn, secondaryBtn, note } = selection;
+                select: {},
+                prepare() {
                   return {
-                    title: primaryBtn || "No Primary Button",
-                    subtitle: `${secondaryBtn || "No Secondary Button"} ${
-                      note ? "| Note included" : ""
-                    }`,
+                    title:"Button Component",
+                  };
+                },
+              },
+            },
+            {
+              type: "object",
+              name: "noteComponent",
+              title: "Note Component",
+              fields: [
+                {
+                  name: "disclaimer",
+                  title: "Disclaimer",
+                  type: "text",
+                },
+              ],
+              preview: {
+                select: {},
+                prepare() {
+                  return {
+                    title: "Disclaimer Component",
                   };
                 },
               },

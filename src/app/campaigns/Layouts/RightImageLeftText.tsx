@@ -23,8 +23,8 @@ export default function RightImageLeftText({
 }: {
   campaign: any;
   cookies: any;
-  banner: any;
-  colors:Color
+  banner?: any;
+  colors?:Color
 }) {
   console.log("tttttttt",campaign)
   return (

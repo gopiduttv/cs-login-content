@@ -14,9 +14,9 @@ export default function Section(props: Props) {
       id={props?.id}
       style={{
         background: `
+        ${props?.bgColor || ''} 
+        ${props?.bgImage && props?.bgColor ? ',' : ''} 
           ${props?.bgImage ? `url(${props.bgImage})` : ''} 
-          ${props?.bgImage && props?.bgColor ? ',' : ''} 
-          ${props?.bgColor || ''} 
           no-repeat center/cover
         `.trim(),
       }}
