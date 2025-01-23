@@ -118,14 +118,16 @@ export const BackgroundColor = defineType({
   ],
   preview: {
     select: {
-      title: "selectedBgColor",
+      title: "colorTitle",
+      bgColor: "selectedBgColor",
     },
-    prepare({ title }: any) {
+    prepare({ title, bgColor }: any) {
       const selectedItem = list?.themes?.find(
-        (item: { value: unknown }) => item.value === title
+        (item: { value: any }) => item.value === bgColor
       );
+  
       return {
-        title: selectedItem?.title || "No Title Selected",
+        title: title || "No Title",
         media: () => (
           <div
             style={{
