@@ -9,7 +9,9 @@ import {
 import { getCampaigns } from "@/utils/getCampaigns";
 import Campaign from "../../campaigns/Campaign";
 import customerDB from "../../../../database.json";
-import { campaign } from "@/sanity/schemaTypes/campaign";
+
+export const revalidate: number = 2
+
 
 export async function generateStaticParams() {
   const viewports = await runQuery(getViewPorts());
@@ -53,7 +55,7 @@ export default async function ViewPort({ params }: { params: any }) {
     ? viewportData.selectedBanner?.[0]?._ref
     : null;
   const banner = bannerID
-    ? await runQuery(getBannerByID(), { bannerID })
+    ? await runQuery(getBannerByID(), { bannerID }, [bannerID])
     : null;
 
   const cookies = await runQuery(getCookiesData());
