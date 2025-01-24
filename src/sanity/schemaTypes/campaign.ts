@@ -351,6 +351,23 @@ export const campaign = defineType({
                       title: "CTA Button Link",
                       type: "url",
                     },
+                    {
+                      name: "ctaBtnColor",
+                      title: "CTA Button Color",
+                      type: 'string',
+                      options: {
+                        list: [
+                          { title: 'Red', value: '#FF5733' },
+                          { title: 'Green', value: '#26A363' },
+                          { title: 'Blue', value: '#007bff' },
+                          { title: 'Yellow', value: '#FFEB3B' },
+                          { title: 'Purple', value: '#6f42c1' },
+                          { title: 'White', value: '#fff' },
+                          { title: 'Black', value: '#000000' }
+                        ], 
+                        layout: 'dropdown',
+                      },
+                    },
                   ],
                 },
                 {
