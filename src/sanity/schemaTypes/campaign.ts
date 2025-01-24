@@ -368,6 +368,24 @@ export const campaign = defineType({
                         layout: 'dropdown',
                       },
                     },
+                    {
+                      name: "ctaBtnTextColor",
+                      title: "CTA Button Text Color",
+                      type: "string",
+                      options: {
+                        list: [
+                          {
+                            title: "White text",
+                            value: "whiteMode",
+                          },
+                          {
+                            title: "Black text",
+                            value: "blackMode",
+                          },
+                        ],
+                        layout: 'radio',
+                      },
+                    },
                   ],
                 },
                 {
