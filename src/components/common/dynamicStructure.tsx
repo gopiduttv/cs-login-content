@@ -219,6 +219,8 @@ const DynamicComponents = ({
                     ctaText={component?.secondaryBtnComponent?.secondaryBtnText}
                     themeMode={campaign?.themeMode}
                     isSecondaryBtn={true}
+                    ctaBtnTextColor={component?.secondaryBtnComponent?.ctaBtnTextColor}
+                    ctaBtnColor={component?.secondaryBtnComponent?.ctaBtnColor}
                     videoDetails={component?.secondaryBtn?.videoDetails}
                   />
                 )}

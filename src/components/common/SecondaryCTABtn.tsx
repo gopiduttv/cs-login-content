@@ -14,6 +14,8 @@ export interface CtaBtnProps {
   themeMode: string;
   isSecondaryBtn: boolean;
   videoDetails:VideoModal ;
+  ctaBtnTextColor: string;
+  ctaBtnColor:string;
 }
 
 export default function SecondaryCTABtn({
@@ -21,6 +23,8 @@ export default function SecondaryCTABtn({
   themeMode,
   isSecondaryBtn = true,
   videoDetails,
+  ctaBtnTextColor,
+  ctaBtnColor
 }: CtaBtnProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [openForm, setOpenForm] = useState(false);
@@ -33,6 +37,19 @@ export default function SecondaryCTABtn({
             ? "text-black border-black"
             : "text-white border-white"
         } `}
+        style={{
+          backgroundColor: ctaBtnColor
+            ? ctaBtnColor
+           : "",
+          color:
+            ctaBtnTextColor === "blackMode"
+              ? "#000000"
+              : "#fff",
+
+          borderColor:ctaBtnColor
+          ? ctaBtnColor
+         : "",
+        }}
         onClick={(e: React.SyntheticEvent) => setIsOpen(!isOpen)}
       >
         {isSecondaryBtn && (
