@@ -38,9 +38,9 @@ export default function RightImageLeftText({
       <Container
         className={` flex flex-col px-4 md:px-12 pt-4 md:py-8 z-10  gap-3  ${banner?.isFullScreen ? "flex-1" : ""}`}
       >
-        <div className="flex-grow flex items-center gap-4 lg:gap-24">
+        <div className="flex-grow flex items-center justify-between gap-4 lg:gap-24">
           {/* <CampaignTextArea campaign={campaign} className="flex flex-col max-w-xl xl:max-w-3xl" /> */}
-          <DynamicStructure colors={colors} campaign={campaign} components={campaign?.structure?.components} className="flex flex-col max-w-xl xl:max-w-3xl" />
+          <DynamicStructure colors={colors} campaign={campaign} components={campaign?.structure?.components} className="flex flex-col max-w-lg xl:max-w-xl gap-3" />
           <CampaignImageArea
             campaignImage={campaign}
             className="items-center max-w-[500px] hidden lg:block"
