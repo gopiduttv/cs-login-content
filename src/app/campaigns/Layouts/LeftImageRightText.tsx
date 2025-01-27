@@ -32,7 +32,7 @@ export default function LeftImageRightText({
       <Container
         className={` flex flex-col px-4 md:px-12 pt-4 md:py-8 gap-3  `}
       >
-        <div className="flex items-center gap-4 lg:gap-24 pb-8">
+        <div className="flex items-center gap-4 lg:gap-24 pb-8 justify-between">
           {/* <CampaignImageArea
             campaignImage={campaign}
             className=" max-w-[500px] hidden lg:block"
@@ -48,7 +48,7 @@ export default function LeftImageRightText({
             colors={colors}
             campaign={campaign}
             components={campaign?.structure?.components}
-            className="max-w-xl xl:max-w-3xl"
+            className="max-w-lg xl:max-w-xl gap-3"
           />
           {/* <CampaignTextArea
             colors={colors}
