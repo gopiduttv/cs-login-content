@@ -53,7 +53,7 @@ export default function SecondaryCTABtn({
         onClick={(e: React.SyntheticEvent) => setIsOpen(!isOpen)}
       >
         {isSecondaryBtn && (
-          <PlayButton color={themeMode == "darkMode" ? "white" : "black"} />
+          <PlayButton className="mr-2" color={themeMode == "darkMode" ? "white" : "black"} />
         )}
         {ctaText}
       </button>

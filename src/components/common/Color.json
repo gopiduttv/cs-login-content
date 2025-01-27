@@ -32,10 +32,10 @@
       "title": "Aqua Jade",
       "id": "5",
       "value": "linear-gradient(63deg, #14B8A6 0%, #111827 100%)",
-      "ParagraphColor": ["", "#fafbfc"],
-      "highlightColor": ["", "yellow"],
-      "h1Color": ["", "#fafbfc"],
-      "subtitleText":["","red"]
+      "ParagraphColor": ["", "#fafbfc", "#FFF"],
+      "highlightColor": ["", "yellow", "#FFF"],
+      "h1Color": ["", "#fafbfc","#FFF"],
+      "subtitleText":["","red", "#FFF"]
     },
     {
       "title": "Deep Teal",
