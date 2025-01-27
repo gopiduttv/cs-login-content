@@ -118,7 +118,8 @@ export const campaign = defineType({
       type: "array",
       title: "Color Schema",
       of: [{ type: "reference", to: [{ type: "backgroundLinearGradient" }] }],
-      group: "template"
+      group: "template",
+      validation: Rule => Rule.length(1).error('You can only select one item.') 
     }),
 
     defineField({
@@ -423,6 +424,42 @@ export const campaign = defineType({
                           type: "string",
                         },
                       ],
+                    },
+                    {
+                      name: "ctaBtnColor",
+                      title: "CTA Button Color",
+                      type: 'string',
+                      options: {
+                        list: [
+                          { title: 'Red', value: '#FF5733' },
+                          { title: 'Green', value: '#26A363' },
+                          { title: 'Blue', value: '#007bff' },
+                          { title: 'Yellow', value: '#FFEB3B' },
+                          { title: 'Purple', value: '#6f42c1' },
+                          { title: 'White', value: '#fff' },
+                          { title: 'Black', value: '#000000' },
+                          { title: 'Transparent', value: 'transparent' }
+                        ], 
+                        layout: 'dropdown',
+                      },
+                    },
+                    {
+                      name: "ctaBtnTextColor",
+                      title: "CTA Button Text Color",
+                      type: "string",
+                      options: {
+                        list: [
+                          {
+                            title: "White text",
+                            value: "whiteMode",
+                          },
+                          {
+                            title: "Black text",
+                            value: "blackMode",
+                          },
+                        ],
+                        layout: 'radio',
+                      },
                     },
                   ],
                 },
