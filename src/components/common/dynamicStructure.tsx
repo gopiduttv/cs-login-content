@@ -221,7 +221,7 @@ const DynamicComponents = ({
                     isSecondaryBtn={true}
                     ctaBtnTextColor={component?.secondaryBtnComponent?.ctaBtnTextColor}
                     ctaBtnColor={component?.secondaryBtnComponent?.ctaBtnColor}
-                    videoDetails={component?.secondaryBtn?.videoDetails}
+                    videoDetails={component?.secondaryBtnComponent?.videoDetails}
                   />
                 )}
                 {component?.note && <PortableText value={component?.note} />}
