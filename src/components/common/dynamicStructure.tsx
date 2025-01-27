@@ -19,9 +19,9 @@ const DynamicComponents = ({
 
   // const ImageComponent = ({ value, isInline }: any) => {
   //   if (!value?.asset?._ref) return null;
-  
+
   //   const { width, height } = value.asset.metadata?.dimensions || { width: 800, height: 600 };
-  
+
   //   return (
   //     <img
   //       src={builder.image(value).fit('max').auto('format').url()}
@@ -30,7 +30,7 @@ const DynamicComponents = ({
   //       className="h-[92px] pt-[20px] pb-[19px] mx-2"
   //       loading="eager"
   //       style={{
-         
+
   //         aspectRatio: width / height,
   //         width:value?.width,
   //         height:value?.height
@@ -39,7 +39,7 @@ const DynamicComponents = ({
   //     />
   //   );
   // };
-  
+
   const titleComponent: any = {
     block: {
       normal: ({ children }: any) => (
@@ -106,25 +106,28 @@ const DynamicComponents = ({
         switch (component._type) {
           case "topTemplateLogo":
             return (
-              <div key={`topTemplateLogo-${index}`} className="">
+              <div key={`topTemplateLogo-${index}`} className="mt-2">
                 {campaign?.templateLogos?.components[0]?.templateLogos?.length >
                 1 ? (
-                  <div className="flex gap-6 flex-wrap">
+                  <div className="flex gap-6 flex-wrap items-center justify-start">
                     {campaign?.templateLogos?.components[0]?.templateLogos?.map(
-                      (item: any, i: number) => (
-                        <Image
-                          className="w-auto h-16"
-                          src={item?.asset?.url}
-                          width={
-                            item?.asset?.metadata?.dimensions?.width || 200
-                          }
-                          height={
-                            item?.asset?.metadata?.dimensions?.height || 200
-                          }
-                          alt={"sampleText"}
-                          key={item?.asset?._id}
-                        />
-                      )
+                      (item: any, i: number) => {
+                        return (
+                          <div key={item?.asset?._id} className="w-24 flex items-center">
+                            <Image
+                              className="w-full max-h-[100px] object-contain"
+                              src={item?.asset?.url}
+                              width={
+                                item?.asset?.metadata?.dimensions?.width || 200
+                              }
+                              height={
+                                item?.asset?.metadata?.dimensions?.height || 200
+                              }
+                              alt={"sampleText"}
+                            />
+                          </div>
+                        );
+                      }
                     )}
                   </div>
                 ) : (
@@ -166,12 +169,15 @@ const DynamicComponents = ({
 
           case "headingComponent":
             return (
-              <div className="flex"  key={`headingComponent-${index+Math.random()}`}>
-              <PortableText
-                key={`headingComponent-${index}`}
-                value={component?.title}
-                components={titleComponent}
-              />
+              <div
+                className="flex"
+                key={`headingComponent-${index + Math.random()}`}
+              >
+                <PortableText
+                  key={`headingComponent-${index}`}
+                  value={component?.title}
+                  components={titleComponent}
+                />
               </div>
             );
 
@@ -216,9 +222,13 @@ const DynamicComponents = ({
                     ctaText={component?.secondaryBtnComponent?.secondaryBtnText}
                     themeMode={campaign?.themeMode}
                     isSecondaryBtn={true}
-                    ctaBtnTextColor={component?.secondaryBtnComponent?.ctaBtnTextColor}
+                    ctaBtnTextColor={
+                      component?.secondaryBtnComponent?.ctaBtnTextColor
+                    }
                     ctaBtnColor={component?.secondaryBtnComponent?.ctaBtnColor}
-                    videoDetails={component?.secondaryBtnComponent?.videoDetails}
+                    videoDetails={
+                      component?.secondaryBtnComponent?.videoDetails
+                    }
                   />
                 )}
                 {component?.note && <PortableText value={component?.note} />}
