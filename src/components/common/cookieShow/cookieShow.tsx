@@ -19,7 +19,7 @@ const customComponents: any = {
   },
   marks: {
     highlight: ({ children, value }: any) => (
-      <span style={{ color: value.value}}>{children}</span>
+      <span style={{ color: value.value }}>{children}</span>
     ),
     strong: ({ children }: any) => (
       <span className="md:text-2xl text-lg font-semibold">{children}</span>
@@ -51,7 +51,7 @@ export default function CookieShow({ cookie, campaign }: any) {
   return (
     <>
       <div
-        className={`flex text-white bottom-0 w-full ${isVisible ? 'block' : 'hidden'}`}
+        className={`flex text-white w-full absolute top-0 ${isVisible ? "block" : "hidden"}`}
         style={{
           backgroundColor: cookie?.backgroundColorGradient,
         }}
@@ -60,10 +60,12 @@ export default function CookieShow({ cookie, campaign }: any) {
           style={{
             backgroundColor: cookie?.backgroundColorGradient,
           }}
-          className={`flex text-white px-12 py-8 max-w-7xl m-auto text-sm`}
+          className={`flex text-white px-12 py-6 gap-6 max-w-7xl m-auto text-sm justify-center`}
         >
-          <PortableText value={cookie?.Content} />
-          <div className="flex gap-6 mt-6">
+          <div className="flex justify-center max-w-2xl text-[#c4e2e8]">
+            <PortableText value={cookie?.Content} />
+          </div>
+          <div className="flex gap-6 justify-center items-center">
             {cookie?.ctaBtn?.ctaBtnText && (
               <CookieCTAButton
                 ctaText={cookie?.ctaBtn?.ctaBtnText}
@@ -88,7 +90,7 @@ export default function CookieShow({ cookie, campaign }: any) {
         }}
         className={`fixed bottom-0 left-0 right-0 shadow-lg transition-transform duration-300 ease-in-out ${
           isDrawerOpen ? "translate-y-0" : "translate-y-full"
-        } z-10`}
+        } z-20`}
       >
         <button
           onClick={toggleDrawer}

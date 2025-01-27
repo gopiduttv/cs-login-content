@@ -41,9 +41,9 @@ export default async function ViewPort({ params }: { params: any }) {
     return <>Something went wrong ...</>;
   }
 
-  const requiredCampaigns = await getCampaigns(customer, viewportData);
-  const campaigns = requiredCampaigns ? await Promise.all(
-    requiredCampaigns.map(
+  const requiredCampaigns = await getCampaigns(customer, viewportData)
+  const campaigns = requiredCampaigns && requiredCampaigns.length !== 0 ? await Promise.all(
+    requiredCampaigns.filter((campaign: any) => !!campaign ).map(
       async (campaign: any) =>
         await runQuery(getCampaignByID(), { campaignID: campaign._id }, [
           campaign._id,
