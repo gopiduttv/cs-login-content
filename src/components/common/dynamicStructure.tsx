@@ -17,27 +17,28 @@ const DynamicComponents = ({
 }: any) => {
   const urlBuilder: any = (source: any) => urlBuilder(client).image(source);
 
-  const ImageComponent = ({ value, isInline }: any) => {
-    if (!value?.asset?._ref) return null;
+  // const ImageComponent = ({ value, isInline }: any) => {
+  //   if (!value?.asset?._ref) return null;
   
-    const { width, height } = value.asset.metadata?.dimensions || { width: 800, height: 600 };
+  //   const { width, height } = value.asset.metadata?.dimensions || { width: 800, height: 600 };
   
-    return (
-      <img
-        src={builder.image(value).width(isInline ? 100 : 100).fit('max').auto('format').url()}
-        alt={value.alt || 'Sanity Image'}
-        // className="w-24 h-6"
-        loading="eager"
-        style={{
+  //   return (
+  //     <img
+  //       src={builder.image(value).fit('max').auto('format').url()}
+  //       alt={value.alt || 'Sanity Image'}
+  //       // className="w-24 h-6"
+  //       className="h-[92px] pt-[20px] pb-[19px] mx-2"
+  //       loading="eager"
+  //       style={{
          
-          aspectRatio: width / height,
-          width:value?.width,
-          height:value?.height
+  //         aspectRatio: width / height,
+  //         width:value?.width,
+  //         height:value?.height
 
-        }}
-      />
-    );
-  };
+  //       }}
+  //     />
+  //   );
+  // };
   
   const titleComponent: any = {
     block: {
@@ -54,10 +55,6 @@ const DynamicComponents = ({
       highlight: ({ children }: any) => (
         <span style={{ color: colors?.highlightColor }}>{children}</span>
       ),
-    },
-    types: {
-      image: ImageComponent
-      
     },
   };
 
@@ -219,7 +216,9 @@ const DynamicComponents = ({
                     ctaText={component?.secondaryBtnComponent?.secondaryBtnText}
                     themeMode={campaign?.themeMode}
                     isSecondaryBtn={true}
-                    videoDetails={component?.secondaryBtn?.videoDetails}
+                    ctaBtnTextColor={component?.secondaryBtnComponent?.ctaBtnTextColor}
+                    ctaBtnColor={component?.secondaryBtnComponent?.ctaBtnColor}
+                    videoDetails={component?.secondaryBtnComponent?.videoDetails}
                   />
                 )}
                 {component?.note && <PortableText value={component?.note} />}
