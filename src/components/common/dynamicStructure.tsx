@@ -215,6 +215,7 @@ const DynamicComponents = ({
                     ctaBtnColor={component?.ctaBtn?.ctaBtnColor}
                     themeMode={campaign?.themeMode}
                     ctaBtnTextColor={component?.ctaBtn?.ctaBtnTextColor}
+                    ctaBtnLink={component?.ctaBtn?.ctaBtnLink}
                   />
                 )}
                 {component?.secondaryBtnComponent?.secondaryBtnText && (
