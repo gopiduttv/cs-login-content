@@ -6,7 +6,7 @@ export interface CtaBtnProps {
   themeMode?: string;
   ctaBtnColor?: string;
   ctaBtnTextColor?: string;
-  ctaBtnLink?:string;
+  ctaBtnLink?: string | URL;
 }
 
 export default function CTAButton({
@@ -18,7 +18,7 @@ export default function CTAButton({
 }: CtaBtnProps) {
   return (
     <div>
-      <Link href={ctaBtnLink}  target="_blank" passHref>
+      <Link href={ctaBtnLink!}  target="_blank" passHref>
       <button
         className={`font-semibold text-center py-3 px-8 rounded-lg whitespace-nowrap
             ${
