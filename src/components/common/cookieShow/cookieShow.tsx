@@ -63,7 +63,7 @@ export default function CookieShow({ cookie, campaign }: any) {
           className={`flex text-white px-12 py-6 gap-6 max-w-7xl m-auto text-sm justify-center`}
         >
           <div className="flex justify-center max-w-2xl text-[#c4e2e8]">
-            <PortableText value={cookie?.Content} />
+            <PortableText value={cookie?.content} />
           </div>
           <div className="flex gap-6 justify-center items-center">
             {cookie?.ctaBtn?.ctaBtnText && (
@@ -85,8 +85,8 @@ export default function CookieShow({ cookie, campaign }: any) {
       </div>
       <div
         style={{
-          background: cookie?.backgroundColorGradient,
-          height: "calc(100% - 150px)",
+          background: "#1e8fa3",
+          height: "calc(100% - 88px)",
         }}
         className={`fixed bottom-0 left-0 right-0 shadow-lg transition-transform duration-300 ease-in-out ${
           isDrawerOpen ? "translate-y-0" : "translate-y-full"
@@ -94,11 +94,11 @@ export default function CookieShow({ cookie, campaign }: any) {
       >
         <button
           onClick={toggleDrawer}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+          className="absolute top-4 right-4 text-white"
         >
-          <CloseIcon />
+          <CloseIcon style={{ color: '#fff', fontSize: '36px' }} />
         </button>
-        <div className="py-8 px-2 text-white">
+        <div className="py-8 px-2 text-white max-w-7xl m-auto">
           <PortableText
             value={cookie?.cookiesDetail}
             components={customComponents}
