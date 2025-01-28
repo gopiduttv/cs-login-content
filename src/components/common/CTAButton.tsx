@@ -1,10 +1,10 @@
 import React from "react";
 
 export interface CtaBtnProps {
-  ctaText: string;
-  themeMode: string;
-  ctaBtnColor: string;
-  ctaBtnTextColor: string;
+  ctaText?: string;
+  themeMode?: string;
+  ctaBtnColor?: string;
+  ctaBtnTextColor?: string;
 }
 
 export default function CTAButton({

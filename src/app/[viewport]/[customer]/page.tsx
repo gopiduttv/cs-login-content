@@ -10,7 +10,7 @@ import { getCampaigns } from "@/utils/getCampaigns";
 import Campaign from "../../campaigns/Campaign";
 import customerDB from "../../../../database.json";
 
-export const revalidate: number = 60 * 60 * 24
+export const revalidate: number = 86400  //  60 * 60 * 24 equals to one day
 
 
 export async function generateStaticParams() {

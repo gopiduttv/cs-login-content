@@ -10,12 +10,12 @@ export interface VideoModal {
   title:string
 }
 export interface CtaBtnProps {
-  ctaText: string;
-  themeMode: string;
-  isSecondaryBtn: boolean;
-  videoDetails:VideoModal ;
-  ctaBtnTextColor: string;
-  ctaBtnColor:string;
+  ctaText?: string;
+  themeMode?: string;
+  isSecondaryBtn?: boolean;
+  videoDetails?:VideoModal ;
+  ctaBtnTextColor?: string;
+  ctaBtnColor?:string;
 }
 
 export default function SecondaryCTABtn({

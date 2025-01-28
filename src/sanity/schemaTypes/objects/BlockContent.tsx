@@ -1,12 +1,13 @@
 import { defineArrayMember, defineType } from 'sanity';
-import React from 'react'
+import React from 'react';
 
 const HighlightIcon = () => (
   <span style={{ fontWeight: 'bold' }}>H</span>
-)
+);
+
 const HighlightDecorator = (props: any) => (
   <span style={{ backgroundColor: 'yellow' }}>{props.children}</span>
-)
+);
 
 export const blockContent = defineType({
   title: 'Block Content',
@@ -17,12 +18,7 @@ export const blockContent = defineType({
       title: 'Block',
       type: 'block',
       styles: [
-        { title: 'Normal', value: 'normal' },
-        // { title: 'H1', value: 'h1' },
-        // { title: 'H2', value: 'h2' },
-        // { title: 'H3', value: 'h3' },
-        // { title: 'H4', value: 'h4' },
-        // { title: 'Quote', value: 'blockquote' },
+        { title: 'Normal', value: 'normal' }
       ],
       lists: [{ title: 'Bullet', value: 'bullet' }],
       marks: {
@@ -32,25 +28,12 @@ export const blockContent = defineType({
           {
             title: 'Highlight',
             value: 'highlight',
-            icon: () => <span style={{fontWeight: 'bold'}}>H</span>,
+            icon: () => <span style={{ fontWeight: 'bold' }}>H</span>,
             component: (props: any) => <span style={{ backgroundColor: 'yellow' }}>{props.children}</span>,
-          }
+          },
         ],
         annotations: [
           { type: 'textColor' },
-          // {
-          //   title: 'Highlight',
-          //   name: 'highlight',
-          //   type: 'object',
-          //   fields: [
-          //     {
-          //       title: 'Text Color',
-          //       name: 'textColor',
-          //       type: 'string',
-          //       description: 'Specify a text color (e.g., #ff0000, red, rgb(255,0,0))',
-          //     }
-          //   ],
-          // },
           {
             title: 'URL',
             name: 'link',
@@ -71,6 +54,8 @@ export const blockContent = defineType({
         ],
       },
     }),
+
+    // Image Block
     defineArrayMember({
       title: 'Image',
       type: 'image',
@@ -98,6 +83,39 @@ export const blockContent = defineType({
           type: 'string',
           title: 'Caption',
           options: { isHighlighted: true }, // Highlights the field in the image editor
+        },
+      ],
+    }),
+
+    // Table Block (flattened schema)
+    defineArrayMember({
+      title: 'Table',
+      name: 'table', // Added name property
+      type: 'object',
+      fields: [
+        {
+          name: 'rows',
+          title: 'Rows',
+          type: 'array',
+          of: [
+            {
+              type: 'object', // Each row will be an object containing cells
+              name: 'row', // Name for the row object
+              fields: [
+                {
+                  name: 'cells',
+                  title: 'Cells',
+                  type: 'array',
+                  of: [
+                    {
+                      type: 'string', // Each cell is a string
+                      title: 'Cell Content',
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
         },
       ],
     }),
