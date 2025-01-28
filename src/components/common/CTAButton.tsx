@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export interface CtaBtnProps {
@@ -5,6 +6,7 @@ export interface CtaBtnProps {
   themeMode?: string;
   ctaBtnColor?: string;
   ctaBtnTextColor?: string;
+  ctaBtnLink?: string | URL;
 }
 
 export default function CTAButton({
@@ -12,11 +14,14 @@ export default function CTAButton({
   themeMode,
   ctaBtnColor,
   ctaBtnTextColor,
+  ctaBtnLink
 }: CtaBtnProps) {
   return (
     <div>
+      <Link href={ctaBtnLink!}  target="_blank" passHref>
       <button
-        className={`font-semibold text-center py-3 px-8 rounded-lg  ${
+        className={`font-semibold text-center py-3 px-8 rounded-lg whitespace-nowrap
+            ${
           themeMode === "darkMode" ? "text-black " : "text-white"
         }`}
         style={{
@@ -35,6 +40,7 @@ export default function CTAButton({
       >
         {ctaText}
       </button>
+      </Link>
     </div>
   );
 }
