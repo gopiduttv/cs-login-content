@@ -35,6 +35,33 @@ const customComponents: any = {
       </a>
     ),
   },
+  types: {
+    table: (props:any) => {
+      const rows = props.value?.rows || [];      
+      console.log('Table Data:', props);  // Log node data for debugging
+
+      return (
+        <table className="table-auto w-full border-collapse">
+          <thead>
+            <tr>
+            {rows[0]?.cells?.map((cell:any, idx:number) => (
+                <th className="border border-[#6ab1bd] px-4 py-2 text-left" key={idx}>{cell}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.slice(1).map((row:any, idx:number) => (
+              <tr key={idx}>
+                {row?.cells?.map((cell:any, i:number) => (
+                  <td className="border border-[#6ab1bd] px-4 py-2 text-left" key={i}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
+    },
+  },
 };
 
 export default function CookieShow({ cookie, campaign }: any) {
@@ -88,7 +115,7 @@ export default function CookieShow({ cookie, campaign }: any) {
           background: "#1e8fa3",
           height: "calc(100% - 88px)",
         }}
-        className={`fixed bottom-0 left-0 right-0 shadow-lg transition-transform duration-300 ease-in-out ${
+        className={`fixed overflow-auto bottom-0 left-0 right-0 shadow-lg transition-transform duration-300 ease-in-out ${
           isDrawerOpen ? "translate-y-0" : "translate-y-full"
         } z-20`}
       >
