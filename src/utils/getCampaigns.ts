@@ -1,10 +1,7 @@
 import customerDB from "../../database.json";
 import { runQuery } from "../sanity/lib/client";
 import {
-  getViewPortByRegion,
   getCampaignIdsByAdjacency,
-  getCampaignLayoutByID,
-  getViewPortByProductRegion,
 } from "../sanity/lib/queries";
 
 /*
