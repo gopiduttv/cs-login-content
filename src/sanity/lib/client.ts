@@ -6,12 +6,15 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true
+  useCdn: false,
 });
 
-export const runQuery = async (query: any, params: any = {}, tags: any = null) => {
-  if (tags) 
-    return await client.fetch(query, params, { next: { tags: [...tags]  } });
+export const runQuery = async (
+  query: any,
+  params: any = {},
+  tags: any = null
+) => {
+  if (tags)
+    return await client.fetch(query, params, { cache: "no-store" });
   return await client.fetch(query, params);
-}
-  
+};
