@@ -5,7 +5,7 @@ import {
   getCampaignIdsByAdjacency,
 } from "../../../sanity/lib/queries";
 
-export async function POST(request: NextRequest, response: NextResponse) {
+export async function POST(request: NextRequest) {
   const { adjacency, campaignIDs, customerType } = await request.json();
 
   if (adjacency && campaignIDs && customerType) {

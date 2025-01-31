@@ -4,7 +4,7 @@ import {
   getBannerByID
 } from "../../../sanity/lib/queries";
 
-export async function GET(request: NextRequest, response: NextResponse) {
+export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const bannerID = searchParams.get("banner-id");
   if (bannerID) {

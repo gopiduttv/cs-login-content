@@ -4,7 +4,7 @@ import {
   getCookiesData
 } from "../../../sanity/lib/queries";
 
-export async function GET(request: NextRequest, response: NextResponse) {
+export async function GET() {
   const cookieSettings = await runQuery(getCookiesData());
   return Response.json({
     error: false,

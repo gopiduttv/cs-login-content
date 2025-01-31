@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { runQuery } from "../../../sanity/lib/client";
 import { getViewPortByProductRegion, getViewPorts } from "../../../sanity/lib/queries";
 
-export async function GET(request: NextRequest, response: NextResponse) {
+export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
   const slug = searchParams.get("slug")
 
