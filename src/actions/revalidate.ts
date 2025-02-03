@@ -1,23 +1,36 @@
-"use server"
-
-import { revalidatePath, revalidateTag } from "next/cache"
+"use client"
 
 export default async function triggerISR(props: any) {
 
-    // if (!props.draft) return
+    if (!props.draft) return
 
-    // console.log(props.draft)
+    if (props.type == "viewport") {
+        console.log(`Revalidating ... ${props.draft.dimensionValue.current}/[customer]`)
 
-    // if (props.type == "viewport") {
-    //     console.log(`Revalidating ... ${props.draft.dimensionValue.current}/[customer]`)
-    //     revalidatePath(`/${props.draft.dimensionValue.current}/[customer]`, "page")
-    //     console.log(`Revalidated ... ${props.draft.dimensionValue.current}/[customer]`)
-    // } 
-    // if (props.type == "campaign") {
-    //     console.log(`Revalidating ... ${props.draft._id.split(".")[1]}`)
-    //     revalidateTag(props.draft._id.split(".")[1])
-    //     console.log(`Revalidated ... ${props.draft._id.split(".")[1]}`)
-    // }
-    await fetch("http://localhost:4000/api/revalidate")
+        await fetch("http://localhost:8000/api/revalidate", {
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({ tag: props.draft.dimensionValue.current})
+        })
+
+        console.log(`Revalidated ... ${props.draft.dimensionValue.current}/[customer]`)
+    } 
+    if (props.type == "campaign") {
+        console.log(`Revalidating ... ${props.draft._id.split(".")[1]}`)
+
+        await fetch("http://localhost:8000/api/revalidate", {
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({ tag: props.draft._id.split(".")[1]})
+        })
+
+        console.log(`Revalidated ... ${props.draft._id.split(".")[1]}`)
+    }
 
 }
