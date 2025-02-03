@@ -18,6 +18,6 @@ export default async function triggerISR(props: any) {
     //     revalidateTag(props.draft._id.split(".")[1])
     //     console.log(`Revalidated ... ${props.draft._id.split(".")[1]}`)
     // }
-    await fetch("http://localhost:8000/api/revalidate")
+    await fetch("http://localhost:4000/api/revalidate")
 
 }
